@@ -1,0 +1,5 @@
+method,minimum,median,maximum
+exact_private_tree,12,28.0,115
+fully_split,20,56.5,168
+origin_refined,12,30.5,122
+branchless_feasible_only,12,17,28

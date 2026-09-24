@@ -1,0 +1,1510 @@
+1    Fault-Frontier Certificates for Budgeted Guarded
+2
+3
+     Rebalancing
+4
+     ANONYMOUS AUTHOR(S)
+5
+6    Reordering guarded actions can change which terminal fault is observed and which effects become visible before
+7    it. We isolate this interaction in a finite snapshot-action model: guards and primitive outcomes are functions
+8    of entry inputs, disabled actions annul before outcome evaluation, emissions carry action identities, and faults
+9    terminate the region under an explicitly declared observer. For a source order and a target ordered subset,
+10
+     we prove that semantic preservation is equivalent to five local fault-frontier conditions. The characterization
+     connects full-permutation legality to established AND/OR precedence languages while exposing a separate
+11
+     action-selection boundary: unique acceptable fault representatives yield a unique least feasible set and
+12
+     polynomial positive-cost selection, whereas two interchangeable representatives per input make unit-cost
+13
+     branchless selection NP-complete. Completion and sparsification lemmas reduce exact search to representative
+14   tuples without changing the semantics.
+15       We instantiate the characterization in a canonical byte grammar for read-once entry-bit trees with private
+16   leaves. A bounded optimizer combines exact leaf search with tree dynamic programming, and an independent
+17   checker decodes the actual object, replays inherited guards and frontier witnesses, and enforces an external
+18   byte budget. Handwritten proofs are accompanied by 1,061,510 direct semantic comparisons, 45,885 certificate
+19   comparisons, 130 independently enumerated tree optima, 384 cross-method optimum comparisons, and 30
+20   directed controls, with no recorded disagreement in the declared campaign. An observer-refinement family
+21
+     has an exact coarse optimum of 12 bytes and precise-origin optimum of 8 · 2𝑏 + 4 bytes in the grammar. The
+     result is deliberately fragment-relative: it is not a production compiler, a mechanized general proof, a real-ISA
+22
+     size model, or a processor-performance claim.
+23
+24   CCS Concepts: • Software and its engineering → Compilers; Formal methods.
+25
+     Additional Key Words and Phrases: predication, terminal exceptions, translation validation, action selection,
+26   proof certificate, code-size accounting
+27
+28
+     ACM Reference Format:
+     Anonymous Author(s). 2026. Fault-Frontier Certificates for Budgeted Guarded Rebalancing. ACM Trans. Arch.
+29
+     Code Optim. 0, 0, Article 0 (September 2026), 23 pages.
+30
+31
+                                    Anonymous internal research draft; not submitted.
+32
+33   1   Introduction
+34
+     A branch that prevents an operation from executing can also prevent that operation from raising an
+35
+     exception. Replacing branches with predicates, moving guarded operations, and later reintroducing
+36
+     branches therefore affects more than data dependences. It determines the first terminal fault and the
+37
+     prefix of visible effects that precedes that fault. A code-size budget adds a second, representation-
+38
+     sensitive obligation: a semantically legal transformation can still be inadmissible because a branch,
+39
+     an inherited guard, or a duplicated action occupies bytes in the declared target language.
+40
+        This interaction is easy to under-specify. “Preserve exceptions” might mean preserving only an
+41
+     exception class, preserving a complete fault payload, or preserving the identity of the operation that
+42
+     raised it. Similarly, “minimize code size” is meaningless until the target grammar states whether
+43
+     predicates may be strengthened, whether primitive operations may be synthesized, whether suffixes
+44
+     may be shared, and which bytes are charged. Two transformations can be compared only after
+45
+     both the observer and the representation have been frozen.
+46
+47     A three-action example. Consider three always-enabled actions 𝑎, 𝑏, 𝑧. Actions 𝑎 and 𝑏 terminate
+48   with the same complete observable fault signature 𝜅, while 𝑧 emits a tagged event. The source
+49
+                                  ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+     0:2                                                                                                           Anon.
+
+
+50                                          𝑎                                𝑏                           𝑧
+51                                       fault(𝜅)                         fault(𝜅)                    emit(𝑧, 𝑣)
+52
+53                                                           ∨          one predecessor suffices
+54
+55
+56
+57                              Safe full orders: 𝑎𝑏𝑧, 𝑎𝑧𝑏, 𝑏𝑎𝑧, 𝑏𝑧𝑎. Unsafe: 𝑧𝑎𝑏, 𝑧𝑏𝑎.
+58
+59   Fig. 1. Cancellation creates a disjunctive frontier. The dashed group is a set of alternative fault representatives;
+60
+     the arrow does not require both faults to execute.
+61
+62   order is 𝑎𝑏𝑧. The orders 𝑎𝑧𝑏 and 𝑏𝑧𝑎 agree with the source: an acceptable fault occurs before 𝑧
+63   becomes visible. The orders 𝑧𝑎𝑏 and 𝑧𝑏𝑎 expose an event the source never produces. Requiring the
+64   original edge 𝑎 ≺ 𝑏 is unnecessarily strong, but dropping all order constraints is unsound. The
+65   exact condition is disjunctive: at least one member of {𝑎, 𝑏} must precede 𝑧.
+66      The same example also shows why the observer matters. If the terminal observation is refined
+67   from 𝜅 to (𝜅, 𝑎), then replacing 𝑎 by 𝑏 is no longer necessarily legal. The refined observer changes
+68   which actions must be selected, which orders are feasible, and whether entry inputs must be
+69   separated by a branch. Observer refinement is therefore part of the semantics, not a post-hoc
+70   accounting choice.
+71      Predicated execution and if-conversion have a long compiler and architecture lineage. Hy-
+72   perblocks, predicate analysis, speculative guarded execution, partial reverse if-conversion, and
+73   branch-prediction trade-offs establish that control-to-data conversion interacts with liveness, code
+74   growth, processor support, and scheduling [2, 14, 34–36, 53]. In particular, August, Hwu, and
+75   Mahlke combine early aggressive if-conversion with scheduling-time partial reverse if-conversion
+76   and evaluate a modeled architecture with nontrapping instruction variants [5]. That framework
+77   motivates the problem but does not provide the finite terminal-observation theorem, selected-action
+78   complexity boundary, or actual-byte certificate studied here.
+79      We deliberately study a smaller interface. Every action’s guard and primitive outcome are fixed
+80   by entry input. Outcomes are silent, uniquely tagged emissions, or terminal faults. The source
+81   supplies a full order for each input; a target leaf supplies an ordered subset of inherited actions.
+82   This snapshot abstraction removes mutable dataflow and handler semantics so that the interaction
+83   among selection, order, cancellation, and observation can be characterized exactly. It assumes that
+84   some external analysis has already justified the abstraction. General SSA extraction, memory effects,
+85   undefined behavior, and a real exception ABI remain outside the result.
+86      The central theorem gives necessary and sufficient fault-frontier conditions. A valid target retains
+87   the source’s visible emission prefix in order, keeps selected faults after that prefix, selects at least
+88   one acceptable terminal fault, and places an acceptable representative before every selected extra
+89   emission or wrong-signature fault. One representative per input is enough to certify all cancellation
+90   obligations. This turns semantic equivalence into a compact checker interface without pretending
+91   that the checker establishes the correctness of compiler-to-model extraction.
+92      The characterization also separates established scheduling machinery from the new semantic
+93   boundary. With a fixed full action set, the derived obligations are exactly finite AND/OR prece-
+94   dence conditions, and the known ready algorithm decides feasibility [37]. We do not claim a new
+95   scheduling algorithm. Instead, we prove how first-fault semantics induces those conditions and
+96   show what changes when the target may delete actions. If every faulting input has a unique ac-
+97   ceptable representative, a unique least selected set exists. If each input may choose between two
+98
+     ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      Fault-Frontier Certificates for Budgeted Guarded Rebalancing                                                        0:3
+
+
+99    representatives, minimum-cardinality selection is NP-complete by reduction from Vertex Cover
+100   [22].
+101      To make “budget” executable, we define a small canonical object format relative to a common
+102   action table. It charges a six-byte header, two bytes per branch, three bytes per leaf, and three
+103   bytes per action copy plus a retained guard mask when needed. An exact optimizer searches leaf
+104   selections and uses dynamic programming over read-once entry-bit trees. A separate checker
+105   decodes the actual byte string, validates the tree and inherited guards, replays frontier witnesses
+106   against the supplied semantic table, and compares actual length to an external budget. The format
+107   is an analysis object, not machine code; its optimum is grammar-relative.
+108      The work makes four contributions within that declared boundary:
+109   (1) an exact fault-frontier characterization and a single-witness certificate for finite snapshot
+110       actions;
+111
+      (2) a representation theorem for full-permutation legality, a smallest non-poset example, and a
+112
+          unique-versus-shared representative complexity boundary;
+113
+114
+      (3) completion, frontier sparsification, exact representative enumeration, and a grammar-relative
+115
+          tree optimizer with actual-byte replay; and
+116   (4) a deterministic falsification campaign that compares direct semantics, independent small oracles,
+117       three exact leaf-search modes, graph reductions, malformed objects, certificate corruption, and
+118       budget errors.
+119      The evidence has two layers. General results are handwritten mathematical proofs. Executable
+120   checks test the implementation on bounded families and retained exact inputs; they are not a proof
+121   assistant. The campaign records 1,061,510 semantic comparisons, 45,885 certificate comparisons,
+122   130 tree/oracle instances, 4,686 completion or sparsification checks, and 30 directed controls. No
+123   mismatch was recorded, but the counts demonstrate conformance only for the declared finite
+124   families.
+125      The remainder defines the model (Section 2), proves the frontier theorem (Section 3), derives
+126   scheduling and selection consequences (Section 4), specifies the byte grammar and checker (Sec-
+127   tion 5), analyzes observer refinement (Section 6), reports bounded validation (Section 7), and
+128   positions the result among predication, validation, scheduling, and exact-search work (Section 8).
+129
+130   2     Observation and Transformation Model
+131   The model is intentionally finite and extensional. Its purpose is not to replace a compiler IR, but to
+132   make every semantic premise used by the theorem explicit and replayable.
+133
+134   2.1    Inputs, actions, guards, and outcomes
+135   Let A be a finite set of action identities and let X be a nonempty finite set of entry inputs. The
+136   executable uses 𝑏 entry bits and therefore |X| = 2𝑏 , but the semantic results need only finiteness.
+137   For every pair (𝑥, 𝑎) ∈ X × A, the model supplies a Boolean guard 𝑔(𝑥, 𝑎) and a raw outcome
+138
+                                       𝑟 (𝑥, 𝑎) ∈ {𝜏 } ∪ {emit(𝑎, 𝑣)} ∪ {fault(𝜅)}.
+139
+140   The payload 𝑣 and complete observer-visible fault signature 𝜅 may depend on 𝑥 and 𝑎, but they
+141   are immutable functions of the entry input. Emission identities are unique: two different actions
+142   cannot generate the same tagged event. This identity tag is what makes source-prefix actions
+143   non-substitutable in the main theorem.
+144     A disabled action is annulled before its raw outcome is evaluated. Thus a false guard neither
+145   emits nor faults. An enabled silent action has no observation. An enabled emission appends its
+146   tagged event and execution continues. An enabled fault appends its terminal signature and stops
+147
+                                    ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      0:4                                                                                             Anon.
+
+
+148   the whole region. There is no handler, resumption, finally block, or secondary observation after the
+149   fault. Normal termination has no additional return payload; any live output, external side effect, or
+150   observed control event must be represented as a tagged emission.
+151      These choices match the narrow phenomenon under study. They do not claim that guard
+152   evaluation is generally pure, that all hardware faults are terminal, or that a compiler can infer the
+153   table without proof. A memory load after a store, a trapping guard expression, an operation whose
+154   floating-point status flags are observable, or an instruction in a language with caught exceptions
+155   requires a richer semantics.
+156
+157   2.2   Source and target executions
+158   For each input 𝑥, the source supplies a full permutation 𝜎𝑥 of A. Executing an ordered list means
+159   visiting its actions left to right, annulling disabled actions and stopping at the first enabled fault.
+160   The source’s suffix after that fault is latent: it appears in the permutation but is not executed.
+161      A target leaf supplies a nonrepeating ordered subset 𝜋 of A. It may delete actions but may not
+162   invent an action, strengthen a guard, alter an outcome, or repeat an identity. The target object is a
+163   read-once binary decision tree over entry bits. Each branch tests a bit not previously tested on that
+164   root-to-leaf path; each leaf owns its action sequence. Child subtrees and leaf sequences are private:
+165   the grammar has no shared suffixes or DAG nodes.
+166      For any ordered subset 𝜌, define Obs𝑥 (𝜌) as the word of tagged emissions followed by either
+167   normal return or the complete signature of its first enabled fault. A target leaf is valid on a cell
+168   𝐶 ⊆ X when
+169                                        ∀𝑥 ∈ 𝐶. Obs𝑥 (𝜋) = Obs𝑥 (𝜎𝑥 ).
+170   A target tree is valid when the reached leaf is valid for every input. This is a total finite-table
+171   equality, not a probabilistic or sampled specification.
+172
+173   2.3   Source summaries
+174
+      For an input 𝑥, let 𝑃𝑥 be the ordered identities in the source emission word. Let 𝐹𝑥 be all enabled
+175
+      fault actions and 𝑀𝑥 all enabled emission actions, including actions in the latent source suffix. If
+176
+      the source faults with signature 𝜅𝑥 , define
+177
+178
+                                            𝐺𝑥 = {𝑎 ∈ 𝐹𝑥 : 𝑟 (𝑥, 𝑎) = fault(𝜅𝑥 )}.
+179   If the source returns normally, define 𝐺𝑥 = ∅. Because 𝜎𝑥 is a full permutation, normal return
+180   occurs exactly when 𝐹𝑥 = ∅. This equivalence is used in the sufficiency proof: a normally returning
+181   target cannot encounter an enabled fault omitted by the source execution.
+182      The set 𝐺𝑥 is observer-relative. Under a coarse observer, two faulting actions may have the same
+183   signature and both belong to 𝐺𝑥 . Under an origin-refined observer, their signatures can differ. The
+184   semantics does not decide which observer is operationally appropriate; it requires the client to
+185   declare one complete signature and then uses it consistently.
+186
+187   2.4   Cells and inherited guards
+188   A tree cell is represented by a partial assignment to entry bits. Free bits range over both values;
+189   fixed bits determine one subtree. The implementation uses canonical masks for these cells. A leaf
+190   action retains its source guard. The bytecode may omit the guard mask only when the guard is
+191   true at every input in the cell. Omitting an all-true mask is a canonical encoding choice; changing
+192   a nontrivial guard is not a legal optimization.
+193      This distinction separates branch partitioning from predicate synthesis. A branch may place
+194   inputs with different source behavior in different leaves, and an inherited guard may annul an
+195   action within a leaf. The optimizer is not allowed to create a new predicate such as “execute 𝑎 only
+196
+      ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      Fault-Frontier Certificates for Budgeted Guarded Rebalancing                                                        0:5
+
+
+197                               Table 1. Declared scope and excluded generalizations.
+198
+199       Included interface                  Explicit exclusion or trust boundary
+200
+          Finite entry-input table            No symbolic path completeness claim or unseen inputs
+201
+          Entry-snapshot outcomes             No mutable reads/writes, aliases, or stateful guards
+202       Identity-tagged emissions           No substitution of observationally equal effects
+203       Terminal faults                     No handlers, resumption, cleanup, or post-fault effects
+204       Inherited actions and guards        No synthesis, guard strengthening, or duplicated identity in one leaf
+205       Read-once private-leaf tree         No shared suffix, arbitrary CFG, loop, or irreducible control flow
+206       Canonical analysis bytes            No real ISA encoding, cache, energy, or runtime interpretation
+207       Finite Python checker               No proof-assistant verification or authenticated compiler extraction
+208
+209
+      when this action would be the desired representative.” Such guard strengthening could eliminate
+210
+      duplication in the observer-refinement family, but it belongs to a different target grammar and
+211
+      invalidates the corresponding lower bound.
+212
+213   2.5    Why the restrictions are necessary
+214
+      Four short counterexamples delimit the theorem. First, if emissions are not identity tagged, one
+215
+      action can replace another equal-valued emission, so retaining every source-prefix identity is no
+216
+      longer necessary. Second, if evaluating a false guard can fault, annulling before the raw outcome is
+217
+      unsound. Third, if outcomes depend on mutable state, reordering can change a later action’s value
+218
+      even when the precomputed table says otherwise. Fourth, if a fault is caught, an emission in the
+219
+      source suffix can become visible and “first terminal fault” no longer determines the observation.
+220
+        These are not defects that can be repaired by adding another frontier edge. They change the
+221
+      semantic object. A production instantiation would need a source-language and IR-specific extraction
+222
+      theorem analogous to the semantic foundations used in verified or bounded translation validators
+223
+      [28, 29, 31, 32, 58]. The present work begins after that extraction boundary.
+224
+225   3     Exact Fault-Frontier Characterization
+226
+      Fix a cell 𝐶 and a target leaf order 𝜋. Let 𝑆 be the identities selected by 𝜋, and write 𝑎 <𝜋 𝑏 when
+227
+      𝑎 occurs before 𝑏. For a faulting input, selected actions can be divided into three semantic roles.
+228
+      Source-prefix emissions must become visible. A member of 𝐺𝑥 can terminate with the desired
+229
+      signature. A selected extra emission or a wrong-signature fault is a barrier: it is harmless only if an
+230
+      acceptable fault cancels it first.
+231
+232       Definition 3.1 (Barrier). For a faulting input 𝑥, the selected barrier set is
+                                                                      
+233                                 𝐵𝑥 (𝑆) = (𝑀𝑥 \ 𝑃𝑥 ) ∪ (𝐹𝑥 \ 𝐺𝑥 ) ∩ 𝑆,
+234
+      where subtracting 𝑃𝑥 means subtracting its identities.
+235
+236     A good fault itself is not a barrier, even when it lies in the latent source suffix, because the
+237   observer regards its signature as acceptable. It can still be ordered incorrectly: every selected fault,
+238   including a good one, must occur after the final source-prefix emission.
+239
+         Theorem 3.2 (Fault-frontier characterization). The target leaf 𝜋 is valid on 𝐶 if and only if,
+240
+      for every 𝑥 ∈ 𝐶:
+241
+242   (F1) every identity in 𝑃𝑥 belongs to 𝑆;
+243   (F2) adjacent identities of 𝑃𝑥 occur in that order in 𝜋;
+244   (F3) if the source faults, then 𝑆 ∩ 𝐺𝑥 ≠ ∅;
+245
+                                    ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      0:6                                                                                               Anon.
+
+
+246   (F4) if the source faults and 𝑃𝑥 is nonempty, its last identity precedes every member of 𝑆 ∩ 𝐹𝑥 ; and
+247   (F5) if the source faults, every 𝑣 ∈ 𝐵𝑥 (𝑆) has some 𝑔 ∈ 𝑆 ∩ 𝐺𝑥 with 𝑔 <𝜋 𝑣.
+248
+249       Proof. For necessity, fix 𝑥 and assume equal observations. Equal tagged emission words force
+250   every source-prefix identity to be selected and executed, and uniqueness of tags forces their source
+251   order, proving (F1)–(F2). If the source faults, the target must terminate with the same complete
+252   signature. Let 𝑓 be the target’s first enabled fault. Then 𝑓 is selected and lies in 𝐺𝑥 , proving (F3).
+253   Every source-prefix emission executes before 𝑓 . If any selected fault occurred before the last
+254   required emission, the earliest such fault would terminate too early; hence (F4). A selected extra
+255   emission before 𝑓 would add a tag, and a selected wrong-signature fault before 𝑓 would terminate
+256   incorrectly. Therefore 𝑓 precedes every selected barrier and witnesses (F5).
+257       For sufficiency, again fix 𝑥. If the source returns, 𝐹𝑥 = ∅ and the enabled emissions are exactly
+258   the identities in 𝑃𝑥 . Conditions (F1)–(F2) execute that word in order; every other selected action is
+259   disabled or silent, so the target returns with the same observation.
+260       Suppose the source faults. By (F3), at least one selected enabled fault exists; let 𝑓 be the earliest
+261   one in 𝜋. If 𝑓 ∉ 𝐺𝑥 , then 𝑓 is a barrier. Condition (F5) would require an earlier selected good fault,
+262   contradicting the choice of 𝑓 . Thus 𝑓 ∈ 𝐺𝑥 . Conditions (F1), (F2), and (F4) place every required
+263   source-prefix emission before 𝑓 in the correct order. If an extra selected emission occurred before
+264   𝑓 , (F5) would again imply an earlier good fault. Hence the word before 𝑓 is exactly the source word,
+265   and 𝑓 supplies the required terminal signature. Equality holds for every input in 𝐶.                   □
+266
+        Each clause is independently necessary. Deleting (F1) loses a required tag. Deleting (F2) permutes
+267
+      two visible tags. Deleting (F3) lets a target return normally or fault incorrectly. Deleting (F4) allows
+268
+      even an acceptable fault to truncate the visible prefix. Deleting (F5) allows an extra emission or
+269
+      wrong fault to cross the cancellation frontier. The directed-control phase of the artifact instantiates
+270
+      these attacks rather than only checking random valid objects.
+271
+272      Corollary 3.3 (One witness per input). For a faulting input, conditions (F3) and (F5) may be
+273   replaced by a certificate field naming one 𝑔𝑥 ∈ 𝑆 ∩ 𝐺𝑥 that precedes every selected barrier. Every valid
+274   leaf admits such a witness, and any such witness supplies all existential predecessors required by (F5).
+275
+        Proof. For a valid leaf, choose its first enabled fault. The necessity proof shows that it is good
+276
+      and precedes every barrier. Conversely, a supplied good witness preceding all barriers implies (F3)
+277
+      and every instance of (F5). The witness need not itself be the first executed fault: an earlier good
+278
+      fault can cancel it. The checker therefore verifies the order relation, not a claim about dynamic
+279
+      execution rank.                                                                                    □
+280
+281      The corollary explains the word frontier. A selected representative lies after the required vis-
+282   ible prefix but before every selected action whose visibility or signature would be wrong. The
+283   certificate does not serialize all good faults, and it does not preserve latent source order merely for
+284   conservatism.
+285
+286   3.1 From observations to constraints
+287   The theorem yields three kinds of order obligations. Adjacent prefix actions give ordinary edges.
+288   The last prefix action precedes each selected fault, also an ordinary edge. Each barrier 𝑣 receives
+289   one disjunctive condition (𝐺𝑥 ∩ 𝑆, 𝑣) requiring some acceptable representative before it. Coverage
+290   adds a selection obligation 𝑆 ∩ 𝐺𝑥 ≠ ∅.
+291     This separation matters for both correctness and complexity. If all good sets are singletons,
+292   every disjunction collapses to an edge. If a good set has alternatives, forcing every member before
+293   the barrier is sound but incomplete: it can reject legal orders such as 𝑎𝑧𝑏 in Figure 1. Conversely,
+294
+      ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      Fault-Frontier Certificates for Budgeted Guarded Rebalancing                                                        0:7
+
+
+295   replacing the disjunction with no edge accepts 𝑧𝑎𝑏. The constraint language must preserve the
+296   existential structure.
+297     The source summary can be computed by direct execution of 𝜎𝑥 , while 𝐹𝑥 and 𝑀𝑥 inspect all
+298   inherited actions under 𝑥, including the latent suffix. Ignoring that suffix is unsound because a
+299   moved action can become visible in the target. In particular, a wrong-signature latent fault is a
+300   barrier even though the source never reaches it.
+301
+302   3.2    Checking versus authenticating the model
+303   Theorem 3.2 is relative to the supplied finite table. A checker can recompute all five conditions
+304   and direct observations without trusting optimizer summaries. It cannot determine whether a
+305   compiler correctly extracted the table from LLVM, MLIR, a source language, or an exception ABI.
+306   General compiler representations contain control/data dependences [11, 15], iterative dataflow
+307   facts [23], and semantics for memory, poison, undefined behavior, or dialect-specific operations
+308   [25, 26]. Those obligations are intentionally not hidden inside the certificate.
+309      The distinction parallels translation validation: validate a particular transformation under explicit
+310   source and target semantics rather than trust the optimizer implementation [41, 43]. However, the
+311   present semantics is far smaller than production validators. Its advantage is that the exact first-fault
+312   obligation can be isolated and independently enumerated; its limitation is that a real compiler front
+313   end remains a separate proof or engineering task.
+314
+315   4     Scheduling Languages and Action Selection
+316   The frontier theorem has two different algorithmic consequences. With a fixed full action set, it
+317   induces a known tractable scheduling language. When the target may delete actions, choosing fault
+318   representatives introduces a set-selection problem whose complexity depends on the observer.
+319
+320   4.1    Full permutations are exactly AND/OR precedence languages
+321   A canonical waiting condition (𝑌 , 𝑗) has nonempty 𝑌 ⊆ A \ { 𝑗 } and requires at least one member
+322   of 𝑌 to appear before 𝑗. Conditions are conjoined, while predecessor alternatives within 𝑌 are
+323   disjoined. This is the AND/OR precedence formalism studied by Möhring, Skutella, and Stork [37].
+324
+325      Theorem 4.1 (Representation by waiting conditions). On full permutations of a fixed action
+326   set, the legality languages of finite snapshot-action models are exactly the languages defined by finite
+327   families of canonical waiting conditions.
+328
+        Proof. For the forward direction set 𝑆 = A. Coverage is automatic because the source full
+329
+      permutation contains each source-prefix action and a good first fault at every faulting input.
+330
+      Conditions (F2) and (F4) become singleton waiting conditions. For each selected barrier 𝑣, condition
+331
+      (F5) becomes (𝐺𝑥 , 𝑣). Theorem 3.2 gives equality between the resulting waiting language and
+332
+      semantic validity.
+333
+        For the reverse direction, allocate one input to every waiting condition (𝑌 , 𝑗). On that input,
+334
+      each action in 𝑌 faults with a common signature 𝜅, action 𝑗 emits its own tag, every remaining
+335
+      action is silent, and all guards are true. Choose a source order beginning with a member of 𝑌 . Its
+336
+      observation is the empty word followed by 𝜅. A target full permutation agrees exactly when some
+337
+      action of 𝑌 precedes 𝑗. Conjoining the input rows realizes the whole family. Repeating rows can
+338
+      pad the input count to a power of two. The empty family is represented by one all-silent row. □
+339
+340      The reverse construction is semantic rather than algorithmic: it shows that the action model
+341   does not secretly induce a simpler graph language. It also implies that any feasibility obstruction
+342   for canonical waiting conditions can occur in this fragment.
+343
+                                    ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      0:8                                                                                                 Anon.
+
+
+344     Proposition 4.2 (Smallest non-poset language). The three-action model of Figure 1 admits
+345   exactly 𝑎𝑏𝑧, 𝑎𝑧𝑏, 𝑏𝑎𝑧, 𝑏𝑧𝑎. No directed acyclic graph on {𝑎, 𝑏, 𝑧} has exactly those topological orders.
+346   Three is the smallest action count for a nonempty full-permutation legality language with this property.
+347
+348
+         Proof. For every ordered pair of distinct actions, one of the four legal permutations reverses
+349
+      that pair. An exact precedence graph could therefore contain no edge. Its topological orders would
+350
+      then include 𝑧𝑎𝑏 and 𝑧𝑏𝑎, which are semantically invalid. With zero or one action there is only one
+351
+      permutation. With two actions, every nonempty family realizable by a waiting condition is either a
+352
+      singleton or both permutations, represented by one edge or no edge.                               □
+353     Known ready algorithm. Begin with no emitted identities. An action is ready when every waiting
+354   condition targeting it already has an emitted alternative predecessor. Emit any ready action and
+355   mark every condition containing it as an alternative predecessor satisfied. If all actions are emitted,
+356   the produced order satisfies every condition. If a nonempty residual 𝑅 remains and no action is
+357   ready, then each 𝑗 ∈ 𝑅 has an unmet condition (𝑌 , 𝑗) with 𝑌 ⊆ 𝑅. Any alleged continuation has an
+358   earliest member of 𝑅, but its condition requires an earlier member of 𝑅, a contradiction. Reverse
+359   incidence lists give linear work in nodes, conditions, and incidences, apart from deterministic
+360   sorting. This algorithm and obstruction are established scheduling results [37]; the contribution
+361   here is the semantic correspondence in Theorem 4.1.
+362
+363   4.2   Unique representatives collapse selection to a graph
+364   Let each action have a strictly positive additive cost within a fixed cell. The leaf itself may have a
+365   separate fixed charge. Positive costs ensure that deleting an unnecessary action strictly improves a
+366   selected set.
+367
+368      Theorem 4.3 (Least mandatory set). Suppose every faulting input in a cell 𝐶 has exactly one
+369   acceptable representative, |𝐺𝑥 | = 1. Let 𝑄 be the union of all source-prefix identities and all unique
+370   representatives. If any valid leaf exists, restricting its order to 𝑄 remains valid. Consequently 𝑄 is the
+371   unique inclusion-least feasible identity set, and minimum positive additive cost reduces to acyclicity
+372   and topological ordering of ordinary precedence constraints on 𝑄.
+373
+        Proof. Every valid leaf contains 𝑄 by (F1) and (F3). For a normally returning input, deleting
+374
+      identities outside 𝑄 leaves the entire required emission word and cannot expose a fault because
+375
+      no enabled fault exists. For a faulting input, the target’s first enabled fault must be the unique
+376
+      member of 𝐺𝑥 ; that action and all source-prefix emissions remain in 𝑄. Deletion cannot add an
+377
+      event, introduce an earlier fault, or alter relative order, so the observation remains unchanged.
+378
+        After restriction, all frontier predecessor sets are singletons. Prefix edges, last-prefix-to-fault
+379
+      edges, and unique-good-to-barrier edges form an ordinary directed graph. A cycle makes every
+380
+      order of 𝑄 impossible; optional actions cannot repair it because any valid superset would restrict to
+381
+      𝑄. An acyclic graph supplies a topological order. Strictly positive costs make every proper superset
+382
+      more expensive.                                                                                     □
+383
+384      The uniqueness premise concerns complete observed signatures. Treating two fault origins as
+385   distinct by fiat is a conservative observer choice, not evidence that a real language or ABI exposes
+386   origin. Conversely, quotienting two faults merely because their exception classes match is unsound
+387   when payload, program counter, trap priority, or another component is visible.
+388
+389   4.3   Two representatives make minimum selection hard
+390      Theorem 4.4 (Selection hardness). For the unbounded mathematical family, deciding whether
+391   a valid branchless leaf with at most 𝑘 selected actions exists is NP-complete, even when all guards are
+392
+      ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      Fault-Frontier Certificates for Budgeted Guarded Rebalancing                                                        0:9
+
+
+393   true, there are no emissions, all action costs are one, there is one observed fault signature, and every
+394   input has exactly two acceptable representatives.
+395
+396
+        Proof. Membership in NP follows by supplying a nonrepeating order of at most 𝑘 actions and
+397
+      evaluating it on every explicitly listed input.
+398
+        Reduce Vertex Cover on a simple graph (𝑉 , 𝐸) with at least one edge. Create one action per vertex
+399
+      and one input per edge 𝑒 = {𝑢, 𝑣 }. At that input, actions 𝑢 and 𝑣 fault with the same signature 𝜅 and
+400
+      every other action is silent. Put either endpoint first in the source order. The source observation is
+401
+      always the empty word followed by 𝜅. A selected leaf agrees exactly when its selected set intersects
+402
+      {𝑢, 𝑣 }; order is irrelevant. Hence a valid selected set of size at most 𝑘 exists exactly when the graph
+403
+      has a vertex cover of size at most 𝑘. Construction and direct verification are polynomial. Repeating
+404
+      rows to reach a power-of-two input count preserves the equivalence.                                    □
+405
+        The reduction uses the standard NP-completeness of Vertex Cover [22]; it does not claim a new
+406
+      hardness result for graph covering. It identifies where observer-relative representative choice enters
+407
+      the compiler fragment. The executable’s fixed small bounds are not themselves an asymptotic
+408
+      family, so the artifact checks the reduction on all nonempty simple graphs with two through five
+409
+      vertices rather than claiming that finite enumeration proves NP-completeness.
+410
+411
+      4.4   Completion and frontier sparsification
+412
+413
+      The hardness result concerns minimization, not branchless feasibility. Feasibility remains connected
+414
+      to the full-set waiting problem through a completion property.
+415     Lemma 4.5 (Completion). If 𝜋 is a valid leaf, appending any ordering of any omitted identities
+416   preserves validity. Consequently, a valid selected leaf exists if and only if a valid full permutation
+417   exists.
+418
+419     Proof. On a faulting input, the original valid leaf already terminates with the required signature;
+420   an appended suffix is unreachable. On a normally returning input, the full source has no enabled
+421   fault and every enabled emission belongs to the required prefix. Validity and unique tags imply
+422   that all such emissions are already selected. Every omitted action is therefore disabled or silent on
+423   that input. Appending it changes neither the word nor termination.                                  □
+424
+425
+         Together with Theorem 4.1, Lemma 4.5 gives polynomial-time branchless feasibility in the explicit
+426
+      table even though minimum-size branchless selection is NP-complete. A closed residual from the
+427
+      full waiting system disproves every selected leaf, not merely one attempted order.
+428     Lemma 4.6 (Frontier sparsification). Let 𝑃 be the union of source-prefix identities over a cell. In
+429   any valid leaf, let 𝑓𝑥 be its first enabled fault on each faulting input. Restricting the leaf to
+430
+431                                               𝑄 = 𝑃 ∪ {𝑓𝑥 : 𝑥 faults}
+432
+      preserves validity. If two faulting inputs have the same good set, their retained first faults are equal.
+433
+      Therefore every inclusion-minimal valid leaf has at most |𝑃 | + 𝑑 identities, where 𝑑 is the number of
+434
+      distinct good sets in the cell.
+435
+436      Proof. All required emissions and each input’s actual terminal action remain. Deletion cannot
+437   introduce an event, change relative order, or remove the retained first fault. For equal good sets,
+438   the first enabled fault is the earliest selected member of that set under the common leaf order, so
+439   both inputs choose the same identity. A larger inclusion-minimal leaf would have a proper valid
+440   restriction, a contradiction.                                                                     □
+441
+                                    ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      0:10                                                                                               Anon.
+
+                                       Ð
+442     Thus actions outside 𝑅 = 𝑃 ∪ 𝑥 𝐺𝑥 can be deleted from every positive-cost optimum. This is a
+443   semantic sparsification result, not a generic branch-and-bound heuristic.
+444
+445
+        Theorem 4.7 (Exact representative enumeration). For every distinct good set 𝐺, choose one
+446
+      representative 𝑓𝐺 ∈ 𝐺 and form 𝑄 𝑓 = 𝑃 ∪ {𝑓𝐺 }. The minimum positive additive leaf cost equals
+447
+      the minimum feasible cost among these representative selections. If 𝑀 contains 𝑃 and all singleton
+448
+      representatives, complete search may enumerate either all subsets of 𝑅 \ 𝑀 added to 𝑀, or all tuples
+449
+      over distinct non-singleton good sets. The smaller candidate bound is
+450                                                            Ö
+                                             min ­2 |𝑅\𝑀 | ,           |𝐺 | ® .
+                                                  ©                         ª
+451
+452                                               «          𝐺: |𝐺 |>1      ¬
+453
+        Proof. Every feasible enumerated set is a valid candidate, so it cannot beat the true optimum
+454
+      incorrectly. Conversely, take an optimal leaf. By strict positivity and Lemma 4.6, restricting it to its
+455
+      required prefixes and actual first faults cannot be more expensive; optimality makes that restriction
+456
+      optimal as well. Equal good sets share the same first selected member, so this restricted set is one
+457
+      enumerated representative tuple. Feasibility is checked using the full waiting conditions; a tuple
+458
+      does not impose extra order. The optional-subset search is complete because every optimum lies in
+459
+      𝑅 and contains 𝑀.                                                                                     □
+460
+461     For a fixed number and size of distinct good sets, representative enumeration is bounded indepen-
+462   dently of irrelevant actions, although reading the explicit table still costs at least its size. For fixed
+463   input count 𝑞, its worst-case action dependence is polynomial 𝑛𝑞 ; this is not a polynomial guarantee
+464   when 𝑞 grows. The implementation computes both complete candidate-space sizes and rejects
+465   before search when the configured limit is exceeded. Such a refusal is not reported as infeasibility.
+466
+467   5 From Frontiers to a Budgeted Object
+468   Semantic legality alone does not define a size optimization problem. This section fixes one inten-
+469   tionally small target grammar and a canonical byte encoding. Every optimum and lower bound in
+470   the remainder is relative to that declaration.
+471
+472   5.1    Private-leaf read-once grammar
+473   For 𝑏 entry bits, let 𝑞 = 2𝑏 and 𝑤 = ⌈𝑞/8⌉. A target is a binary prefix tree. An internal node tests one
+474   entry bit not previously tested on its root-to-leaf path. A leaf contains a nonrepeating ordered subset
+475   of inherited action identities. Each leaf and each subtree is private. The grammar excludes shared
+476   suffixes, arbitrary DAGs, synthesized operations, new unconditional throws, changed payloads,
+477   and strengthened guards.
+478      The canonical PFC1 object uses unsigned big-endian fields. The format is relative to the supplied
+479   immutable action table; it does not copy primitive bodies into the object. Table 2 states every
+480   charged production.
+481      A leaf action omits its guard mask exactly when its inherited guard is true throughout that cell.
+482   Otherwise it stores the global guard mask, including bits outside the cell. Encoding the global mask
+483   makes guard identity checkable and prevents a cell-local bit string from being misinterpreted as
+484   a strengthened predicate. The decoder rejects noncanonical all-true masks, mismatching masks,
+485   unknown actions, repeated action identities, repeated branch bits, bad flags, truncation, trailing
+486   bytes, and nonzero reserved fields.
+487      The object cost is actual byte-string length. The semantic table, certificate JSON, primitive
+488   operation bodies, and transport framing are separate artifacts. Consequently, a statement such as
+489   “12 bytes” means 12 bytes in PFC1 relative to the shared action table, not 12 bytes of machine code.
+490
+      ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      Fault-Frontier Certificates for Budgeted Guarded Rebalancing                                                       0:11
+
+
+491                                   Table 2. Canonical PFC1 region-object charges.
+492
+493                              Production      Encoding                    Bytes
+494
+                                 Header          PFC1, 𝑏, reserved zero      6
+495
+                                 Branch          B, tested bit               2
+496                              Leaf            L, action count u16         3
+497                              Action copy     action id u16, flags        3
+498                              Guard mask      global 𝑞-bit mask           𝑤 when required
+499
+500
+501                           finite model              prefixes, faults,            exact leaf search
+                              source rows              good sets, barriers             and tree DP
+502
+503
+504
+505
+                           accept / reject           independent decode              canonical object
+506
+                           actual budget              and frontier replay             and certificate
+507
+508
+      Fig. 2. Optimizer/checker separation. The checker receives the original model and the actual byte object; it
+509
+      does not trust optimizer summaries or a claimed size.
+510
+511
+512   Code compaction for real instruction sets has additional relocation, alignment, branch-range, and
+513   layout concerns [12]; none is silently imported here.
+514
+515   5.2   Exact leaf optimization
+516
+      For a cell 𝐶, let 𝐿(𝐶) be the minimum encoded leaf charge among valid selected orders, excluding
+517
+      the common six-byte object header. A direct subset algorithm enumerates every admitted selected
+518
+      set 𝑆 ⊆ A, rejects missing prefix or fault coverage, constructs the singleton and disjunctive waiting
+519
+      conditions induced by Theorem 3.2, and runs the established ready algorithm. Since action cost is
+520
+      independent of order within a fixed cell, one feasible order per set is sufficient. Theorem 4.3 supplies
+521
+      a graph fast path when all good sets are singletons. Theorem 4.7 supplies an exact representative-
+522
+      tuple mode when that complete space is smaller than optional-subset enumeration.
+523
+         Cost pruning is deliberately limited. A candidate whose known encoded charge cannot improve
+524
+      the incumbent may be skipped, but the optimizer never converts a candidate-space limit into an
+525
+      “infeasible” answer. Before enumeration, it computes the complete search-space bound for the
+526
+      chosen mode. Exceeding the configured limit produces an explicit refusal. This design separates
+527
+      three outcomes: a feasible optimum within the admitted complete space, a semantic infeasibility
+528
+      witness from the full waiting system, and a resource refusal with no semantic conclusion.
+529
+         For a cell described by fixed-bit set 𝐷 and values 𝑣, define
+530                                                                                         
+531
+                       D (𝐶) = min 𝐿(𝐶), min [2 + D (𝐶 ∩ {𝑥𝑖 = 0}) + D (𝐶 ∩ {𝑥𝑖 = 1})] .
+532                                            𝑖∉𝐷
+533
+      The first choice emits a leaf. The second emits a two-byte branch and private child objects. Memo-
+534
+      ization uses canonical cells.
+535
+536     Theorem 5.1 (Grammar-relative optimum). The minimum PFC1 object size is 6 + D (X), and
+537   the reconstructed object is valid. Every object in the read-once private-leaf grammar is represented by
+538   the recurrence.
+539
+                                    ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      0:12                                                                                               Anon.
+
+
+540     Proof. Induct on the number of free bits in a cell. If no bit is free, a branch is impossible and
+541   exact leaf search gives 𝐿(𝐶). For a general cell, every grammar object is either a leaf or branches on
+542   some unused bit 𝑖. In the branch case its charge is exactly two plus the charges of two private child
+543   objects. By the induction hypothesis, each child is bounded below by the corresponding D value.
+544   Thus every object costs at least the displayed minimum. Conversely, an attaining leaf is valid by
+545   Theorem 3.2; an attaining branch partitions the input cell, and valid children make the parent valid.
+546   The finite grammar attains its minimum. Adding the common header proves the formula.                 □
+547
+548     There are 3𝑏 canonical cells because each bit is fixed zero, fixed one, or free. Summed cell
+549   membership is 4𝑏 . A straightforward bound with exhaustive subsets and quadratic constraint
+550   construction is                                      
+551                                                    𝑂 2𝑛 4𝑏 𝑛 2 + 𝑏3𝑏 ,
+552
+553   plus payload comparison, sorting, and encoding. Representative enumeration can be much smaller
+554   on sparse frontiers, but neither analysis makes the complete tree optimizer scalable in unrestricted
+555   𝑏 or action count. The method is a bounded exact oracle, not a proposed production scheduling
+556   heuristic. Exact trace and instruction scheduling systems likewise distinguish optimality from
+557   scalability and use carefully defined objectives, pruning, and timeout accounting [33, 48–50, 54].
+558
+559
+      5.3    Certificate and checker
+560   A certificate records the actual object size and the exact cells reached by the decoded tree. For each
+561   input in each cell, it records either one acceptable fault witness or a null marker for normal return.
+562   The checker receives the original model, object bytes, certificate, and an external budget 𝐵.
+563      The checker first validates model typing, complete input rows, action arity, and source permuta-
+564   tions. It then decodes the object independently, checking the canonical rules above and consuming
+565   every byte. It compares the actual byte length against 𝐵 and against the certificate’s declared size.
+566   Next, it compares decoded cells and action orders with the certificate, requires each input exactly
+567   once, recomputes 𝑃𝑥 , 𝐹𝑥 , 𝑀𝑥 , 𝐺𝑥 , and barriers from the model, and checks (F1), (F2), (F4), and
+568   Corollary 3.3. No source summary supplied by the optimizer is authoritative.
+569
+        Theorem 5.2 (Abstract checker soundness and relative completeness). If a well-formed
+570
+      model, canonical decoded object, and certificate pass the checker at external budget 𝐵, the object has at
+571
+      most 𝐵 bytes and is observationally equivalent to the source for every input. Conversely, every valid
+572
+      canonical object of at most 𝐵 bytes admits a passing certificate.
+573
+574     Proof. Read-once decoding induces a partition of X, proved by induction over the tree. Exact
+575   certificate/cell matching and input coverage therefore associate every input with one reached leaf.
+576   The per-input checks imply Theorem 3.2, so each reached leaf has the source observation. The
+577   budget statement follows from comparing 𝐵 with the actual consumed byte string, not a cost claim.
+578     Conversely, take any valid canonical object of length at most 𝐵. For every faulting input choose
+579   the leaf’s first enabled fault; by the necessity proof of Theorem 3.2, it is good and precedes every
+580   barrier. Use null for a normal input and list the exact decoded cells and actual length. Corollary 3.3
+581   makes all checks pass.                                                                              □
+582
+583      The theorem is about an abstract set of checks. The Python program implementing them is
+584   not mechanically verified. Its trusted base includes the interpreter, parser, model, and adequacy
+585   of the declared observation. The checker certifies safety and the budget of a supplied object; it
+586   does not certify global optimality. Optimizer completeness, an independent direct small oracle, and
+587   cross-mode equality address different failure modes.
+588
+      ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      Fault-Frontier Certificates for Budgeted Guarded Rebalancing                                                       0:13
+
+
+589      This separation follows the architecture of translation validation and verified validators while
+590   retaining a much smaller trusted semantics. Pnueli et al. and Necula validate individual compiler runs
+591   [41, 43]; Tristan and Leroy prove a validator for software pipelining [52]; CompCert proves compiler
+592   passes against formal semantics [28, 29]; Alive and Alive2 reason about LLVM transformations
+593   and undefined-behavior-sensitive semantics [31, 32]. The present checker is not comparable in
+594   production coverage or mechanization. Its contribution is the fragment-specific frontier certificate
+595   and exact byte replay.
+596
+597   5.4    Why the certificate is not proof-carrying code in the broad sense
+598   The certificate is proof-carrying only in a narrow operational sense: a small witness lets the checker
+599   replay existential cancellation conditions without trusting optimizer search. It does not carry a
+600   proof of the compiler front end, the Python checker, or object optimality. Nor does it establish a
+601   safety policy for arbitrary executable code. This terminology is kept proportional to the actual
+602   artifact: an independently checkable witness for one finite semantic relation and one external byte
+603   bound.
+604      The same caution applies to exact sparse search. CORELS supplies certified optimal rule lists
+605   for a classification objective [3]; decision-tree optimization is classically hard [20]; binary decision
+606   diagrams and learned decision trees use different sharing and objective choices [8, 45]. The present
+607   private-leaf grammar and exact semantic loss are distinct, but exact search alone is not a novelty
+608   claim. The semantic frontier, the representative boundary, and the grammar-relative replay are the
+609   joint result.
+610
+611   6     Observer Refinement and Representation Cost
+612
+      An observer refinement replaces each coarse fault signature by a more informative one together
+613
+      with a deterministic projection to the old signature. Actions, guards, emissions, target grammar,
+614
+      and byte charges remain fixed. This is the appropriate comparison when asking how much code is
+615
+      required to preserve additional exception information: changing the grammar at the same time
+616
+      would confound semantics with representation.
+617
+618     Proposition 6.1 (Monotonicity). Every target valid under a refined observer is valid under
+619   the coarser observer after projecting its terminal signature. Therefore the refined minimum size is no
+620   smaller than the coarse minimum in the same grammar.
+621
+622
+         The proposition is immediate from observation projection, but it rules out a common reporting
+623
+      error. An optimizer cannot claim a size improvement by weakening which fault fields are observed
+624
+      unless the client contract actually permits that quotient.
+625
+        Theorem 6.2 (Exact private-leaf gap). For every representable 𝑏 ≥ 0, let 𝑚 = 2𝑏 . There is a
+626
+      snapshot-action family whose coarse optimum is 12 bytes and whose origin-refined optimum is 8𝑚 + 4
+627
+      bytes in PFC1.
+628
+629      Proof. Use 𝑚 always-enabled actions 𝑎 0, . . . , 𝑎𝑚−1 , each of which immediately faults. On input
+630   𝑥, place 𝑎𝑥 first in the source permutation. Under the coarse observer, every action has the same
+631   complete signature 𝜅. A single leaf containing any one action is valid for every input. Every object
+632   needs the six-byte header, one three-byte leaf, and at least one three-byte action copy, so 12 bytes
+633   is both a lower bound and an attainable cost.
+634      Under the refined observer, action 𝑎 has signature (𝜅, 𝑎). A leaf containing two different inputs
+635   𝑥 ≠ 𝑦 has one fixed first selected action, but correctness requires that action to be both 𝑎𝑥 and 𝑎 𝑦 .
+636   Hence every leaf cell is a singleton. A binary tree with 𝑚 singleton leaves has 𝑚 − 1 branches. Each
+637
+                                    ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      0:14                                                                                              Anon.
+
+
+638                             68       coarse signature
+639
+                                          origin-refined
+640
+                   PFC1 bytes
+
+
+641
+642                             36
+643
+644                             20
+645                             12
+646
+                                0
+647                                  0                      1                    2                3
+648                                                             entry bits 𝑏
+649
+650   Fig. 3. Confirmed instances of Theorem 6.2. The structural statement is one versus 2𝑏 action copies; the
+651   plotted bytes use the fixed-width PFC1 encoding.
+652
+653
+654   leaf needs one action copy, so the exact cost is
+655
+656                                            6 + 2(𝑚 − 1) + 𝑚(3 + 3) = 8𝑚 + 4.
+657
+      A fully split read-once tree with action 𝑎𝑥 in leaf 𝑥 attains the bound.                              □
+658
+659
+660
+         The family is exponential in the number of entry bits but only linear in the explicitly tabulated
+661
+      input count 𝑞 = 2𝑏 . The fixed action-index and header widths also bound which parameters
+662
+      the concrete encoding represents. A claim about an unbounded bytecode family would need a
+663
+      generalized width model. The mathematical structural gap–one versus 𝑚 action copies and zero
+664
+      versus 𝑚 − 1 branches–does not depend on the particular constants.
+665
+         The lower bound is equally representation-dependent. If the grammar permits guard strengthen-
+666
+      ing, one could retain several actions with synthesized mutually exclusive predicates. If it permits a
+667
+      synthesized unconditional throw carrying the desired signature, one primitive may replace inher-
+668
+      ited faults. If it permits shared suffixes or a richer decision DAG, branch and action-copy accounting
+669
+      changes. Those may be useful compiler transformations, but they are outside this theorem rather
+670
+      than counterexamples to it.
+671
+         Real predication mechanisms expose similar trade-offs at a different level. Architectural predicates,
+672
+      hyperblocks, partial SIMD masks, and branch-path melding can trade control transfers for predicated
+673
+      work, duplication, or target-specific support [18, 30, 38, 59]. Those systems evaluate execution,
+674
+      code generation, or hardware effects. Figure 3 instead isolates how an observation contract and
+675
+      one abstract grammar determine an exact representational optimum.
+676
+      7      Bounded Validation and Falsification
+677
+678   The executable evidence is designed to attack implementation mistakes and theorem-to-code
+679   mismatches, not to simulate a production compiler benchmark. Every phase is deterministic, CPU-
+680   only, and uses the Python standard library. The retained campaign runs with one worker. General
+681   mathematical claims rest on the proofs above; the campaign supplies finite conformance evidence
+682   for the encoder, checker, exact search, reductions, and declared boundaries.
+683
+684   7.1     Questions and separation of evidence
+685   The campaign asks five questions.
+686
+      ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      Fault-Frontier Certificates for Budgeted Guarded Rebalancing                                                       0:15
+
+
+687   RQ1: semantics.
+688            Does direct execution agree with the frontier predicate and with certificate replay on
+689            exhaustive bounded profiles?
+690
+      RQ2: optimization.
+691
+               Does the dynamic program match a separately implemented direct leaf/tree oracle,
+692
+               and do optional-subset, representative-tuple, and automatic search return the same
+693
+               optimum?
+694
+      RQ3: structure.
+695
+                Do the waiting-condition construction, graph reduction, completion lemma, sparsifica-
+696
+                tion lemma, and observer-gap formula match exhaustive small instances?
+697
+698   RQ4: rejection.
+699             Does the checker reject semantic, certificate, object-format, guard, coverage, and budget
+700             faults, and does the optimizer refuse over-limit complete spaces before incomplete
+701             search?
+702   RQ5: accounting.
+703            Do branchless, fully split, exact private-tree, and origin-refined baselines make the
+704            declared byte objective visible rather than silently substituting a hardware metric?
+705
+         The implementations are separated where useful. Direct observation executes source and target
+706
+      lists without invoking frontier constraints. The frontier checker derives sets and order obligations.
+707
+      Certificate replay decodes the byte object and uses a witness interface. The direct small oracle
+708
+      enumerates leaf sequences rather than calling the frontier-based leaf optimizer. These paths share
+709
+      the model parser and Python runtime, so they are not independent formal verification; they are
+710
+      sufficiently different to expose many local mistakes.
+711
+712
+713
+      7.2   Input families and frozen protocol
+714   The one-state exhaustive phase enumerates action profiles and all partial target permutations
+715   up to the retained bounds. It compares direct equality with Theorem 3.2; where a canonical
+716   object/certificate is applicable, it also compares checker acceptance. The two-state boundary phase
+717   enumerates 625 paired profiles, four source-order pairs, and five partial target orders, for 12,500
+718   comparisons. This phase attacks cross-row interactions that duplicated one-state tests would miss.
+719      The tree phase uses exact finite models with retained seeds, up to the configured small dimensions.
+720   The production optimizer uses frontier-derived leaf costs and dynamic programming; the oracle
+721   independently enumerates direct leaf sequences for every tree shape in the same declared grammar.
+722   Agreement is checked on 130 instances. Because the grammar, not wall-clock performance, is the
+723   claim, the comparison is exact cost equality rather than a speedup statistic.
+724      The AND/OR phase enumerates 512 three-node waiting-system families and compares scheduling-
+725   language feasibility with the semantic construction from Theorem 4.1. The graph phase enumerates
+726   every nonempty simple graph with two through five vertices–1,094 graphs–and compares minimum
+727   valid selection with minimum vertex cover. These finite checks exercise the constructions; the
+728   representation theorem and NP-completeness still come from proof.
+729      The search phase retains 128 joint leaf models. For each, a direct optimum is compared with
+730   optional-subset, representative-tuple, and automatic mode, yielding 384 method comparisons. It
+731   additionally tests 4,686 valid partial sequences against completion and frontier sparsification. The
+732   padding phase appends silent or disabled irrelevant actions, including 128-, 512-, and 2,048-action
+733   strata, to check that semantic sparsification prevents the relevant search from depending on latent
+734   padding.
+735
+                                    ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      0:16                                                                                                          Anon.
+
+
+736   Table 3. Retained deterministic campaign. “Mismatch” means disagreement with the stated direct oracle,
+737   construction, or expected control outcome.
+738
+739            Phase                    Instances/checks   Main comparison                               Mismatch
+
+740            One-state exhaustive            1,061,510   direct semantics vs frontier                         0
+               Certificate replay                 45,885   decoded object/witness vs semantics                  0
+741            Two-state boundary                 12,500   paired rows and partial orders                       0
+742            Private trees                         130   optimizer vs direct tree oracle                      0
+               AND/OR families                       512   waiting system vs semantic construction              0
+743            Graph reductions                    1,094   selected actions vs vertex cover                     0
+744            Search modes                          384   three modes vs direct optimum                        0
+               Completion/sparsity                 4,686   restrictions/completions vs direct validity          0
+745            Directed controls                      30   3 accepts, 27 rejects                                0
+746            Retained replay                391 tables   exact files, no regeneration                         0
+747
+748
+749      The many-relevant phase constructs five models with 8, 16, 32, 64, and 128 relevant actions. Their
+750   optional-subset spaces range from 28 to 2128 , while the corresponding representative spaces are
+751   16, 64, 256, 1,024, and 4,096. The expected leaf cost is nine bytes excluding the object header: one
+752   three-byte leaf and two three-byte unconditional action copies. Methods whose complete candidate
+753   space exceeds the configured admission bound must refuse before enumeration; admitted methods
+754   must return the exact cost.
+755      The 391 generated scientific input tables used by the tree, baseline, search, padding, and many-
+756   relevant phases are retained as exact JSON. A separate replay phase loads those files directly rather
+757   than regenerating them from seeds. Seeds are retained for provenance, but a successful replay does
+758   not depend on pseudorandom-library behavior.
+759
+760
+      7.3    Negative controls
+761   Thirty directed cases distinguish benign equivalence from malformed or unsafe transformations.
+762   Three expected accepts check an exact budget, a larger budget, and JSON key-order independence.
+763   Seven semantic rejects delete a live emission, delete the only required fault, reverse visible emissions,
+764   place a fault before the required prefix, change a fault signature, expose a suppressed suffix event,
+765   or exchange fault origins under an origin-sensitive observer.
+766      The remaining rejects attack the validation envelope: missing or duplicate cell coverage, missing
+767   input rows, wrong witness identity, false size declarations, too-small external budgets, bad magic,
+768   width mismatch, truncation, trailing bytes, illegal opcodes or flags, duplicate action identities,
+769   wrong guard masks, noncanonical omission/presence of all-true masks, and repeated branch tests.
+770   Controls are classified by expected outcome before execution. A rejection for the wrong reason is
+771   retained in the record rather than counted as success.
+772
+773   7.4    Results
+774   Table 3 summarizes the principal counts. The one-state exhaustive family produced 1,061,510
+775   semantic comparisons and 45,885 certificate comparisons with no disagreement. The two-state
+776   phase produced 12,500 additional comparisons with no disagreement. All 130 tree instances had
+777   equal optimizer and oracle cost. Of the 512 three-node waiting families, 121 were feasible; semantic
+778   and waiting-language classifications agreed for every family. All 1,094 small graphs matched
+779   minimum vertex cover.
+780      The exact search modes agreed with the direct optimum on all 384 comparisons, including infea-
+781   sible cells represented consistently by no finite cost. All 4,686 completion and sparsification checks
+782   agreed with direct observation. The padding phase retained the same optimum after irrelevant
+783   actions were appended, including the 2,048-action cases. In the many-relevant phase, 11 method
+784
+      ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      Fault-Frontier Certificates for Budgeted Guarded Rebalancing                                                       0:17
+
+
+785   invocations were admitted and returned the expected optimum, while four invocations refused
+786   before search because their complete candidate space exceeded the bound. No refusal was labeled
+787   infeasible.
+788      The observer-gap phase matched the exact formula at 𝑏 = 0, 1, 2, 3: the coarse object remained
+789   12 bytes and the refined objects were 12, 20, 36, and 68 bytes. The 64 baseline models also record
+790   branchless, fully split, exact private-tree, and origin-refined costs. They are not averaged into a
+791   performance claim: some models have no branchless solution, some exact trees equal the branchless
+792   cost, and others save bytes relative to full splitting. The records make clear that the objective
+793   belongs to this grammar.
+794      Every directed control matched its expected outcome: three accepted and 27 rejected. The
+795   retained-input replay loaded all 391 exact tables and reproduced 130 tree records, 64 baseline
+796   records, 128 joint search records, 64 padding records, and five many-relevant records with no
+797   mismatch. Manuscript tables and the macros used in this PDF are generated from the retained
+798   JSON rather than retyped counts.
+799
+800   7.5   Resource closure
+801
+      The twelve retained phases ran serially with one worker. Their cumulative phase-body CPU time
+802
+      was 17.303812678 seconds, and the largest recorded process high-water mark was 97,324 KiB
+803
+      (reported as 95 MiB after integer rounding in the manuscript macro). The original interactive driver
+804
+      was split by its host wall boundary, so aggregate driver wall and CPU timings are deliberately
+805
+      recorded as null rather than estimated; each phase retains its own wall, CPU, and peak-RSS fields.
+806
+      No GPU, external compute, private data, device, service, or learned-model API was used.
+807
+         The campaign runner constrains children to one CPU affinity where supported, a 3.5 GiB virtual-
+808
+      address ceiling, and 30 CPU minutes. These are safety ceilings, not measured consumption. They
+809
+      are below the project’s four-core, 4 GiB, 45-minute-per-run, and eight-CPU-hour campaign limits.
+810
+      Exact search limits are checked before enumeration. The resource result therefore establishes
+811
+      closure for this bounded campaign only; it says nothing about optimizer scalability on production
+812
+      regions.
+813
+814
+815
+      7.6   Threats to validity
+816     Shared implementation assumptions. All executable paths share Python, JSON parsing, and some
+817   model utilities. Agreement can miss a common parser or specification error. The handwritten
+818   proofs and independently enumerated direct leaf oracle reduce but do not eliminate this risk. A
+819   proof-assistant formalization or an independently implemented checker would provide stronger
+820   assurance.
+821
+822      Extraction and observation adequacy. The largest external validity threat is the absent compiler-
+823   to-table extractor. The model assumes pure entry-snapshot guards/outcomes and a complete visible
+824   fault signature. A real language or ABI may expose state, origin, flags, priority, handler behavior, or
+825   undefined behavior not represented here. Passing certificates cannot compensate for an inadequate
+826   source model.
+827
+828      Finite breadth. Exhaustive checks cover bounded action and input dimensions; generated mod-
+829   els are not production workloads. The campaign is appropriate for falsifying a small semantic
+830   implementation, not for demonstrating prevalence, speedup, energy, register pressure, or prac-
+831   tical code-size improvement. TACO compiler systems commonly support practical claims with
+832   production infrastructure and broad workloads [9, 40, 44, 59]; this work makes no such claim.
+833
+                                    ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      0:18                                                                                             Anon.
+
+
+834     Objective dependence. The optimum depends on private leaves, read-once bits, fixed field widths,
+835   and inherited guards. Shared tails, arbitrary predicates, operation synthesis, or a real instruction
+836   set can change every reported byte result. Figure 3 is useful precisely because it exposes that
+837   dependence rather than presenting the constants as universal.
+838
+839     Novelty and review. The literature comparison supports a precise combination-of-results bound-
+840   ary, not universal priority. The evaluation was designed and reviewed within the same research
+841   process; it is not independent blind review and does not predict acceptance.
+842
+843   7.7     Research provenance and reproducibility disclosure
+844   Generative AI was used substantively in the research lifecycle: formulation of candidate questions,
+845   literature retrieval and synthesis, construction and checking of handwritten arguments, code and
+846   test generation, execution and analysis of deterministic experiments, manuscript preparation, and
+847   internal artifact review. No external model API or learned-model experiment was used by the
+848   artifact. The retained source, exact inputs, raw results, proof document, and derivation scripts make
+849   the technical claims inspectable, but they do not transfer authorship responsibility. Before any
+850   external use, accountable human authors must review and accept the mathematics, implementation,
+851   literature characterization, data, and claims, and must follow the then-current venue policy for
+852   detailed disclosure of AI used in conducting the research.
+853      The anonymous supplement contains the complete standard-library implementation, tests,
+854   raw results, exact inputs, documentation, and reproduction commands. The manuscript contains
+855   no invented repository link. A successful command demonstrates reproduction of the supplied
+856   computation, not independent proof of scientific correctness.
+857
+858
+      8      Related Work, Limitations, and Conclusion
+859
+      The closest bodies of work establish that predication, exact scheduling, translation validation, and
+860
+      certified sparse search are individually mature. The contribution claimed here is not any one of those
+861
+      ingredients. It is the precise conjunction, in a deliberately narrow semantics, of first-terminal-fault
+862
+      frontiers, selected representative complexity, and actual-byte certificate replay for one declared
+863
+      grammar.
+864
+865
+866
+      8.1     Predication, if-conversion, and control restructuring
+867   Trace scheduling moved global compaction across basic-block boundaries and made likely paths
+868   a compiler object [16]. Early highly concurrent and VLIW designs exposed architectural support
+869   that motivated speculative and predicated compilation [13, 19, 46]. If-conversion formalized the
+870   replacement of control dependences by data dependences [2]; hyperblocks provided an influential
+871   compiler structure for predicated execution [36]. Subsequent work analyzed partial versus full
+872   predication, branch-prediction effects, guarded speculation, predicate analysis, and predicate-aware
+873   allocation [14, 17, 21, 34, 35, 53].
+874      Park and Schlansker’s predicated-execution analysis and phi-predication study compiler repre-
+875   sentations that retain more control structure or introduce selective predication [10, 42]. August,
+876   Hwu, and Mahlke’s framework is the most direct historical anchor: it performs aggressive early
+877   if-conversion and then partial reverse if-conversion while scheduling, accounting for predicate
+878   flow, liveness, duplication, resources, performance, and static code growth [5]. Its modeled machine
+879   provides nontrapping variants for most potentially excepting instructions. Our result does not
+880   replace that framework. It removes machine scheduling and mutable dataflow to prove an exact
+881   terminal-observation condition and a fragment-relative byte theorem.
+882
+      ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      Fault-Frontier Certificates for Budgeted Guarded Rebalancing                                                       0:19
+
+
+883      More recent control transformations broaden the operational scope. Partial control-flow lin-
+884   earization preserves selected control while linearizing paths for vectorization [38]. PAVER exploits
+885   partial SIMD parallelism with compiler transformations and masked execution [59]. MERIT melds
+886   instructions from alternative paths and must make synthesized operations safe [30]. These systems
+887   can insert, combine, or retarget operations beyond our inherited-action grammar. Their practi-
+888   cal correctness questions therefore cannot be answered solely by a PFC1 certificate, while their
+889   transformation power can evade our private-leaf lower bounds.
+890      Architectural predication work also evaluates concerns that the abstract byte object cannot
+891   address. Han, Ahn, and Choi analyze power-efficient CGRA predication with gate-level and energy-
+892   delay evidence [18]. Real architectures must account for execution resources, speculation, exception
+893   deferral, code placement, and branch behavior. The present study intentionally reports none of
+894   those quantities.
+895
+896   8.2   Compiler representations and semantic validation
+897   Program dependence graphs and SSA make control/data relationships explicit and support broad
+898   optimization frameworks [11, 15]. Classical dataflow theory and compiler texts explain the fixed-
+899   point, alias, liveness, and code-generation machinery omitted from the snapshot interface [1, 23, 39].
+900   The functional interpretation of SSA clarifies why values and joins can be reasoned about composi-
+901   tionally [4], while LLVM and MLIR provide extensible industrial intermediate representations with
+902   much richer operation semantics [25, 26]. Our finite table is an input to analysis, not a substitute
+903   for those representations or an extraction algorithm from them.
+904      Translation validation shifts trust from an optimizer implementation to a validator for each
+905   produced transformation [41, 43]. Loop-transformation and run-time validation work develops
+906   proof obligations for structured optimizations [60]; CompCert mechanizes compiler correctness
+907   and validator components in a proof assistant [28, 29, 52]. Vellvm formalizes LLVM IR for verified
+908   transformations [58]. Alive and Alive2 validate peephole and bounded LLVM transformations while
+909   handling semantic features far beyond our model [31, 32]. Equivalence-modulo-inputs and Csmith
+910   attack compilers by generating or reducing tests rather than proving a specific transformation
+911   [27, 55]. The artifact borrows their discipline of independent semantic comparison, but its bounded
+912   tables do not become a production validator through testing.
+913      Algebraic approaches validate control-flow transformations at a different abstraction. Kleene
+914   algebra with tests supplies an equational foundation [24]; guarded KAT obtains efficient reasoning
+915   for uninterpreted guarded programs [51]. CF-GKAT targets efficient validation of nonlocal control-
+916   flow transformations, and later work studies decision procedures for broader GKAT variants [56, 57].
+917   These results prevent a claim that finite replay or guarded decision procedures are new in general.
+918   Our theorem instead specializes the observation to tagged prefixes plus a first terminal fault,
+919   permits action deletion, and derives a representative-selection boundary not stated by those general
+920   trace-equivalence frameworks.
+921
+922   8.3   Scheduling, code generation, and exact optimization
+923   AND/OR precedence constraints and their ready algorithm are established scheduling theory [37].
+924   Optimal instruction scheduling has been formulated with integer programming and enumera-
+925   tion [50, 54]. Preallocation scheduling and alternative cost functions show that register-pressure
+926   objectives can materially change generated code [48, 49]; ant-colony scheduling studies the qual-
+927   ity/scalability trade-off against exact methods on real compiler targets [47]. Combinatorial register
+928   allocation and scheduling integrates decisions whose separation can lose quality [33]. Our action
+929   costs have no latency, resource, register, or spill semantics. We use exact scheduling only as a
+930   bounded semantic oracle after fixing a selected set.
+931
+                                    ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+      0:20                                                                                             Anon.
+
+
+932      Optimal decision trees are NP-hard in general [20]; induction algorithms and reduced decision
+933   diagrams optimize different predictive or Boolean objectives and often permit sharing absent
+934   from private leaves [8, 45]. CORELS produces certifiably optimal rule lists for an empirical-risk
+935   objective [3]. These analogies are important negative novelty evidence: enumeration, dynamic
+936   programming, and a small certificate are not by themselves new. Theorems 3.2, 4.3, 4.4, and 4.7
+937   supply the semantics-specific reason that the chosen search space is complete.
+938      Real code-size optimization adds instruction selection, encoding, branch displacement, layout, and
+939   link-time effects [12]. Profile-guided tracing and dynamic optimization use execution frequencies
+940   and runtime behavior to choose profitable regions [6, 7]. The PFC1 objective instead charges an
+941   analysis grammar exactly and has no profile. It is appropriate for testing a theorem about observer
+942   and representation declarations, but it cannot support a machine-code compaction or performance
+943   claim.
+944
+945   8.4    TACO calibration and compiler search
+946   TACO compiler papers connect semantic or analysis ideas to compiler infrastructure and generated-
+947   code evidence: synchronous reactions extend SSA, TAFFO couples analyses with precision tuning,
+948   and a JavaScript compiler evaluates end-to-end parallelization [9, 40, 44]. Phase-ordering systems
+949   such as COBAYN, MiCOMP, and clustering-based selection use workloads and compiler integration
+950   [? ? ? ]; broader autotuning work includes focused iterative optimization, self-tuning compilers,
+951   OpenTuner, CompilerGym, and learned tensor schedules [? ? ? ? ? ]. Those papers calibrate the
+952   evidence expected for production claims. Our exact finite oracle is instead evaluated against
+953   semantic constructions, and the absent compiler extractor remains a significance limitation. The
+954   defensible delta is the first-fault frontier, its representative-selection boundary, and actual-byte
+955   replay for one fixed grammar, not a universal priority claim.
+956
+957   8.5    Limitations
+958   No pass extracts the table from LLVM, MLIR, or source code, and no theorem covers mutable
+959   memory, effectful guards, handlers, cleanup, loops, concurrency, undefined behavior, asynchronous
+960   faults, or real trap priority. Correctness is relative to identity-tagged emissions and a declared
+961   complete fault signature. The private-leaf grammar excludes strengthened predicates, synthesized
+962   operations, shared suffixes, arbitrary CFGs, and real instruction encoding; the budget excludes the
+963   model and certificate. Global optimality applies only to admitted complete search with positive
+964   additive leaf costs. The proofs are handwritten and the Python paths share a trusted base. Exhaustive
+965   bounded tests, controls, retained replay, and a direct oracle increase confidence but do not constitute
+966   mechanization, workload breadth, independent review, or evidence of hardware benefit.
+967
+968   8.6    Conclusion
+969   For finite entry-snapshot actions, equality of the tagged visible prefix and first terminal fault is
+970   exactly characterized by fault frontiers. Full-set legality is an established AND/OR precedence lan-
+971   guage; selectable actions have a sharp observer-dependent boundary between a least mandatory set
+972   and NP-complete two-representative selection. Completion and sparsification justify representative
+973   search. In a fixed private-leaf byte grammar, an exact bounded optimizer and independent checker
+974   turn these facts into replayable safety and budget claims. The campaign found no disagreement
+975   within its declared families, but remains finite evidence around handwritten proofs. More generally,
+976   any exception-preserving size claim must freeze the observer, admissible transformations, and
+977   charging rule: changing one can change validity, complexity, and optimum.
+978
+979
+980
+      ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+       Fault-Frontier Certificates for Budgeted Guarded Rebalancing                                                           0:21
+
+
+981    References
+982     [1] Alfred V. Aho, Monica S. Lam, Ravi Sethi, and Jeffrey D. Ullman. 2006. Compilers: Principles, Techniques, and Tools (2
+983         ed.). Addison-Wesley.
+984     [2] John R. Allen, Ken Kennedy, Carrie Porterfield, and Joe Warren. 1983. Conversion of Control Dependence to Data
+            Dependence. In Proceedings of the 10th ACM SIGACT-SIGPLAN Symposium on Principles of Programming Languages.
+985
+            177–189. doi:10.1145/567067.567085
+986
+        [3] Elaine Angelino, Nicholas Larus-Stone, Daniel Alabi, Margo Seltzer, and Cynthia Rudin. 2018. Learning Certifiably
+987         Optimal Rule Lists for Categorical Data. Journal of Machine Learning Research 18, 234 (2018), 1–78. https://jmlr.org/
+988         papers/v18/17-716.html
+989     [4] Andrew W. Appel. 1998. SSA Is Functional Programming. ACM SIGPLAN Notices 33, 4 (1998), 17–20. doi:10.1145/
+            278283.278285
+990
+        [5] David I. August, Wen mei W. Hwu, and Scott A. Mahlke. 1997. A Framework for Balancing Control Flow and
+991
+            Predication. In Proceedings of the 30th Annual IEEE/ACM International Symposium on Microarchitecture. 92–103.
+992         doi:10.1109/MICRO.1997.645801
+993     [6] Vasanth Bala, Evelyn Duesterwald, and Sanjeev Banerjia. 2000. Dynamo: A Transparent Dynamic Optimization
+994         System. In Proceedings of the ACM SIGPLAN 2000 Conference on Programming Language Design and Implementation.
+            1–12. doi:10.1145/349299.349303
+995
+        [7] Thomas Ball and James R. Larus. 1992. Optimally Profiling and Tracing Programs. In Proceedings of the 19th ACM
+996
+            SIGPLAN-SIGACT Symposium on Principles of Programming Languages. 59–70. doi:10.1145/143165.143180
+997     [8] Randal E. Bryant. 1986. Graph-Based Algorithms for Boolean Function Manipulation. IEEE Trans. Comput. C-35, 8
+998         (1986), 677–691. doi:10.1109/TC.1986.1676819
+999     [9] Stefano Cherubin, Daniele Cattaneo, Michele Chiari, Antonio Di Bello, and Giovanni Agosta. 2020. Dynamic Precision
+            Autotuning with TAFFO. ACM Transactions on Architecture and Code Optimization 17, 2 (2020). doi:10.1145/3388785
+1000
+       [10] Weidong Chuang, Brad Calder, and Jeanne Ferrante. 2003. Phi-Predication for Light-Weight If-Conversion. In
+1001
+            Proceedings of the International Symposium on Code Generation and Optimization. 61–72. doi:10.1109/CGO.2003.1191530
+1002   [11] Ron Cytron, Jeanne Ferrante, Barry K. Rosen, Mark N. Wegman, and F. Kenneth Zadeck. 1991. Efficiently Computing
+1003        Static Single Assignment Form and the Control Dependence Graph. ACM Transactions on Programming Languages
+1004        and Systems 13, 4 (1991), 451–490. doi:10.1145/115372.115320
+       [12] Saumya K. Debray, William Evans, Robert Muth, and Bjorn De Sutter. 2000. Compiler Techniques for Code Compaction.
+1005
+            ACM Transactions on Programming Languages and Systems 22, 2 (2000), 378–415. doi:10.1145/349214.349233
+1006
+       [13] James C. Dehnert, Peter Y. T. Hsu, and Joseph P. Bratt. 1989. Overlapped Loop Support in the Cydra 5. In Proceedings of
+1007        the Third International Conference on Architectural Support for Programming Languages and Operating Systems. 26–38.
+1008        doi:10.1145/70082.68182
+1009   [14] Alexandre E. Eichenberger, Edward S. Davidson, and Santosh G. Abraham. 1996. Speculative Execution Using Guarded
+            Predicates. In Proceedings of the 29th Annual IEEE/ACM International Symposium on Microarchitecture. 126–135.
+1010
+       [15] Jeanne Ferrante, Karl J. Ottenstein, and Joe D. Warren. 1987. The Program Dependence Graph and Its Use in
+1011
+            Optimization. ACM Transactions on Programming Languages and Systems 9, 3 (1987), 319–349. doi:10.1145/24039.24041
+1012   [16] Joseph A. Fisher. 1981. Trace Scheduling: A Technique for Global Microcode Compaction. IEEE Trans. Comput. C-30, 7
+1013        (1981), 478–490. doi:10.1109/TC.1981.1675827
+1014   [17] David M. Gillies, David R. Ju, Richard E. Johnson, and Michael S. Schlansker. 1996. Global Predicate Analysis and
+            Its Application to Register Allocation. In Proceedings of the 29th Annual IEEE/ACM International Symposium on
+1015
+            Microarchitecture. 114–125.
+1016
+       [18] Jonghee Han, Young-Jin Ahn, and Kiyoung Choi. 2013. Power-Efficient Predication Techniques for Acceleration of
+1017        Control Flow Execution on CGRA. ACM Transactions on Architecture and Code Optimization 10, 2 (2013). doi:10.1145/
+1018        2459316.2459319
+1019   [19] Peter Y. T. Hsu and Edward S. Davidson. 1986. Highly Concurrent Scalar Processing. In Proceedings of the 13th Annual
+            International Symposium on Computer Architecture. 386–395.
+1020
+       [20] Laurent Hyafil and Ronald L. Rivest. 1976. Constructing Optimal Binary Decision Trees Is NP-Complete. Inform.
+1021
+            Process. Lett. 5, 1 (1976), 15–17. doi:10.1016/0020-0190(76)90095-8
+1022   [21] Richard E. Johnson and Michael S. Schlansker. 1996. Analysis Techniques for Predicated Code. In Proceedings of the
+1023        29th Annual IEEE/ACM International Symposium on Microarchitecture. 100–113.
+1024   [22] Richard M. Karp. 1972. Reducibility among Combinatorial Problems. In Complexity of Computer Computations,
+            Raymond E. Miller, James W. Thatcher, and Jean D. Bohlinger (Eds.). Plenum Press, 85–103. doi:10.1007/978-1-4684-
+1025
+            2001-2_9
+1026
+       [23] Gary A. Kildall. 1973. A Unified Approach to Global Program Optimization. In Proceedings of the 1st Annual ACM
+1027        SIGACT-SIGPLAN Symposium on Principles of Programming Languages. 194–206. doi:10.1145/512927.512945
+1028
+1029
+                                       ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+       0:22                                                                                                                   Anon.
+
+
+1030   [24] Dexter Kozen. 1997. Kleene Algebra with Tests. ACM Transactions on Programming Languages and Systems 19, 3
+1031        (1997), 427–443. doi:10.1145/256167.256195
+1032   [25] Chris Lattner and Vikram Adve. 2004. LLVM: A Compilation Framework for Lifelong Program Analysis and
+            Transformation. In Proceedings of the International Symposium on Code Generation and Optimization. 75–86.
+1033
+            doi:10.1109/CGO.2004.1281665
+1034   [26] Chris Lattner, Mehdi Amini, Uday Bondhugula, Albert Cohen, Andy Davis, Jacques Pienaar, River Riddle, Tatiana
+1035        Shpeisman, Nicolas Vasilache, and Oleksandr Zinenko. 2021. MLIR: Scaling Compiler Infrastructure for Domain
+1036        Specific Computation. In Proceedings of the IEEE/ACM International Symposium on Code Generation and Optimization.
+1037        2–14. doi:10.1109/CGO51591.2021.9370308
+       [27] Vu Le, Mehrdad Afshari, and Zhendong Su. 2014. Compiler Validation via Equivalence Modulo Inputs. In Proceedings
+1038
+            of the 35th ACM SIGPLAN Conference on Programming Language Design and Implementation. 216–226. doi:10.1145/
+1039        2594291.2594334
+1040   [28] Xavier Leroy. 2006. Formal Certification of a Compiler Back-End or: Programming a Compiler with a Proof Assistant.
+1041        In Proceedings of the 33rd ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages. 42–54. doi:10.
+1042        1145/1111037.1111042
+       [29] Xavier Leroy. 2009. Formal Verification of a Realistic Compiler. Commun. ACM 52, 7 (2009), 107–115. doi:10.1145/
+1043
+            1538788.1538814
+1044   [30] Yuze Li, Srinivasan Ramachandra Sharma, Charitha Saumya, Ali R. Butt, and Kirshanthan Sundararajah. 2025. Eliminate
+1045        Branches by Melding IR Instructions. arXiv preprint arXiv:2512.22390 (2025). doi:10.48550/arXiv.2512.22390
+1046   [31] Nuno P. Lopes, Juneyoung Lee, Chung-Kil Hur, Zhengyang Liu, and John Regehr. 2021. Alive2: Bounded Translation
+1047        Validation for LLVM. In Proceedings of the 42nd ACM SIGPLAN International Conference on Programming Language
+            Design and Implementation. 65–79. doi:10.1145/3453483.3454030
+1048
+       [32] Nuno P. Lopes, David Menendez, Santosh Nagarakatte, and John Regehr. 2015. Provably Correct Peephole Optimizations
+1049        with Alive. In Proceedings of the 36th ACM SIGPLAN Conference on Programming Language Design and Implementation.
+1050        22–32. doi:10.1145/2737924.2737965
+1051   [33] Roberto Castañeda Lozano, Mats Carlsson, Gabriel Hjort Blindell, and Christian Schulte. 2019. Combinatorial Register
+1052        Allocation and Instruction Scheduling. ACM Transactions on Programming Languages and Systems 41, 3 (2019).
+            doi:10.1145/3332373
+1053
+       [34] Scott A. Mahlke, Richard E. Hank, Roger A. Bringmann, John C. Gyllenhaal, David M. Gallagher, and Wen mei W. Hwu.
+1054        1994. Characterizing the Impact of Predicated Execution on Branch Prediction. In Proceedings of the 27th Annual
+1055        International Symposium on Microarchitecture. 217–227.
+1056   [35] Scott A. Mahlke, Richard E. Hank, James E. McCormick, David I. August, and Wen mei W. Hwu. 1995. A Comparison
+1057        of Full and Partial Predicated Execution Support for ILP Processors. In Proceedings of the 22nd Annual International
+            Symposium on Computer Architecture. 138–149. doi:10.1145/223982.224015
+1058
+       [36] Scott A. Mahlke, David C. Lin, William Y. Chen, Richard E. Hank, and Roger A. Bringmann. 1992. Effective Compiler
+1059        Support for Predicated Execution Using the Hyperblock. In Proceedings of the 25th Annual International Symposium on
+1060        Microarchitecture. 45–54. doi:10.1109/MICRO.1992.697006
+1061   [37] Rolf H. Möhring, Martin Skutella, and Frederik Stork. 2004. Scheduling with AND/OR Precedence Constraints. SIAM
+1062        J. Comput. 33, 2 (2004), 393–415. doi:10.1137/S009753970037727X
+       [38] Simon Moll and Sebastian Hack. 2018. Partial Control-Flow Linearization. In Proceedings of the 39th ACM SIGPLAN
+1063
+            Conference on Programming Language Design and Implementation. 543–556. doi:10.1145/3192366.3192413
+1064   [39] Steven S. Muchnick. 1997. Advanced Compiler Design and Implementation. Morgan Kaufmann.
+1065   [40] Byoung-Ha Na, Jae-Jin Kim, and Kwang-Moo Han. 2016. A JavaScript Parallelizing Compiler for Exploiting Parallelism
+1066        from Data-Parallel HTML5 Applications. ACM Transactions on Architecture and Code Optimization 13, 1 (2016).
+1067        doi:10.1145/2846098
+       [41] George C. Necula. 2000. Translation Validation for an Optimizing Compiler. In Proceedings of the ACM SIGPLAN 2000
+1068
+            Conference on Programming Language Design and Implementation. 83–94. doi:10.1145/349299.349314
+1069   [42] J. C. H. Park and Michael S. Schlansker. 1991. On Predicated Execution. Technical Report HPL-91-58. Hewlett-Packard
+1070        Laboratories.
+1071   [43] Amir Pnueli, Michael Siegel, and Eli Singerman. 1998. Translation Validation. In Tools and Algorithms for the Construction
+1072        and Analysis of Systems. 151–166. doi:10.1007/BFb0054170
+       [44] Hugo Pompougnac, Ulysse Beaugnon, Albert Cohen, and Dumitru Potop-Butucaru. 2022. Weaving Synchronous
+1073
+            Reactions into the Fabric of SSA-Form Compilers. ACM Transactions on Architecture and Code Optimization 19, 2
+1074        (2022). doi:10.1145/3506706
+1075   [45] J. Ross Quinlan. 1986. Induction of Decision Trees. Machine Learning 1, 1 (1986), 81–106. doi:10.1007/BF00116251
+1076   [46] B. Ramakrishna Rau, David W. L. Yen, Wei Yen, and Ross A. Towle. 1989. The Cydra 5 Departmental Supercomputer:
+1077        Design Philosophies, Decisions, and Trade-Offs. Computer 22, 1 (1989), 12–35. doi:10.1109/2.19820
+1078
+       ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+       Fault-Frontier Certificates for Budgeted Guarded Rebalancing                                                             0:23
+
+
+1079   [47] Ghassan Shobaki, V. Scott Gordon, Paul McHugh, Theodore Dubois, and Austin Kerbow. 2022. Register-Pressure-Aware
+1080        Instruction Scheduling Using Ant Colony Optimization. ACM Transactions on Architecture and Code Optimization 19,
+1081        2 (2022). doi:10.1145/3505558
+       [48] Ghassan Shobaki, Austin Kerbow, Christopher Pulido, and William Dobson. 2019. Exploring an Alternative Cost
+1082
+            Function for Combinatorial Register-Pressure-Aware Instruction Scheduling. ACM Transactions on Architecture and
+1083        Code Optimization 16, 1 (2019). doi:10.1145/3301489
+1084   [49] Ghassan Shobaki, Maxim Shawabkeh, and Najm Eldeen Abu Rmaileh. 2013. Preallocation Instruction Scheduling with
+1085        Register Pressure Minimization Using a Combinatorial Optimization Approach. ACM Transactions on Architecture and
+1086        Code Optimization 10, 3 (2013). doi:10.1145/2512432
+       [50] Ghassan Shobaki, Kent Wilken, and Mark Heffernan. 2009. Optimal Trace Scheduling Using Enumeration. ACM
+1087
+            Transactions on Architecture and Code Optimization 5, 4 (2009). doi:10.1145/1498690.1498694
+1088   [51] Steffen Smolka, Nate Foster, Justin Hsu, Tobias Kappé, Dexter Kozen, and Alexandra Silva. 2020. Guarded Kleene
+1089        Algebra with Tests: Verification of Uninterpreted Programs in Nearly Linear Time. Proceedings of the ACM on
+1090        Programming Languages 4, POPL (2020). doi:10.1145/3371129
+1091   [52] Jean-Baptiste Tristan and Xavier Leroy. 2010. A Simple, Verified Validator for Software Pipelining. In Proceedings of the
+            37th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages. 83–92. doi:10.1145/1706299.1706311
+1092
+       [53] Gary S. Tyson. 1994. The Effects of Predicated Execution on Branch Prediction. In Proceedings of the 27th Annual
+1093        International Symposium on Microarchitecture. 196–206.
+1094   [54] Kent Wilken, Jack Liu, and Mark Heffernan. 2000. Optimal Instruction Scheduling Using Integer Programming. In
+1095        Proceedings of the ACM SIGPLAN 2000 Conference on Programming Language Design and Implementation. 121–133.
+1096        doi:10.1145/349299.349318
+       [55] Xuejun Yang, Yang Chen, Eric Eide, and John Regehr. 2011. Finding and Understanding Bugs in C Compilers. In
+1097
+            Proceedings of the 32nd ACM SIGPLAN Conference on Programming Language Design and Implementation. 283–294.
+1098        doi:10.1145/1993498.1993532
+1099   [56] Cheng Zhang, Qiancheng Fu, Hang Ji, Ines Santacruz Del Valle, Alexandra Silva, and Marco Gaboardi. 2026. Outrunning
+1100        Big KATs: Efficient Decision Procedures for Variants of GKAT. arXiv preprint arXiv:2601.09986 (2026). doi:10.48550/
+1101        arXiv.2601.09986
+       [57] Cheng Zhang, Tobias Kappé, David E. Narváez, and Nico Naus. 2025. CF-GKAT: Efficient Validation of Control-Flow
+1102
+            Transformations. Proceedings of the ACM on Programming Languages 9, POPL (2025). doi:10.1145/3704857
+1103   [58] Jianzhou Zhao, Santosh Nagarakatte, Milo M. K. Martin, and Steve Zdancewic. 2012. Formalizing the LLVM Intermediate
+1104        Representation for Verified Program Transformations. In Proceedings of the 39th ACM SIGPLAN-SIGACT Symposium
+1105        on Principles of Programming Languages. 427–440. doi:10.1145/2103656.2103709
+1106   [59] Hao Zhou and Jingling Xue. 2016. A Compiler Approach for Exploiting Partial SIMD Parallelism. ACM Transactions
+            on Architecture and Code Optimization 13, 1 (2016). doi:10.1145/2886101
+1107
+       [60] Lenore D. Zuck, Amir Pnueli, Yi Fang, and Benjamin Goldberg. 2003. Translation and Run-Time Validation of Loop
+1108        Transformations. In Formal Methods in Computer-Aided Design. 315–332.
+1109
+1110
+1111
+1112
+1113
+1114
+1115
+1116
+1117
+1118
+1119
+1120
+1121
+1122
+1123
+1124
+1125
+1126
+1127
+                                       ACM Trans. Arch. Code Optim., Vol. 0, No. 0, Article 0. Publication date: September 2026.
+

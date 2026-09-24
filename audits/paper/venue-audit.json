@@ -1,0 +1,24 @@
+{
+  "contract": {
+    "contract_twenty_body_pages_detected": false,
+    "expected_reference_start_page": null,
+    "prompt_sha256": "348b5bae201f1edee6826f2ec3662a40957935f7998d2bbf75114acfed553c07",
+    "template_acmart_hashes": [
+      {
+        "name": "acmart.cls",
+        "sha256": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a"
+      }
+    ],
+    "template_sha256": "daca67ca812885de0a17ce9216b084fa21d8f712042e5e6c8b8cc743e0ac56f7"
+  },
+  "expected_reference_start_page": null,
+  "actual_reference_start_page": null,
+  "documentclass_lines": [
+    "\\documentclass[acmsmall,screen,review,anonymous]{acmart}"
+  ],
+  "local_acmart_class": "paper/acmart.cls",
+  "local_class_sha256": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a",
+  "class_matches_supplied_template": true,
+  "forbidden_layout_overrides": [],
+  "accepted": true
+}

@@ -1,0 +1,653 @@
+{
+  "instances": 64,
+  "mismatches": 0,
+  "phase": "baselines",
+  "records": [
+    {
+      "actions": 2,
+      "bits": 1,
+      "branchless": 16,
+      "exact_private_tree": 16,
+      "fully_split": 20,
+      "id": "baseline-000",
+      "origin_refined": 16,
+      "seed": 901337
+    },
+    {
+      "actions": 3,
+      "bits": 2,
+      "branchless": 13,
+      "exact_private_tree": 13,
+      "fully_split": 33,
+      "id": "baseline-001",
+      "origin_refined": 13,
+      "seed": 901338
+    },
+    {
+      "actions": 4,
+      "bits": 3,
+      "branchless": null,
+      "exact_private_tree": 32,
+      "fully_split": 68,
+      "id": "baseline-002",
+      "origin_refined": 44,
+      "seed": 901339
+    },
+    {
+      "actions": 5,
+      "bits": 4,
+      "branchless": null,
+      "exact_private_tree": 80,
+      "fully_split": 144,
+      "id": "baseline-003",
+      "origin_refined": 92,
+      "seed": 901340
+    },
+    {
+      "actions": 6,
+      "bits": 1,
+      "branchless": 12,
+      "exact_private_tree": 12,
+      "fully_split": 20,
+      "id": "baseline-004",
+      "origin_refined": 12,
+      "seed": 901341
+    },
+    {
+      "actions": 7,
+      "bits": 2,
+      "branchless": 17,
+      "exact_private_tree": 17,
+      "fully_split": 36,
+      "id": "baseline-005",
+      "origin_refined": 21,
+      "seed": 901342
+    },
+    {
+      "actions": 8,
+      "bits": 3,
+      "branchless": null,
+      "exact_private_tree": 54,
+      "fully_split": 74,
+      "id": "baseline-006",
+      "origin_refined": 58,
+      "seed": 901343
+    },
+    {
+      "actions": 2,
+      "bits": 4,
+      "branchless": null,
+      "exact_private_tree": 38,
+      "fully_split": 126,
+      "id": "baseline-007",
+      "origin_refined": 38,
+      "seed": 901344
+    },
+    {
+      "actions": 3,
+      "bits": 1,
+      "branchless": null,
+      "exact_private_tree": 20,
+      "fully_split": 20,
+      "id": "baseline-008",
+      "origin_refined": 20,
+      "seed": 901345
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "branchless": 24,
+      "exact_private_tree": 24,
+      "fully_split": 42,
+      "id": "baseline-009",
+      "origin_refined": 24,
+      "seed": 901346
+    },
+    {
+      "actions": 5,
+      "bits": 3,
+      "branchless": null,
+      "exact_private_tree": 54,
+      "fully_split": 86,
+      "id": "baseline-010",
+      "origin_refined": 57,
+      "seed": 901347
+    },
+    {
+      "actions": 6,
+      "bits": 4,
+      "branchless": null,
+      "exact_private_tree": 105,
+      "fully_split": 168,
+      "id": "baseline-011",
+      "origin_refined": 110,
+      "seed": 901348
+    },
+    {
+      "actions": 7,
+      "bits": 1,
+      "branchless": 19,
+      "exact_private_tree": 19,
+      "fully_split": 23,
+      "id": "baseline-012",
+      "origin_refined": 19,
+      "seed": 901349
+    },
+    {
+      "actions": 8,
+      "bits": 2,
+      "branchless": 21,
+      "exact_private_tree": 21,
+      "fully_split": 36,
+      "id": "baseline-013",
+      "origin_refined": 28,
+      "seed": 901350
+    },
+    {
+      "actions": 2,
+      "bits": 3,
+      "branchless": null,
+      "exact_private_tree": 35,
+      "fully_split": 77,
+      "id": "baseline-014",
+      "origin_refined": 35,
+      "seed": 901351
+    },
+    {
+      "actions": 3,
+      "bits": 4,
+      "branchless": null,
+      "exact_private_tree": 64,
+      "fully_split": 144,
+      "id": "baseline-015",
+      "origin_refined": 68,
+      "seed": 901352
+    },
+    {
+      "actions": 4,
+      "bits": 1,
+      "branchless": 15,
+      "exact_private_tree": 15,
+      "fully_split": 23,
+      "id": "baseline-016",
+      "origin_refined": 15,
+      "seed": 901353
+    },
+    {
+      "actions": 5,
+      "bits": 2,
+      "branchless": null,
+      "exact_private_tree": 26,
+      "fully_split": 39,
+      "id": "baseline-017",
+      "origin_refined": 26,
+      "seed": 901354
+    },
+    {
+      "actions": 6,
+      "bits": 3,
+      "branchless": null,
+      "exact_private_tree": 42,
+      "fully_split": 74,
+      "id": "baseline-018",
+      "origin_refined": 42,
+      "seed": 901355
+    },
+    {
+      "actions": 7,
+      "bits": 4,
+      "branchless": null,
+      "exact_private_tree": 99,
+      "fully_split": 156,
+      "id": "baseline-019",
+      "origin_refined": 117,
+      "seed": 901356
+    },
+    {
+      "actions": 8,
+      "bits": 1,
+      "branchless": 18,
+      "exact_private_tree": 18,
+      "fully_split": 23,
+      "id": "baseline-020",
+      "origin_refined": 18,
+      "seed": 901357
+    },
+    {
+      "actions": 2,
+      "bits": 2,
+      "branchless": 17,
+      "exact_private_tree": 17,
+      "fully_split": 30,
+      "id": "baseline-021",
+      "origin_refined": 17,
+      "seed": 901358
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "branchless": null,
+      "exact_private_tree": 49,
+      "fully_split": 83,
+      "id": "baseline-022",
+      "origin_refined": 49,
+      "seed": 901359
+    },
+    {
+      "actions": 4,
+      "bits": 4,
+      "branchless": null,
+      "exact_private_tree": 69,
+      "fully_split": 144,
+      "id": "baseline-023",
+      "origin_refined": 85,
+      "seed": 901360
+    },
+    {
+      "actions": 5,
+      "bits": 1,
+      "branchless": null,
+      "exact_private_tree": 23,
+      "fully_split": 23,
+      "id": "baseline-024",
+      "origin_refined": 23,
+      "seed": 901361
+    },
+    {
+      "actions": 6,
+      "bits": 2,
+      "branchless": null,
+      "exact_private_tree": 33,
+      "fully_split": 42,
+      "id": "baseline-025",
+      "origin_refined": 33,
+      "seed": 901362
+    },
+    {
+      "actions": 7,
+      "bits": 3,
+      "branchless": null,
+      "exact_private_tree": 42,
+      "fully_split": 74,
+      "id": "baseline-026",
+      "origin_refined": 49,
+      "seed": 901363
+    },
+    {
+      "actions": 8,
+      "bits": 4,
+      "branchless": null,
+      "exact_private_tree": 97,
+      "fully_split": 162,
+      "id": "baseline-027",
+      "origin_refined": 110,
+      "seed": 901364
+    },
+    {
+      "actions": 2,
+      "bits": 1,
+      "branchless": 12,
+      "exact_private_tree": 12,
+      "fully_split": 20,
+      "id": "baseline-028",
+      "origin_refined": 12,
+      "seed": 901365
+    },
+    {
+      "actions": 3,
+      "bits": 2,
+      "branchless": null,
+      "exact_private_tree": 27,
+      "fully_split": 36,
+      "id": "baseline-029",
+      "origin_refined": 27,
+      "seed": 901366
+    },
+    {
+      "actions": 4,
+      "bits": 3,
+      "branchless": null,
+      "exact_private_tree": 28,
+      "fully_split": 65,
+      "id": "baseline-030",
+      "origin_refined": 29,
+      "seed": 901367
+    },
+    {
+      "actions": 5,
+      "bits": 4,
+      "branchless": null,
+      "exact_private_tree": 115,
+      "fully_split": 162,
+      "id": "baseline-031",
+      "origin_refined": 122,
+      "seed": 901368
+    },
+    {
+      "actions": 6,
+      "bits": 1,
+      "branchless": 15,
+      "exact_private_tree": 15,
+      "fully_split": 23,
+      "id": "baseline-032",
+      "origin_refined": 15,
+      "seed": 901369
+    },
+    {
+      "actions": 7,
+      "bits": 2,
+      "branchless": null,
+      "exact_private_tree": 23,
+      "fully_split": 36,
+      "id": "baseline-033",
+      "origin_refined": 23,
+      "seed": 901370
+    },
+    {
+      "actions": 8,
+      "bits": 3,
+      "branchless": null,
+      "exact_private_tree": 51,
+      "fully_split": 83,
+      "id": "baseline-034",
+      "origin_refined": 68,
+      "seed": 901371
+    },
+    {
+      "actions": 2,
+      "bits": 4,
+      "branchless": null,
+      "exact_private_tree": 34,
+      "fully_split": 132,
+      "id": "baseline-035",
+      "origin_refined": 34,
+      "seed": 901372
+    },
+    {
+      "actions": 3,
+      "bits": 1,
+      "branchless": 16,
+      "exact_private_tree": 16,
+      "fully_split": 23,
+      "id": "baseline-036",
+      "origin_refined": 20,
+      "seed": 901373
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "branchless": 20,
+      "exact_private_tree": 20,
+      "fully_split": 42,
+      "id": "baseline-037",
+      "origin_refined": 20,
+      "seed": 901374
+    },
+    {
+      "actions": 5,
+      "bits": 3,
+      "branchless": 25,
+      "exact_private_tree": 25,
+      "fully_split": 74,
+      "id": "baseline-038",
+      "origin_refined": 25,
+      "seed": 901375
+    },
+    {
+      "actions": 6,
+      "bits": 4,
+      "branchless": null,
+      "exact_private_tree": 79,
+      "fully_split": 150,
+      "id": "baseline-039",
+      "origin_refined": 111,
+      "seed": 901376
+    },
+    {
+      "actions": 7,
+      "bits": 1,
+      "branchless": 19,
+      "exact_private_tree": 19,
+      "fully_split": 26,
+      "id": "baseline-040",
+      "origin_refined": 23,
+      "seed": 901377
+    },
+    {
+      "actions": 8,
+      "bits": 2,
+      "branchless": 16,
+      "exact_private_tree": 16,
+      "fully_split": 42,
+      "id": "baseline-041",
+      "origin_refined": 16,
+      "seed": 901378
+    },
+    {
+      "actions": 2,
+      "bits": 3,
+      "branchless": 17,
+      "exact_private_tree": 17,
+      "fully_split": 65,
+      "id": "baseline-042",
+      "origin_refined": 17,
+      "seed": 901379
+    },
+    {
+      "actions": 3,
+      "bits": 4,
+      "branchless": null,
+      "exact_private_tree": 76,
+      "fully_split": 147,
+      "id": "baseline-043",
+      "origin_refined": 83,
+      "seed": 901380
+    },
+    {
+      "actions": 4,
+      "bits": 1,
+      "branchless": 15,
+      "exact_private_tree": 15,
+      "fully_split": 23,
+      "id": "baseline-044",
+      "origin_refined": 15,
+      "seed": 901381
+    },
+    {
+      "actions": 5,
+      "bits": 2,
+      "branchless": null,
+      "exact_private_tree": 23,
+      "fully_split": 36,
+      "id": "baseline-045",
+      "origin_refined": 32,
+      "seed": 901382
+    },
+    {
+      "actions": 6,
+      "bits": 3,
+      "branchless": null,
+      "exact_private_tree": 50,
+      "fully_split": 77,
+      "id": "baseline-046",
+      "origin_refined": 50,
+      "seed": 901383
+    },
+    {
+      "actions": 7,
+      "bits": 4,
+      "branchless": null,
+      "exact_private_tree": 82,
+      "fully_split": 141,
+      "id": "baseline-047",
+      "origin_refined": 96,
+      "seed": 901384
+    },
+    {
+      "actions": 8,
+      "bits": 1,
+      "branchless": 28,
+      "exact_private_tree": 28,
+      "fully_split": 32,
+      "id": "baseline-048",
+      "origin_refined": 28,
+      "seed": 901385
+    },
+    {
+      "actions": 2,
+      "bits": 2,
+      "branchless": null,
+      "exact_private_tree": 23,
+      "fully_split": 39,
+      "id": "baseline-049",
+      "origin_refined": 23,
+      "seed": 901386
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "branchless": null,
+      "exact_private_tree": 43,
+      "fully_split": 74,
+      "id": "baseline-050",
+      "origin_refined": 43,
+      "seed": 901387
+    },
+    {
+      "actions": 4,
+      "bits": 4,
+      "branchless": null,
+      "exact_private_tree": 61,
+      "fully_split": 141,
+      "id": "baseline-051",
+      "origin_refined": 69,
+      "seed": 901388
+    },
+    {
+      "actions": 5,
+      "bits": 1,
+      "branchless": 20,
+      "exact_private_tree": 20,
+      "fully_split": 26,
+      "id": "baseline-052",
+      "origin_refined": 20,
+      "seed": 901389
+    },
+    {
+      "actions": 6,
+      "bits": 2,
+      "branchless": null,
+      "exact_private_tree": 37,
+      "fully_split": 48,
+      "id": "baseline-053",
+      "origin_refined": 41,
+      "seed": 901390
+    },
+    {
+      "actions": 7,
+      "bits": 3,
+      "branchless": null,
+      "exact_private_tree": 42,
+      "fully_split": 77,
+      "id": "baseline-054",
+      "origin_refined": 57,
+      "seed": 901391
+    },
+    {
+      "actions": 8,
+      "bits": 4,
+      "branchless": null,
+      "exact_private_tree": 69,
+      "fully_split": 147,
+      "id": "baseline-055",
+      "origin_refined": 103,
+      "seed": 901392
+    },
+    {
+      "actions": 2,
+      "bits": 1,
+      "branchless": 12,
+      "exact_private_tree": 12,
+      "fully_split": 20,
+      "id": "baseline-056",
+      "origin_refined": 12,
+      "seed": 901393
+    },
+    {
+      "actions": 3,
+      "bits": 2,
+      "branchless": 17,
+      "exact_private_tree": 17,
+      "fully_split": 30,
+      "id": "baseline-057",
+      "origin_refined": 17,
+      "seed": 901394
+    },
+    {
+      "actions": 4,
+      "bits": 3,
+      "branchless": 24,
+      "exact_private_tree": 24,
+      "fully_split": 80,
+      "id": "baseline-058",
+      "origin_refined": 24,
+      "seed": 901395
+    },
+    {
+      "actions": 5,
+      "bits": 4,
+      "branchless": null,
+      "exact_private_tree": 86,
+      "fully_split": 159,
+      "id": "baseline-059",
+      "origin_refined": 86,
+      "seed": 901396
+    },
+    {
+      "actions": 6,
+      "bits": 1,
+      "branchless": 12,
+      "exact_private_tree": 12,
+      "fully_split": 20,
+      "id": "baseline-060",
+      "origin_refined": 15,
+      "seed": 901397
+    },
+    {
+      "actions": 7,
+      "bits": 2,
+      "branchless": null,
+      "exact_private_tree": 33,
+      "fully_split": 45,
+      "id": "baseline-061",
+      "origin_refined": 33,
+      "seed": 901398
+    },
+    {
+      "actions": 8,
+      "bits": 3,
+      "branchless": null,
+      "exact_private_tree": 43,
+      "fully_split": 77,
+      "id": "baseline-062",
+      "origin_refined": 56,
+      "seed": 901399
+    },
+    {
+      "actions": 2,
+      "bits": 4,
+      "branchless": null,
+      "exact_private_tree": 34,
+      "fully_split": 126,
+      "id": "baseline-063",
+      "origin_refined": 34,
+      "seed": 901400
+    }
+  ],
+  "resource": {
+    "cpu_seconds": 0.937570405,
+    "peak_rss_kib": 94244,
+    "wall_seconds": 0.9343748160000587,
+    "workers": 1
+  }
+}

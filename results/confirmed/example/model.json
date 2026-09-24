@@ -1,0 +1,34 @@
+{
+  "actions": [
+    0
+  ],
+  "input_bits": 1,
+  "rows": [
+    {
+      "input": 0,
+      "outcomes": [
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": "k"
+        }
+      ],
+      "source": [
+        0
+      ]
+    },
+    {
+      "input": 1,
+      "outcomes": [
+        {
+          "guard": false,
+          "kind": "fault",
+          "value": "k"
+        }
+      ],
+      "source": [
+        0
+      ]
+    }
+  ]
+}

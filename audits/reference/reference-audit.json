@@ -1,0 +1,1095 @@
+{
+  "accepted": false,
+  "citation_use_count": 116,
+  "cited_key_count": 68,
+  "duplicate_dois": {},
+  "duplicate_titles": {},
+  "entry_count": 60,
+  "metadata_review_keys": [],
+  "problem_keys": [
+    "angelino2018",
+    "august1997",
+    "allen1983",
+    "mahlke1992",
+    "mahlke1994",
+    "tyson1994",
+    "chuang2003",
+    "park1991",
+    "johnson1996",
+    "gillies1996",
+    "mahlke1994branch",
+    "eichenberger1996",
+    "hsu1986",
+    "dehnert1989",
+    "rau1989",
+    "fisher1981",
+    "han2013",
+    "moll2018",
+    "li2025",
+    "ferrante1987",
+    "cytron1991",
+    "kildall1973",
+    "lattner2004",
+    "lattner2021",
+    "muchnick1997",
+    "aho2006",
+    "appel1998",
+    "pnueli1998",
+    "necula2000",
+    "tristan2010",
+    "leroy2009",
+    "leroy2006",
+    "lopes2021",
+    "lopes2015",
+    "zhao2012",
+    "le2014",
+    "yang2011",
+    "zuck2003",
+    "zhang2025",
+    "zhang2026",
+    "kozen1997",
+    "smolka2020",
+    "mohring2004",
+    "karp1972",
+    "shobaki2009",
+    "shobaki2013",
+    "shobaki2019",
+    "shobaki2022",
+    "wilken2000",
+    "castaneda2019",
+    "pompougnac2022",
+    "zhou2016",
+    "cherubin2020",
+    "na2016",
+    "hyafil1976",
+    "quinlan1986",
+    "bryant1986",
+    "debray2000",
+    "ball1994",
+    "bala2000"
+  ],
+  "rows": [
+    {
+      "bib_first_author": "angelino",
+      "bib_title": "Learning Certifiably Optimal Rule Lists for Categorical Data",
+      "bib_year": "2018",
+      "citation_contexts": [
+        "The same caution applies to exact sparse search. CORELS supplies certified optimal rule lists for a classification objective \\cite{angelino2018}; decision-tree optimization is classically hard \\cite{hyafil1976}; binary decision diagrams and learned decision trees use different sharing and objective choices \\cite{bryant1986,quinlan1986}. The present private-leaf grammar and exact semantic loss are distinct, but exact search alone is not a novelty claim. The semantic frontier, the representative boundary, and the grammar-relative replay are the joint result.",
+        "Optimal decision trees are NP-hard in general \\cite{hyafil1976}; induction algorithms and reduced decision diagrams optimize different predictive or Boolean objectives and often permit sharing absent from private leaves \\cite{quinlan1986,bryant1986}. CORELS produces certifiably optimal rule lists for an empirical-risk objective \\cite{angelino2018}. These analogies are important negative novelty evidence: enumeration, dynamic programming, and a small certificate are not by themselves new. Theorems~\\ref{thm:frontier}, \\ref{thm:unique}, \\ref{thm:hard}, and \\ref{thm:representatives} supply the semantics-specific reason that the chosen search space is complete."
+      ],
+      "doi": "",
+      "evidence_kind": "none",
+      "key": "angelino2018",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": "https://jmlr.org/papers/v18/17-716.html"
+    },
+    {
+      "bib_first_author": "august",
+      "bib_title": "A Framework for Balancing Control Flow and Predication",
+      "bib_year": "1997",
+      "citation_contexts": [
+        "Predicated execution and if-conversion have a long compiler and architecture lineage. Hyperblocks, predicate analysis, speculative guarded execution, partial reverse if-conversion, and branch-prediction trade-offs establish that control-to-data conversion interacts with liveness, code growth, processor support, and scheduling \\cite{allen1983,mahlke1992,mahlke1994,tyson1994,mahlke1994branch,eichenberger1996}. In particular, August, Hwu, and Mahlke combine early aggressive if-conversion with scheduling-time partial reverse if-conversion and evaluate a modeled architecture with nontrapping instruction variants \\cite{august1997}. That framework motivates the problem but does not provide the finite terminal-observation theorem, selected-action complexity boundary, or actual-byte certificate studied here.",
+        "Park and Schlansker's predicated-execution analysis and phi-predication study compiler representations that retain more control structure or introduce selective predication \\cite{park1991,chuang2003}. August, Hwu, and Mahlke's framework is the most direct historical anchor: it performs aggressive early if-conversion and then partial reverse if-conversion while scheduling, accounting for predicate flow, liveness, duplication, resources, performance, and static code growth \\cite{august1997}. Its modeled machine provides nontrapping variants for most potentially excepting instructions. Our result does not replace that framework. It removes machine scheduling and mutable dataflow to prove an exact terminal-observation condition and a fragment-relative byte theorem."
+      ],
+      "doi": "10.1109/micro.1997.645801",
+      "evidence_kind": "none",
+      "key": "august1997",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "allen",
+      "bib_title": "Conversion of Control Dependence to Data Dependence",
+      "bib_year": "1983",
+      "citation_contexts": [
+        "Predicated execution and if-conversion have a long compiler and architecture lineage. Hyperblocks, predicate analysis, speculative guarded execution, partial reverse if-conversion, and branch-prediction trade-offs establish that control-to-data conversion interacts with liveness, code growth, processor support, and scheduling \\cite{allen1983,mahlke1992,mahlke1994,tyson1994,mahlke1994branch,eichenberger1996}. In particular, August, Hwu, and Mahlke combine early aggressive if-conversion with scheduling-time partial reverse if-conversion and evaluate a modeled architecture with nontrapping instruction variants \\cite{august1997}. That framework motivates the problem but does not provide the finite terminal-observation theorem, selected-action complexity boundary, or actual-byte certificate studied here.",
+        "Trace scheduling moved global compaction across basic-block boundaries and made likely paths a compiler object \\cite{fisher1981}. Early highly concurrent and VLIW designs exposed architectural support that motivated speculative and predicated compilation \\cite{hsu1986,dehnert1989,rau1989}. If-conversion formalized the replacement of control dependences by data dependences \\cite{allen1983}; hyperblocks provided an influential compiler structure for predicated execution \\cite{mahlke1992}. Subsequent work analyzed partial versus full predication, branch-prediction effects, guarded speculation, predicate analysis, and predicate-aware allocation \\cite{mahlke1994,mahlke1994branch,tyson1994,eichenberger1996,johnson1996,gillies1996}."
+      ],
+      "doi": "10.1145/567067.567085",
+      "evidence_kind": "none",
+      "key": "allen1983",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "mahlke",
+      "bib_title": "Effective Compiler Support for Predicated Execution Using the Hyperblock",
+      "bib_year": "1992",
+      "citation_contexts": [
+        "Predicated execution and if-conversion have a long compiler and architecture lineage. Hyperblocks, predicate analysis, speculative guarded execution, partial reverse if-conversion, and branch-prediction trade-offs establish that control-to-data conversion interacts with liveness, code growth, processor support, and scheduling \\cite{allen1983,mahlke1992,mahlke1994,tyson1994,mahlke1994branch,eichenberger1996}. In particular, August, Hwu, and Mahlke combine early aggressive if-conversion with scheduling-time partial reverse if-conversion and evaluate a modeled architecture with nontrapping instruction variants \\cite{august1997}. That framework motivates the problem but does not provide the finite terminal-observation theorem, selected-action complexity boundary, or actual-byte certificate studied here.",
+        "Trace scheduling moved global compaction across basic-block boundaries and made likely paths a compiler object \\cite{fisher1981}. Early highly concurrent and VLIW designs exposed architectural support that motivated speculative and predicated compilation \\cite{hsu1986,dehnert1989,rau1989}. If-conversion formalized the replacement of control dependences by data dependences \\cite{allen1983}; hyperblocks provided an influential compiler structure for predicated execution \\cite{mahlke1992}. Subsequent work analyzed partial versus full predication, branch-prediction effects, guarded speculation, predicate analysis, and predicate-aware allocation \\cite{mahlke1994,mahlke1994branch,tyson1994,eichenberger1996,johnson1996,gillies1996}."
+      ],
+      "doi": "10.1109/micro.1992.697006",
+      "evidence_kind": "none",
+      "key": "mahlke1992",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "mahlke",
+      "bib_title": "A Comparison of Full and Partial Predicated Execution Support for {ILP} Processors",
+      "bib_year": "1995",
+      "citation_contexts": [
+        "Predicated execution and if-conversion have a long compiler and architecture lineage. Hyperblocks, predicate analysis, speculative guarded execution, partial reverse if-conversion, and branch-prediction trade-offs establish that control-to-data conversion interacts with liveness, code growth, processor support, and scheduling \\cite{allen1983,mahlke1992,mahlke1994,tyson1994,mahlke1994branch,eichenberger1996}. In particular, August, Hwu, and Mahlke combine early aggressive if-conversion with scheduling-time partial reverse if-conversion and evaluate a modeled architecture with nontrapping instruction variants \\cite{august1997}. That framework motivates the problem but does not provide the finite terminal-observation theorem, selected-action complexity boundary, or actual-byte certificate studied here.",
+        "Trace scheduling moved global compaction across basic-block boundaries and made likely paths a compiler object \\cite{fisher1981}. Early highly concurrent and VLIW designs exposed architectural support that motivated speculative and predicated compilation \\cite{hsu1986,dehnert1989,rau1989}. If-conversion formalized the replacement of control dependences by data dependences \\cite{allen1983}; hyperblocks provided an influential compiler structure for predicated execution \\cite{mahlke1992}. Subsequent work analyzed partial versus full predication, branch-prediction effects, guarded speculation, predicate analysis, and predicate-aware allocation \\cite{mahlke1994,mahlke1994branch,tyson1994,eichenberger1996,johnson1996,gillies1996}."
+      ],
+      "doi": "10.1145/223982.224015",
+      "evidence_kind": "none",
+      "key": "mahlke1994",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "tyson",
+      "bib_title": "The Effects of Predicated Execution on Branch Prediction",
+      "bib_year": "1994",
+      "citation_contexts": [
+        "Predicated execution and if-conversion have a long compiler and architecture lineage. Hyperblocks, predicate analysis, speculative guarded execution, partial reverse if-conversion, and branch-prediction trade-offs establish that control-to-data conversion interacts with liveness, code growth, processor support, and scheduling \\cite{allen1983,mahlke1992,mahlke1994,tyson1994,mahlke1994branch,eichenberger1996}. In particular, August, Hwu, and Mahlke combine early aggressive if-conversion with scheduling-time partial reverse if-conversion and evaluate a modeled architecture with nontrapping instruction variants \\cite{august1997}. That framework motivates the problem but does not provide the finite terminal-observation theorem, selected-action complexity boundary, or actual-byte certificate studied here.",
+        "Trace scheduling moved global compaction across basic-block boundaries and made likely paths a compiler object \\cite{fisher1981}. Early highly concurrent and VLIW designs exposed architectural support that motivated speculative and predicated compilation \\cite{hsu1986,dehnert1989,rau1989}. If-conversion formalized the replacement of control dependences by data dependences \\cite{allen1983}; hyperblocks provided an influential compiler structure for predicated execution \\cite{mahlke1992}. Subsequent work analyzed partial versus full predication, branch-prediction effects, guarded speculation, predicate analysis, and predicate-aware allocation \\cite{mahlke1994,mahlke1994branch,tyson1994,eichenberger1996,johnson1996,gillies1996}."
+      ],
+      "doi": "",
+      "evidence_kind": "none",
+      "key": "tyson1994",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "chuang",
+      "bib_title": "Phi-Predication for Light-Weight If-Conversion",
+      "bib_year": "2003",
+      "citation_contexts": [
+        "Park and Schlansker's predicated-execution analysis and phi-predication study compiler representations that retain more control structure or introduce selective predication \\cite{park1991,chuang2003}. August, Hwu, and Mahlke's framework is the most direct historical anchor: it performs aggressive early if-conversion and then partial reverse if-conversion while scheduling, accounting for predicate flow, liveness, duplication, resources, performance, and static code growth \\cite{august1997}. Its modeled machine provides nontrapping variants for most potentially excepting instructions. Our result does not replace that framework. It removes machine scheduling and mutable dataflow to prove an exact terminal-observation condition and a fragment-relative byte theorem."
+      ],
+      "doi": "10.1109/cgo.2003.1191530",
+      "evidence_kind": "none",
+      "key": "chuang2003",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "park",
+      "bib_title": "On Predicated Execution",
+      "bib_year": "1991",
+      "citation_contexts": [
+        "Park and Schlansker's predicated-execution analysis and phi-predication study compiler representations that retain more control structure or introduce selective predication \\cite{park1991,chuang2003}. August, Hwu, and Mahlke's framework is the most direct historical anchor: it performs aggressive early if-conversion and then partial reverse if-conversion while scheduling, accounting for predicate flow, liveness, duplication, resources, performance, and static code growth \\cite{august1997}. Its modeled machine provides nontrapping variants for most potentially excepting instructions. Our result does not replace that framework. It removes machine scheduling and mutable dataflow to prove an exact terminal-observation condition and a fragment-relative byte theorem."
+      ],
+      "doi": "",
+      "evidence_kind": "none",
+      "key": "park1991",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "johnson",
+      "bib_title": "Analysis Techniques for Predicated Code",
+      "bib_year": "1996",
+      "citation_contexts": [
+        "Trace scheduling moved global compaction across basic-block boundaries and made likely paths a compiler object \\cite{fisher1981}. Early highly concurrent and VLIW designs exposed architectural support that motivated speculative and predicated compilation \\cite{hsu1986,dehnert1989,rau1989}. If-conversion formalized the replacement of control dependences by data dependences \\cite{allen1983}; hyperblocks provided an influential compiler structure for predicated execution \\cite{mahlke1992}. Subsequent work analyzed partial versus full predication, branch-prediction effects, guarded speculation, predicate analysis, and predicate-aware allocation \\cite{mahlke1994,mahlke1994branch,tyson1994,eichenberger1996,johnson1996,gillies1996}."
+      ],
+      "doi": "",
+      "evidence_kind": "none",
+      "key": "johnson1996",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "gillies",
+      "bib_title": "Global Predicate Analysis and Its Application to Register Allocation",
+      "bib_year": "1996",
+      "citation_contexts": [
+        "Trace scheduling moved global compaction across basic-block boundaries and made likely paths a compiler object \\cite{fisher1981}. Early highly concurrent and VLIW designs exposed architectural support that motivated speculative and predicated compilation \\cite{hsu1986,dehnert1989,rau1989}. If-conversion formalized the replacement of control dependences by data dependences \\cite{allen1983}; hyperblocks provided an influential compiler structure for predicated execution \\cite{mahlke1992}. Subsequent work analyzed partial versus full predication, branch-prediction effects, guarded speculation, predicate analysis, and predicate-aware allocation \\cite{mahlke1994,mahlke1994branch,tyson1994,eichenberger1996,johnson1996,gillies1996}."
+      ],
+      "doi": "",
+      "evidence_kind": "none",
+      "key": "gillies1996",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "mahlke",
+      "bib_title": "Characterizing the Impact of Predicated Execution on Branch Prediction",
+      "bib_year": "1994",
+      "citation_contexts": [
+        "Predicated execution and if-conversion have a long compiler and architecture lineage. Hyperblocks, predicate analysis, speculative guarded execution, partial reverse if-conversion, and branch-prediction trade-offs establish that control-to-data conversion interacts with liveness, code growth, processor support, and scheduling \\cite{allen1983,mahlke1992,mahlke1994,tyson1994,mahlke1994branch,eichenberger1996}. In particular, August, Hwu, and Mahlke combine early aggressive if-conversion with scheduling-time partial reverse if-conversion and evaluate a modeled architecture with nontrapping instruction variants \\cite{august1997}. That framework motivates the problem but does not provide the finite terminal-observation theorem, selected-action complexity boundary, or actual-byte certificate studied here.",
+        "Trace scheduling moved global compaction across basic-block boundaries and made likely paths a compiler object \\cite{fisher1981}. Early highly concurrent and VLIW designs exposed architectural support that motivated speculative and predicated compilation \\cite{hsu1986,dehnert1989,rau1989}. If-conversion formalized the replacement of control dependences by data dependences \\cite{allen1983}; hyperblocks provided an influential compiler structure for predicated execution \\cite{mahlke1992}. Subsequent work analyzed partial versus full predication, branch-prediction effects, guarded speculation, predicate analysis, and predicate-aware allocation \\cite{mahlke1994,mahlke1994branch,tyson1994,eichenberger1996,johnson1996,gillies1996}."
+      ],
+      "doi": "",
+      "evidence_kind": "none",
+      "key": "mahlke1994branch",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "eichenberger",
+      "bib_title": "Speculative Execution Using Guarded Predicates",
+      "bib_year": "1996",
+      "citation_contexts": [
+        "Predicated execution and if-conversion have a long compiler and architecture lineage. Hyperblocks, predicate analysis, speculative guarded execution, partial reverse if-conversion, and branch-prediction trade-offs establish that control-to-data conversion interacts with liveness, code growth, processor support, and scheduling \\cite{allen1983,mahlke1992,mahlke1994,tyson1994,mahlke1994branch,eichenberger1996}. In particular, August, Hwu, and Mahlke combine early aggressive if-conversion with scheduling-time partial reverse if-conversion and evaluate a modeled architecture with nontrapping instruction variants \\cite{august1997}. That framework motivates the problem but does not provide the finite terminal-observation theorem, selected-action complexity boundary, or actual-byte certificate studied here.",
+        "Trace scheduling moved global compaction across basic-block boundaries and made likely paths a compiler object \\cite{fisher1981}. Early highly concurrent and VLIW designs exposed architectural support that motivated speculative and predicated compilation \\cite{hsu1986,dehnert1989,rau1989}. If-conversion formalized the replacement of control dependences by data dependences \\cite{allen1983}; hyperblocks provided an influential compiler structure for predicated execution \\cite{mahlke1992}. Subsequent work analyzed partial versus full predication, branch-prediction effects, guarded speculation, predicate analysis, and predicate-aware allocation \\cite{mahlke1994,mahlke1994branch,tyson1994,eichenberger1996,johnson1996,gillies1996}."
+      ],
+      "doi": "",
+      "evidence_kind": "none",
+      "key": "eichenberger1996",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "hsu",
+      "bib_title": "Highly Concurrent Scalar Processing",
+      "bib_year": "1986",
+      "citation_contexts": [
+        "Trace scheduling moved global compaction across basic-block boundaries and made likely paths a compiler object \\cite{fisher1981}. Early highly concurrent and VLIW designs exposed architectural support that motivated speculative and predicated compilation \\cite{hsu1986,dehnert1989,rau1989}. If-conversion formalized the replacement of control dependences by data dependences \\cite{allen1983}; hyperblocks provided an influential compiler structure for predicated execution \\cite{mahlke1992}. Subsequent work analyzed partial versus full predication, branch-prediction effects, guarded speculation, predicate analysis, and predicate-aware allocation \\cite{mahlke1994,mahlke1994branch,tyson1994,eichenberger1996,johnson1996,gillies1996}."
+      ],
+      "doi": "",
+      "evidence_kind": "none",
+      "key": "hsu1986",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "dehnert",
+      "bib_title": "Overlapped Loop Support in the {Cydra 5}",
+      "bib_year": "1989",
+      "citation_contexts": [
+        "Trace scheduling moved global compaction across basic-block boundaries and made likely paths a compiler object \\cite{fisher1981}. Early highly concurrent and VLIW designs exposed architectural support that motivated speculative and predicated compilation \\cite{hsu1986,dehnert1989,rau1989}. If-conversion formalized the replacement of control dependences by data dependences \\cite{allen1983}; hyperblocks provided an influential compiler structure for predicated execution \\cite{mahlke1992}. Subsequent work analyzed partial versus full predication, branch-prediction effects, guarded speculation, predicate analysis, and predicate-aware allocation \\cite{mahlke1994,mahlke1994branch,tyson1994,eichenberger1996,johnson1996,gillies1996}."
+      ],
+      "doi": "10.1145/70082.68182",
+      "evidence_kind": "none",
+      "key": "dehnert1989",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "rau",
+      "bib_title": "The {Cydra 5} Departmental Supercomputer: Design Philosophies, Decisions, and Trade-Offs",
+      "bib_year": "1989",
+      "citation_contexts": [
+        "Trace scheduling moved global compaction across basic-block boundaries and made likely paths a compiler object \\cite{fisher1981}. Early highly concurrent and VLIW designs exposed architectural support that motivated speculative and predicated compilation \\cite{hsu1986,dehnert1989,rau1989}. If-conversion formalized the replacement of control dependences by data dependences \\cite{allen1983}; hyperblocks provided an influential compiler structure for predicated execution \\cite{mahlke1992}. Subsequent work analyzed partial versus full predication, branch-prediction effects, guarded speculation, predicate analysis, and predicate-aware allocation \\cite{mahlke1994,mahlke1994branch,tyson1994,eichenberger1996,johnson1996,gillies1996}."
+      ],
+      "doi": "10.1109/2.19820",
+      "evidence_kind": "none",
+      "key": "rau1989",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "fisher",
+      "bib_title": "Trace Scheduling: A Technique for Global Microcode Compaction",
+      "bib_year": "1981",
+      "citation_contexts": [
+        "Trace scheduling moved global compaction across basic-block boundaries and made likely paths a compiler object \\cite{fisher1981}. Early highly concurrent and VLIW designs exposed architectural support that motivated speculative and predicated compilation \\cite{hsu1986,dehnert1989,rau1989}. If-conversion formalized the replacement of control dependences by data dependences \\cite{allen1983}; hyperblocks provided an influential compiler structure for predicated execution \\cite{mahlke1992}. Subsequent work analyzed partial versus full predication, branch-prediction effects, guarded speculation, predicate analysis, and predicate-aware allocation \\cite{mahlke1994,mahlke1994branch,tyson1994,eichenberger1996,johnson1996,gillies1996}."
+      ],
+      "doi": "10.1109/tc.1981.1675827",
+      "evidence_kind": "none",
+      "key": "fisher1981",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "han",
+      "bib_title": "Power-Efficient Predication Techniques for Acceleration of Control Flow Execution on {CGRA}",
+      "bib_year": "2013",
+      "citation_contexts": [
+        "Real predication mechanisms expose similar trade-offs at a different level. Architectural predicates, hyperblocks, partial SIMD masks, and branch-path melding can trade control transfers for predicated work, duplication, or target-specific support \\cite{han2013,zhou2016,moll2018,li2025}. Those systems evaluate execution, code generation, or hardware effects. Figure~\\ref{fig:observer-gap} instead isolates how an observation contract and one abstract grammar determine an exact representational optimum.",
+        "Architectural predication work also evaluates concerns that the abstract byte object cannot address. Han, Ahn, and Choi analyze power-efficient CGRA predication with gate-level and energy-delay evidence \\cite{han2013}. Real architectures must account for execution resources, speculation, exception deferral, code placement, and branch behavior. The present study intentionally reports none of those quantities."
+      ],
+      "doi": "10.1145/2459316.2459319",
+      "evidence_kind": "none",
+      "key": "han2013",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "moll",
+      "bib_title": "Partial Control-Flow Linearization",
+      "bib_year": "2018",
+      "citation_contexts": [
+        "Real predication mechanisms expose similar trade-offs at a different level. Architectural predicates, hyperblocks, partial SIMD masks, and branch-path melding can trade control transfers for predicated work, duplication, or target-specific support \\cite{han2013,zhou2016,moll2018,li2025}. Those systems evaluate execution, code generation, or hardware effects. Figure~\\ref{fig:observer-gap} instead isolates how an observation contract and one abstract grammar determine an exact representational optimum.",
+        "More recent control transformations broaden the operational scope. Partial control-flow linearization preserves selected control while linearizing paths for vectorization \\cite{moll2018}. PAVER exploits partial SIMD parallelism with compiler transformations and masked execution \\cite{zhou2016}. MERIT melds instructions from alternative paths and must make synthesized operations safe \\cite{li2025}. These systems can insert, combine, or retarget operations beyond our inherited-action grammar. Their practical correctness questions therefore cannot be answered solely by a \\PFC certificate, while their transformation power can evade our private-leaf lower bounds."
+      ],
+      "doi": "10.1145/3192366.3192413",
+      "evidence_kind": "none",
+      "key": "moll2018",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "li",
+      "bib_title": "Eliminate Branches by Melding {IR} Instructions",
+      "bib_year": "2025",
+      "citation_contexts": [
+        "Real predication mechanisms expose similar trade-offs at a different level. Architectural predicates, hyperblocks, partial SIMD masks, and branch-path melding can trade control transfers for predicated work, duplication, or target-specific support \\cite{han2013,zhou2016,moll2018,li2025}. Those systems evaluate execution, code generation, or hardware effects. Figure~\\ref{fig:observer-gap} instead isolates how an observation contract and one abstract grammar determine an exact representational optimum.",
+        "More recent control transformations broaden the operational scope. Partial control-flow linearization preserves selected control while linearizing paths for vectorization \\cite{moll2018}. PAVER exploits partial SIMD parallelism with compiler transformations and masked execution \\cite{zhou2016}. MERIT melds instructions from alternative paths and must make synthesized operations safe \\cite{li2025}. These systems can insert, combine, or retarget operations beyond our inherited-action grammar. Their practical correctness questions therefore cannot be answered solely by a \\PFC certificate, while their transformation power can evade our private-leaf lower bounds."
+      ],
+      "doi": "10.48550/arxiv.2512.22390",
+      "evidence_kind": "none",
+      "key": "li2025",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "ferrante",
+      "bib_title": "The Program Dependence Graph and Its Use in Optimization",
+      "bib_year": "1987",
+      "citation_contexts": [
+        "Theorem~\\ref{thm:frontier} is relative to the supplied finite table. A checker can recompute all five conditions and direct observations without trusting optimizer summaries. It cannot determine whether a compiler correctly extracted the table from LLVM, MLIR, a source language, or an exception ABI. General compiler representations contain control/data dependences \\cite{ferrante1987,cytron1991}, iterative dataflow facts \\cite{kildall1973}, and semantics for memory, poison, undefined behavior, or dialect-specific operations \\cite{lattner2004,lattner2021}. Those obligations are intentionally not hidden inside the certificate.",
+        "Program dependence graphs and SSA make control/data relationships explicit and support broad optimization frameworks \\cite{ferrante1987,cytron1991}. Classical dataflow theory and compiler texts explain the fixed-point, alias, liveness, and code-generation machinery omitted from the snapshot interface \\cite{kildall1973,aho2006,muchnick1997}. The functional interpretation of SSA clarifies why values and joins can be reasoned about compositionally \\cite{appel1998}, while LLVM and MLIR provide extensible industrial intermediate representations with much richer operation semantics \\cite{lattner2004,lattner2021}. Our finite table is an input to analysis, not a substitute for those representations or an extraction algorithm from them."
+      ],
+      "doi": "10.1145/24039.24041",
+      "evidence_kind": "none",
+      "key": "ferrante1987",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "cytron",
+      "bib_title": "Efficiently Computing Static Single Assignment Form and the Control Dependence Graph",
+      "bib_year": "1991",
+      "citation_contexts": [
+        "Theorem~\\ref{thm:frontier} is relative to the supplied finite table. A checker can recompute all five conditions and direct observations without trusting optimizer summaries. It cannot determine whether a compiler correctly extracted the table from LLVM, MLIR, a source language, or an exception ABI. General compiler representations contain control/data dependences \\cite{ferrante1987,cytron1991}, iterative dataflow facts \\cite{kildall1973}, and semantics for memory, poison, undefined behavior, or dialect-specific operations \\cite{lattner2004,lattner2021}. Those obligations are intentionally not hidden inside the certificate.",
+        "Program dependence graphs and SSA make control/data relationships explicit and support broad optimization frameworks \\cite{ferrante1987,cytron1991}. Classical dataflow theory and compiler texts explain the fixed-point, alias, liveness, and code-generation machinery omitted from the snapshot interface \\cite{kildall1973,aho2006,muchnick1997}. The functional interpretation of SSA clarifies why values and joins can be reasoned about compositionally \\cite{appel1998}, while LLVM and MLIR provide extensible industrial intermediate representations with much richer operation semantics \\cite{lattner2004,lattner2021}. Our finite table is an input to analysis, not a substitute for those representations or an extraction algorithm from them."
+      ],
+      "doi": "10.1145/115372.115320",
+      "evidence_kind": "none",
+      "key": "cytron1991",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "kildall",
+      "bib_title": "A Unified Approach to Global Program Optimization",
+      "bib_year": "1973",
+      "citation_contexts": [
+        "Theorem~\\ref{thm:frontier} is relative to the supplied finite table. A checker can recompute all five conditions and direct observations without trusting optimizer summaries. It cannot determine whether a compiler correctly extracted the table from LLVM, MLIR, a source language, or an exception ABI. General compiler representations contain control/data dependences \\cite{ferrante1987,cytron1991}, iterative dataflow facts \\cite{kildall1973}, and semantics for memory, poison, undefined behavior, or dialect-specific operations \\cite{lattner2004,lattner2021}. Those obligations are intentionally not hidden inside the certificate.",
+        "Program dependence graphs and SSA make control/data relationships explicit and support broad optimization frameworks \\cite{ferrante1987,cytron1991}. Classical dataflow theory and compiler texts explain the fixed-point, alias, liveness, and code-generation machinery omitted from the snapshot interface \\cite{kildall1973,aho2006,muchnick1997}. The functional interpretation of SSA clarifies why values and joins can be reasoned about compositionally \\cite{appel1998}, while LLVM and MLIR provide extensible industrial intermediate representations with much richer operation semantics \\cite{lattner2004,lattner2021}. Our finite table is an input to analysis, not a substitute for those representations or an extraction algorithm from them."
+      ],
+      "doi": "10.1145/512927.512945",
+      "evidence_kind": "none",
+      "key": "kildall1973",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "lattner",
+      "bib_title": "{LLVM}: A Compilation Framework for Lifelong Program Analysis and Transformation",
+      "bib_year": "2004",
+      "citation_contexts": [
+        "Theorem~\\ref{thm:frontier} is relative to the supplied finite table. A checker can recompute all five conditions and direct observations without trusting optimizer summaries. It cannot determine whether a compiler correctly extracted the table from LLVM, MLIR, a source language, or an exception ABI. General compiler representations contain control/data dependences \\cite{ferrante1987,cytron1991}, iterative dataflow facts \\cite{kildall1973}, and semantics for memory, poison, undefined behavior, or dialect-specific operations \\cite{lattner2004,lattner2021}. Those obligations are intentionally not hidden inside the certificate.",
+        "Program dependence graphs and SSA make control/data relationships explicit and support broad optimization frameworks \\cite{ferrante1987,cytron1991}. Classical dataflow theory and compiler texts explain the fixed-point, alias, liveness, and code-generation machinery omitted from the snapshot interface \\cite{kildall1973,aho2006,muchnick1997}. The functional interpretation of SSA clarifies why values and joins can be reasoned about compositionally \\cite{appel1998}, while LLVM and MLIR provide extensible industrial intermediate representations with much richer operation semantics \\cite{lattner2004,lattner2021}. Our finite table is an input to analysis, not a substitute for those representations or an extraction algorithm from them."
+      ],
+      "doi": "10.1109/cgo.2004.1281665",
+      "evidence_kind": "none",
+      "key": "lattner2004",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "lattner",
+      "bib_title": "{MLIR}: Scaling Compiler Infrastructure for Domain Specific Computation",
+      "bib_year": "2021",
+      "citation_contexts": [
+        "Theorem~\\ref{thm:frontier} is relative to the supplied finite table. A checker can recompute all five conditions and direct observations without trusting optimizer summaries. It cannot determine whether a compiler correctly extracted the table from LLVM, MLIR, a source language, or an exception ABI. General compiler representations contain control/data dependences \\cite{ferrante1987,cytron1991}, iterative dataflow facts \\cite{kildall1973}, and semantics for memory, poison, undefined behavior, or dialect-specific operations \\cite{lattner2004,lattner2021}. Those obligations are intentionally not hidden inside the certificate.",
+        "Program dependence graphs and SSA make control/data relationships explicit and support broad optimization frameworks \\cite{ferrante1987,cytron1991}. Classical dataflow theory and compiler texts explain the fixed-point, alias, liveness, and code-generation machinery omitted from the snapshot interface \\cite{kildall1973,aho2006,muchnick1997}. The functional interpretation of SSA clarifies why values and joins can be reasoned about compositionally \\cite{appel1998}, while LLVM and MLIR provide extensible industrial intermediate representations with much richer operation semantics \\cite{lattner2004,lattner2021}. Our finite table is an input to analysis, not a substitute for those representations or an extraction algorithm from them."
+      ],
+      "doi": "10.1109/cgo51591.2021.9370308",
+      "evidence_kind": "none",
+      "key": "lattner2021",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "muchnick",
+      "bib_title": "Advanced Compiler Design and Implementation",
+      "bib_year": "1997",
+      "citation_contexts": [
+        "Program dependence graphs and SSA make control/data relationships explicit and support broad optimization frameworks \\cite{ferrante1987,cytron1991}. Classical dataflow theory and compiler texts explain the fixed-point, alias, liveness, and code-generation machinery omitted from the snapshot interface \\cite{kildall1973,aho2006,muchnick1997}. The functional interpretation of SSA clarifies why values and joins can be reasoned about compositionally \\cite{appel1998}, while LLVM and MLIR provide extensible industrial intermediate representations with much richer operation semantics \\cite{lattner2004,lattner2021}. Our finite table is an input to analysis, not a substitute for those representations or an extraction algorithm from them."
+      ],
+      "doi": "",
+      "evidence_kind": "none",
+      "key": "muchnick1997",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "aho",
+      "bib_title": "Compilers: Principles, Techniques, and Tools",
+      "bib_year": "2006",
+      "citation_contexts": [
+        "Program dependence graphs and SSA make control/data relationships explicit and support broad optimization frameworks \\cite{ferrante1987,cytron1991}. Classical dataflow theory and compiler texts explain the fixed-point, alias, liveness, and code-generation machinery omitted from the snapshot interface \\cite{kildall1973,aho2006,muchnick1997}. The functional interpretation of SSA clarifies why values and joins can be reasoned about compositionally \\cite{appel1998}, while LLVM and MLIR provide extensible industrial intermediate representations with much richer operation semantics \\cite{lattner2004,lattner2021}. Our finite table is an input to analysis, not a substitute for those representations or an extraction algorithm from them."
+      ],
+      "doi": "",
+      "evidence_kind": "none",
+      "key": "aho2006",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "appel",
+      "bib_title": "{SSA} Is Functional Programming",
+      "bib_year": "1998",
+      "citation_contexts": [
+        "Program dependence graphs and SSA make control/data relationships explicit and support broad optimization frameworks \\cite{ferrante1987,cytron1991}. Classical dataflow theory and compiler texts explain the fixed-point, alias, liveness, and code-generation machinery omitted from the snapshot interface \\cite{kildall1973,aho2006,muchnick1997}. The functional interpretation of SSA clarifies why values and joins can be reasoned about compositionally \\cite{appel1998}, while LLVM and MLIR provide extensible industrial intermediate representations with much richer operation semantics \\cite{lattner2004,lattner2021}. Our finite table is an input to analysis, not a substitute for those representations or an extraction algorithm from them."
+      ],
+      "doi": "10.1145/278283.278285",
+      "evidence_kind": "none",
+      "key": "appel1998",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "pnueli",
+      "bib_title": "Translation Validation",
+      "bib_year": "1998",
+      "citation_contexts": [
+        "The distinction parallels translation validation: validate a particular transformation under explicit source and target semantics rather than trust the optimizer implementation \\cite{pnueli1998,necula2000}. However, the present semantics is far smaller than production validators. Its advantage is that the exact first-fault obligation can be isolated and independently enumerated; its limitation is that a real compiler front end remains a separate proof or engineering task.",
+        "This separation follows the architecture of translation validation and verified validators while retaining a much smaller trusted semantics. Pnueli et al. and Necula validate individual compiler runs \\cite{pnueli1998,necula2000}; Tristan and Leroy prove a validator for software pipelining \\cite{tristan2010}; CompCert proves compiler passes against formal semantics \\cite{leroy2006,leroy2009}; Alive and Alive2 reason about LLVM transformations and undefined-behavior-sensitive semantics \\cite{lopes2015,lopes2021}. The present checker is not comparable in production coverage or mechanization. Its contribution is the fragment-specific frontier certificate and exact byte replay.",
+        "Translation validation shifts trust from an optimizer implementation to a validator for each produced transformation \\cite{pnueli1998,necula2000}. Loop-transformation and run-time validation work develops proof obligations for structured optimizations \\cite{zuck2003}; CompCert mechanizes compiler correctness and validator components in a proof assistant \\cite{leroy2006,leroy2009,tristan2010}. Vellvm formalizes LLVM IR for verified transformations \\cite{zhao2012}. Alive and Alive2 validate peephole and bounded LLVM transformations while handling semantic features far beyond our model \\cite{lopes2015,lopes2021}. Equivalence-modulo-inputs and Csmith attack compilers by generating or reducing tests rather than proving a specific transformation \\cite{le2014,yang2011}. The artifact borrows their discipline of independent semantic comparison, but its bounded tables do not become a production validator through testing."
+      ],
+      "doi": "10.1007/bfb0054170",
+      "evidence_kind": "none",
+      "key": "pnueli1998",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "necula",
+      "bib_title": "Translation Validation for an Optimizing Compiler",
+      "bib_year": "2000",
+      "citation_contexts": [
+        "The distinction parallels translation validation: validate a particular transformation under explicit source and target semantics rather than trust the optimizer implementation \\cite{pnueli1998,necula2000}. However, the present semantics is far smaller than production validators. Its advantage is that the exact first-fault obligation can be isolated and independently enumerated; its limitation is that a real compiler front end remains a separate proof or engineering task.",
+        "This separation follows the architecture of translation validation and verified validators while retaining a much smaller trusted semantics. Pnueli et al. and Necula validate individual compiler runs \\cite{pnueli1998,necula2000}; Tristan and Leroy prove a validator for software pipelining \\cite{tristan2010}; CompCert proves compiler passes against formal semantics \\cite{leroy2006,leroy2009}; Alive and Alive2 reason about LLVM transformations and undefined-behavior-sensitive semantics \\cite{lopes2015,lopes2021}. The present checker is not comparable in production coverage or mechanization. Its contribution is the fragment-specific frontier certificate and exact byte replay.",
+        "Translation validation shifts trust from an optimizer implementation to a validator for each produced transformation \\cite{pnueli1998,necula2000}. Loop-transformation and run-time validation work develops proof obligations for structured optimizations \\cite{zuck2003}; CompCert mechanizes compiler correctness and validator components in a proof assistant \\cite{leroy2006,leroy2009,tristan2010}. Vellvm formalizes LLVM IR for verified transformations \\cite{zhao2012}. Alive and Alive2 validate peephole and bounded LLVM transformations while handling semantic features far beyond our model \\cite{lopes2015,lopes2021}. Equivalence-modulo-inputs and Csmith attack compilers by generating or reducing tests rather than proving a specific transformation \\cite{le2014,yang2011}. The artifact borrows their discipline of independent semantic comparison, but its bounded tables do not become a production validator through testing."
+      ],
+      "doi": "10.1145/349299.349314",
+      "evidence_kind": "none",
+      "key": "necula2000",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "tristan",
+      "bib_title": "A Simple, Verified Validator for Software Pipelining",
+      "bib_year": "2010",
+      "citation_contexts": [
+        "This separation follows the architecture of translation validation and verified validators while retaining a much smaller trusted semantics. Pnueli et al. and Necula validate individual compiler runs \\cite{pnueli1998,necula2000}; Tristan and Leroy prove a validator for software pipelining \\cite{tristan2010}; CompCert proves compiler passes against formal semantics \\cite{leroy2006,leroy2009}; Alive and Alive2 reason about LLVM transformations and undefined-behavior-sensitive semantics \\cite{lopes2015,lopes2021}. The present checker is not comparable in production coverage or mechanization. Its contribution is the fragment-specific frontier certificate and exact byte replay.",
+        "Translation validation shifts trust from an optimizer implementation to a validator for each produced transformation \\cite{pnueli1998,necula2000}. Loop-transformation and run-time validation work develops proof obligations for structured optimizations \\cite{zuck2003}; CompCert mechanizes compiler correctness and validator components in a proof assistant \\cite{leroy2006,leroy2009,tristan2010}. Vellvm formalizes LLVM IR for verified transformations \\cite{zhao2012}. Alive and Alive2 validate peephole and bounded LLVM transformations while handling semantic features far beyond our model \\cite{lopes2015,lopes2021}. Equivalence-modulo-inputs and Csmith attack compilers by generating or reducing tests rather than proving a specific transformation \\cite{le2014,yang2011}. The artifact borrows their discipline of independent semantic comparison, but its bounded tables do not become a production validator through testing."
+      ],
+      "doi": "10.1145/1706299.1706311",
+      "evidence_kind": "none",
+      "key": "tristan2010",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "leroy",
+      "bib_title": "Formal Verification of a Realistic Compiler",
+      "bib_year": "2009",
+      "citation_contexts": [
+        "These are not defects that can be repaired by adding another frontier edge. They change the semantic object. A production instantiation would need a source-language and IR-specific extraction theorem analogous to the semantic foundations used in verified or bounded translation validators \\cite{leroy2006,leroy2009,zhao2012,lopes2015,lopes2021}. The present work begins after that extraction boundary.",
+        "This separation follows the architecture of translation validation and verified validators while retaining a much smaller trusted semantics. Pnueli et al. and Necula validate individual compiler runs \\cite{pnueli1998,necula2000}; Tristan and Leroy prove a validator for software pipelining \\cite{tristan2010}; CompCert proves compiler passes against formal semantics \\cite{leroy2006,leroy2009}; Alive and Alive2 reason about LLVM transformations and undefined-behavior-sensitive semantics \\cite{lopes2015,lopes2021}. The present checker is not comparable in production coverage or mechanization. Its contribution is the fragment-specific frontier certificate and exact byte replay.",
+        "Translation validation shifts trust from an optimizer implementation to a validator for each produced transformation \\cite{pnueli1998,necula2000}. Loop-transformation and run-time validation work develops proof obligations for structured optimizations \\cite{zuck2003}; CompCert mechanizes compiler correctness and validator components in a proof assistant \\cite{leroy2006,leroy2009,tristan2010}. Vellvm formalizes LLVM IR for verified transformations \\cite{zhao2012}. Alive and Alive2 validate peephole and bounded LLVM transformations while handling semantic features far beyond our model \\cite{lopes2015,lopes2021}. Equivalence-modulo-inputs and Csmith attack compilers by generating or reducing tests rather than proving a specific transformation \\cite{le2014,yang2011}. The artifact borrows their discipline of independent semantic comparison, but its bounded tables do not become a production validator through testing."
+      ],
+      "doi": "10.1145/1538788.1538814",
+      "evidence_kind": "none",
+      "key": "leroy2009",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "leroy",
+      "bib_title": "Formal Certification of a Compiler Back-End or: Programming a Compiler with a Proof Assistant",
+      "bib_year": "2006",
+      "citation_contexts": [
+        "These are not defects that can be repaired by adding another frontier edge. They change the semantic object. A production instantiation would need a source-language and IR-specific extraction theorem analogous to the semantic foundations used in verified or bounded translation validators \\cite{leroy2006,leroy2009,zhao2012,lopes2015,lopes2021}. The present work begins after that extraction boundary.",
+        "This separation follows the architecture of translation validation and verified validators while retaining a much smaller trusted semantics. Pnueli et al. and Necula validate individual compiler runs \\cite{pnueli1998,necula2000}; Tristan and Leroy prove a validator for software pipelining \\cite{tristan2010}; CompCert proves compiler passes against formal semantics \\cite{leroy2006,leroy2009}; Alive and Alive2 reason about LLVM transformations and undefined-behavior-sensitive semantics \\cite{lopes2015,lopes2021}. The present checker is not comparable in production coverage or mechanization. Its contribution is the fragment-specific frontier certificate and exact byte replay.",
+        "Translation validation shifts trust from an optimizer implementation to a validator for each produced transformation \\cite{pnueli1998,necula2000}. Loop-transformation and run-time validation work develops proof obligations for structured optimizations \\cite{zuck2003}; CompCert mechanizes compiler correctness and validator components in a proof assistant \\cite{leroy2006,leroy2009,tristan2010}. Vellvm formalizes LLVM IR for verified transformations \\cite{zhao2012}. Alive and Alive2 validate peephole and bounded LLVM transformations while handling semantic features far beyond our model \\cite{lopes2015,lopes2021}. Equivalence-modulo-inputs and Csmith attack compilers by generating or reducing tests rather than proving a specific transformation \\cite{le2014,yang2011}. The artifact borrows their discipline of independent semantic comparison, but its bounded tables do not become a production validator through testing."
+      ],
+      "doi": "10.1145/1111037.1111042",
+      "evidence_kind": "none",
+      "key": "leroy2006",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "lopes",
+      "bib_title": "{Alive2}: Bounded Translation Validation for {LLVM}",
+      "bib_year": "2021",
+      "citation_contexts": [
+        "These are not defects that can be repaired by adding another frontier edge. They change the semantic object. A production instantiation would need a source-language and IR-specific extraction theorem analogous to the semantic foundations used in verified or bounded translation validators \\cite{leroy2006,leroy2009,zhao2012,lopes2015,lopes2021}. The present work begins after that extraction boundary.",
+        "This separation follows the architecture of translation validation and verified validators while retaining a much smaller trusted semantics. Pnueli et al. and Necula validate individual compiler runs \\cite{pnueli1998,necula2000}; Tristan and Leroy prove a validator for software pipelining \\cite{tristan2010}; CompCert proves compiler passes against formal semantics \\cite{leroy2006,leroy2009}; Alive and Alive2 reason about LLVM transformations and undefined-behavior-sensitive semantics \\cite{lopes2015,lopes2021}. The present checker is not comparable in production coverage or mechanization. Its contribution is the fragment-specific frontier certificate and exact byte replay.",
+        "Translation validation shifts trust from an optimizer implementation to a validator for each produced transformation \\cite{pnueli1998,necula2000}. Loop-transformation and run-time validation work develops proof obligations for structured optimizations \\cite{zuck2003}; CompCert mechanizes compiler correctness and validator components in a proof assistant \\cite{leroy2006,leroy2009,tristan2010}. Vellvm formalizes LLVM IR for verified transformations \\cite{zhao2012}. Alive and Alive2 validate peephole and bounded LLVM transformations while handling semantic features far beyond our model \\cite{lopes2015,lopes2021}. Equivalence-modulo-inputs and Csmith attack compilers by generating or reducing tests rather than proving a specific transformation \\cite{le2014,yang2011}. The artifact borrows their discipline of independent semantic comparison, but its bounded tables do not become a production validator through testing."
+      ],
+      "doi": "10.1145/3453483.3454030",
+      "evidence_kind": "none",
+      "key": "lopes2021",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "lopes",
+      "bib_title": "Provably Correct Peephole Optimizations with {Alive}",
+      "bib_year": "2015",
+      "citation_contexts": [
+        "These are not defects that can be repaired by adding another frontier edge. They change the semantic object. A production instantiation would need a source-language and IR-specific extraction theorem analogous to the semantic foundations used in verified or bounded translation validators \\cite{leroy2006,leroy2009,zhao2012,lopes2015,lopes2021}. The present work begins after that extraction boundary.",
+        "This separation follows the architecture of translation validation and verified validators while retaining a much smaller trusted semantics. Pnueli et al. and Necula validate individual compiler runs \\cite{pnueli1998,necula2000}; Tristan and Leroy prove a validator for software pipelining \\cite{tristan2010}; CompCert proves compiler passes against formal semantics \\cite{leroy2006,leroy2009}; Alive and Alive2 reason about LLVM transformations and undefined-behavior-sensitive semantics \\cite{lopes2015,lopes2021}. The present checker is not comparable in production coverage or mechanization. Its contribution is the fragment-specific frontier certificate and exact byte replay.",
+        "Translation validation shifts trust from an optimizer implementation to a validator for each produced transformation \\cite{pnueli1998,necula2000}. Loop-transformation and run-time validation work develops proof obligations for structured optimizations \\cite{zuck2003}; CompCert mechanizes compiler correctness and validator components in a proof assistant \\cite{leroy2006,leroy2009,tristan2010}. Vellvm formalizes LLVM IR for verified transformations \\cite{zhao2012}. Alive and Alive2 validate peephole and bounded LLVM transformations while handling semantic features far beyond our model \\cite{lopes2015,lopes2021}. Equivalence-modulo-inputs and Csmith attack compilers by generating or reducing tests rather than proving a specific transformation \\cite{le2014,yang2011}. The artifact borrows their discipline of independent semantic comparison, but its bounded tables do not become a production validator through testing."
+      ],
+      "doi": "10.1145/2737924.2737965",
+      "evidence_kind": "none",
+      "key": "lopes2015",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "zhao",
+      "bib_title": "Formalizing the {LLVM} Intermediate Representation for Verified Program Transformations",
+      "bib_year": "2012",
+      "citation_contexts": [
+        "These are not defects that can be repaired by adding another frontier edge. They change the semantic object. A production instantiation would need a source-language and IR-specific extraction theorem analogous to the semantic foundations used in verified or bounded translation validators \\cite{leroy2006,leroy2009,zhao2012,lopes2015,lopes2021}. The present work begins after that extraction boundary.",
+        "Translation validation shifts trust from an optimizer implementation to a validator for each produced transformation \\cite{pnueli1998,necula2000}. Loop-transformation and run-time validation work develops proof obligations for structured optimizations \\cite{zuck2003}; CompCert mechanizes compiler correctness and validator components in a proof assistant \\cite{leroy2006,leroy2009,tristan2010}. Vellvm formalizes LLVM IR for verified transformations \\cite{zhao2012}. Alive and Alive2 validate peephole and bounded LLVM transformations while handling semantic features far beyond our model \\cite{lopes2015,lopes2021}. Equivalence-modulo-inputs and Csmith attack compilers by generating or reducing tests rather than proving a specific transformation \\cite{le2014,yang2011}. The artifact borrows their discipline of independent semantic comparison, but its bounded tables do not become a production validator through testing."
+      ],
+      "doi": "10.1145/2103656.2103709",
+      "evidence_kind": "none",
+      "key": "zhao2012",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "le",
+      "bib_title": "Compiler Validation via Equivalence Modulo Inputs",
+      "bib_year": "2014",
+      "citation_contexts": [
+        "Translation validation shifts trust from an optimizer implementation to a validator for each produced transformation \\cite{pnueli1998,necula2000}. Loop-transformation and run-time validation work develops proof obligations for structured optimizations \\cite{zuck2003}; CompCert mechanizes compiler correctness and validator components in a proof assistant \\cite{leroy2006,leroy2009,tristan2010}. Vellvm formalizes LLVM IR for verified transformations \\cite{zhao2012}. Alive and Alive2 validate peephole and bounded LLVM transformations while handling semantic features far beyond our model \\cite{lopes2015,lopes2021}. Equivalence-modulo-inputs and Csmith attack compilers by generating or reducing tests rather than proving a specific transformation \\cite{le2014,yang2011}. The artifact borrows their discipline of independent semantic comparison, but its bounded tables do not become a production validator through testing."
+      ],
+      "doi": "10.1145/2594291.2594334",
+      "evidence_kind": "none",
+      "key": "le2014",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "yang",
+      "bib_title": "Finding and Understanding Bugs in {C} Compilers",
+      "bib_year": "2011",
+      "citation_contexts": [
+        "Translation validation shifts trust from an optimizer implementation to a validator for each produced transformation \\cite{pnueli1998,necula2000}. Loop-transformation and run-time validation work develops proof obligations for structured optimizations \\cite{zuck2003}; CompCert mechanizes compiler correctness and validator components in a proof assistant \\cite{leroy2006,leroy2009,tristan2010}. Vellvm formalizes LLVM IR for verified transformations \\cite{zhao2012}. Alive and Alive2 validate peephole and bounded LLVM transformations while handling semantic features far beyond our model \\cite{lopes2015,lopes2021}. Equivalence-modulo-inputs and Csmith attack compilers by generating or reducing tests rather than proving a specific transformation \\cite{le2014,yang2011}. The artifact borrows their discipline of independent semantic comparison, but its bounded tables do not become a production validator through testing."
+      ],
+      "doi": "10.1145/1993498.1993532",
+      "evidence_kind": "none",
+      "key": "yang2011",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "zuck",
+      "bib_title": "Translation and Run-Time Validation of Loop Transformations",
+      "bib_year": "2003",
+      "citation_contexts": [
+        "Translation validation shifts trust from an optimizer implementation to a validator for each produced transformation \\cite{pnueli1998,necula2000}. Loop-transformation and run-time validation work develops proof obligations for structured optimizations \\cite{zuck2003}; CompCert mechanizes compiler correctness and validator components in a proof assistant \\cite{leroy2006,leroy2009,tristan2010}. Vellvm formalizes LLVM IR for verified transformations \\cite{zhao2012}. Alive and Alive2 validate peephole and bounded LLVM transformations while handling semantic features far beyond our model \\cite{lopes2015,lopes2021}. Equivalence-modulo-inputs and Csmith attack compilers by generating or reducing tests rather than proving a specific transformation \\cite{le2014,yang2011}. The artifact borrows their discipline of independent semantic comparison, but its bounded tables do not become a production validator through testing."
+      ],
+      "doi": "",
+      "evidence_kind": "none",
+      "key": "zuck2003",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "zhang",
+      "bib_title": "{CF-GKAT}: Efficient Validation of Control-Flow Transformations",
+      "bib_year": "2025",
+      "citation_contexts": [
+        "Algebraic approaches validate control-flow transformations at a different abstraction. Kleene algebra with tests supplies an equational foundation \\cite{kozen1997}; guarded KAT obtains efficient reasoning for uninterpreted guarded programs \\cite{smolka2020}. CF-GKAT targets efficient validation of nonlocal control-flow transformations, and later work studies decision procedures for broader GKAT variants \\cite{zhang2025,zhang2026}. These results prevent a claim that finite replay or guarded decision procedures are new in general. Our theorem instead specializes the observation to tagged prefixes plus a first terminal fault, permits action deletion, and derives a representative-selection boundary not stated by those general trace-equivalence frameworks."
+      ],
+      "doi": "10.1145/3704857",
+      "evidence_kind": "none",
+      "key": "zhang2025",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "zhang",
+      "bib_title": "Outrunning Big {KATs}: Efficient Decision Procedures for Variants of {GKAT}",
+      "bib_year": "2026",
+      "citation_contexts": [
+        "Algebraic approaches validate control-flow transformations at a different abstraction. Kleene algebra with tests supplies an equational foundation \\cite{kozen1997}; guarded KAT obtains efficient reasoning for uninterpreted guarded programs \\cite{smolka2020}. CF-GKAT targets efficient validation of nonlocal control-flow transformations, and later work studies decision procedures for broader GKAT variants \\cite{zhang2025,zhang2026}. These results prevent a claim that finite replay or guarded decision procedures are new in general. Our theorem instead specializes the observation to tagged prefixes plus a first terminal fault, permits action deletion, and derives a representative-selection boundary not stated by those general trace-equivalence frameworks."
+      ],
+      "doi": "10.48550/arxiv.2601.09986",
+      "evidence_kind": "none",
+      "key": "zhang2026",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "kozen",
+      "bib_title": "Kleene Algebra with Tests",
+      "bib_year": "1997",
+      "citation_contexts": [
+        "Algebraic approaches validate control-flow transformations at a different abstraction. Kleene algebra with tests supplies an equational foundation \\cite{kozen1997}; guarded KAT obtains efficient reasoning for uninterpreted guarded programs \\cite{smolka2020}. CF-GKAT targets efficient validation of nonlocal control-flow transformations, and later work studies decision procedures for broader GKAT variants \\cite{zhang2025,zhang2026}. These results prevent a claim that finite replay or guarded decision procedures are new in general. Our theorem instead specializes the observation to tagged prefixes plus a first terminal fault, permits action deletion, and derives a representative-selection boundary not stated by those general trace-equivalence frameworks."
+      ],
+      "doi": "10.1145/256167.256195",
+      "evidence_kind": "none",
+      "key": "kozen1997",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "smolka",
+      "bib_title": "Guarded Kleene Algebra with Tests: Verification of Uninterpreted Programs in Nearly Linear Time",
+      "bib_year": "2020",
+      "citation_contexts": [
+        "Algebraic approaches validate control-flow transformations at a different abstraction. Kleene algebra with tests supplies an equational foundation \\cite{kozen1997}; guarded KAT obtains efficient reasoning for uninterpreted guarded programs \\cite{smolka2020}. CF-GKAT targets efficient validation of nonlocal control-flow transformations, and later work studies decision procedures for broader GKAT variants \\cite{zhang2025,zhang2026}. These results prevent a claim that finite replay or guarded decision procedures are new in general. Our theorem instead specializes the observation to tagged prefixes plus a first terminal fault, permits action deletion, and derives a representative-selection boundary not stated by those general trace-equivalence frameworks."
+      ],
+      "doi": "10.1145/3371129",
+      "evidence_kind": "none",
+      "key": "smolka2020",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "ohring",
+      "bib_title": "Scheduling with {AND/OR} Precedence Constraints",
+      "bib_year": "2004",
+      "citation_contexts": [
+        "The characterization also separates established scheduling machinery from the new semantic boundary. With a fixed full action set, the derived obligations are exactly finite AND/OR precedence conditions, and the known ready algorithm decides feasibility \\cite{mohring2004}. We do not claim a new scheduling algorithm. Instead, we prove how first-fault semantics induces those conditions and show what changes when the target may delete actions. If every faulting input has a unique acceptable representative, a unique least selected set exists. If each input may choose between two representatives, minimum-cardinality selection is NP-complete by reduction from Vertex Cover \\cite{karp1972}.",
+        "A canonical waiting condition $(Y,j)$ has nonempty $Y\\subseteq\\Act\\setminus\\{j\\}$ and requires at least one member of $Y$ to appear before $j$. Conditions are conjoined, while predecessor alternatives within $Y$ are disjoined. This is the AND/OR precedence formalism studied by M\\\"ohring, Skutella, and Stork \\cite{mohring2004}.",
+        "\\paragraph{Known ready algorithm.} Begin with no emitted identities. An action is ready when every waiting condition targeting it already has an emitted alternative predecessor. Emit any ready action and mark every condition containing it as an alternative predecessor satisfied. If all actions are emitted, the produced order satisfies every condition. If a nonempty residual $R$ remains and no action is ready, then each $j\\in R$ has an unmet condition $(Y,j)$ with $Y\\subseteq R$. Any alleged continuation has an earliest member of $R$, but its condition requires an earlier member of $R$, a contradiction. Reverse incidence lists give linear work in nodes, conditions, and incidences, apart from deterministic sorting. This algorithm and obstruction are established scheduling results \\cite{mohring2004}; the contribution here is the semantic correspondence in Theorem~\\ref{thm:waiting}.",
+        "AND/OR precedence constraints and their ready algorithm are established scheduling theory \\cite{mohring2004}. Optimal instruction scheduling has been formulated with integer programming and enumeration \\cite{wilken2000,shobaki2009}. Preallocation scheduling and alternative cost functions show that register-pressure objectives can materially change generated code \\cite{shobaki2013,shobaki2019}; ant-colony scheduling studies the quality/scalability trade-off against exact methods on real compiler targets \\cite{shobaki2022}. Combinatorial register allocation and scheduling integrates decisions whose separation can lose quality \\cite{castaneda2019}. Our action costs have no latency, resource, register, or spill semantics. We use exact scheduling only as a bounded semantic oracle after fixing a selected set."
+      ],
+      "doi": "10.1137/s009753970037727x",
+      "evidence_kind": "none",
+      "key": "mohring2004",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "karp",
+      "bib_title": "Reducibility among Combinatorial Problems",
+      "bib_year": "1972",
+      "citation_contexts": [
+        "The characterization also separates established scheduling machinery from the new semantic boundary. With a fixed full action set, the derived obligations are exactly finite AND/OR precedence conditions, and the known ready algorithm decides feasibility \\cite{mohring2004}. We do not claim a new scheduling algorithm. Instead, we prove how first-fault semantics induces those conditions and show what changes when the target may delete actions. If every faulting input has a unique acceptable representative, a unique least selected set exists. If each input may choose between two representatives, minimum-cardinality selection is NP-complete by reduction from Vertex Cover \\cite{karp1972}.",
+        "The reduction uses the standard NP-completeness of Vertex Cover \\cite{karp1972}; it does not claim a new hardness result for graph covering. It identifies where observer-relative representative choice enters the compiler fragment. The executable's fixed small bounds are not themselves an asymptotic family, so the artifact checks the reduction on all nonempty simple graphs with two through five vertices rather than claiming that finite enumeration proves NP-completeness."
+      ],
+      "doi": "10.1007/978-1-4684-2001-2_9",
+      "evidence_kind": "none",
+      "key": "karp1972",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "shobaki",
+      "bib_title": "Optimal Trace Scheduling Using Enumeration",
+      "bib_year": "2009",
+      "citation_contexts": [
+        "There are $3^b$ canonical cells because each bit is fixed zero, fixed one, or free. Summed cell membership is $4^b$. A straightforward bound with exhaustive subsets and quadratic constraint construction is \\[ O\\!\\left(2^n4^b n^2 + b3^b\\right), \\] plus payload comparison, sorting, and encoding. Representative enumeration can be much smaller on sparse frontiers, but neither analysis makes the complete tree optimizer scalable in unrestricted $b$ or action count. The method is a bounded exact oracle, not a proposed production scheduling heuristic. Exact trace and instruction scheduling systems likewise distinguish optimality from scalability and use carefully defined objectives, pruning, and timeout accounting \\cite{wilken2000,shobaki2009,shobaki2013,shobaki2019,castaneda2019}.",
+        "AND/OR precedence constraints and their ready algorithm are established scheduling theory \\cite{mohring2004}. Optimal instruction scheduling has been formulated with integer programming and enumeration \\cite{wilken2000,shobaki2009}. Preallocation scheduling and alternative cost functions show that register-pressure objectives can materially change generated code \\cite{shobaki2013,shobaki2019}; ant-colony scheduling studies the quality/scalability trade-off against exact methods on real compiler targets \\cite{shobaki2022}. Combinatorial register allocation and scheduling integrates decisions whose separation can lose quality \\cite{castaneda2019}. Our action costs have no latency, resource, register, or spill semantics. We use exact scheduling only as a bounded semantic oracle after fixing a selected set."
+      ],
+      "doi": "10.1145/1498690.1498694",
+      "evidence_kind": "none",
+      "key": "shobaki2009",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "shobaki",
+      "bib_title": "Preallocation Instruction Scheduling with Register Pressure Minimization Using a Combinatorial Optimization Approach",
+      "bib_year": "2013",
+      "citation_contexts": [
+        "There are $3^b$ canonical cells because each bit is fixed zero, fixed one, or free. Summed cell membership is $4^b$. A straightforward bound with exhaustive subsets and quadratic constraint construction is \\[ O\\!\\left(2^n4^b n^2 + b3^b\\right), \\] plus payload comparison, sorting, and encoding. Representative enumeration can be much smaller on sparse frontiers, but neither analysis makes the complete tree optimizer scalable in unrestricted $b$ or action count. The method is a bounded exact oracle, not a proposed production scheduling heuristic. Exact trace and instruction scheduling systems likewise distinguish optimality from scalability and use carefully defined objectives, pruning, and timeout accounting \\cite{wilken2000,shobaki2009,shobaki2013,shobaki2019,castaneda2019}.",
+        "AND/OR precedence constraints and their ready algorithm are established scheduling theory \\cite{mohring2004}. Optimal instruction scheduling has been formulated with integer programming and enumeration \\cite{wilken2000,shobaki2009}. Preallocation scheduling and alternative cost functions show that register-pressure objectives can materially change generated code \\cite{shobaki2013,shobaki2019}; ant-colony scheduling studies the quality/scalability trade-off against exact methods on real compiler targets \\cite{shobaki2022}. Combinatorial register allocation and scheduling integrates decisions whose separation can lose quality \\cite{castaneda2019}. Our action costs have no latency, resource, register, or spill semantics. We use exact scheduling only as a bounded semantic oracle after fixing a selected set."
+      ],
+      "doi": "10.1145/2512432",
+      "evidence_kind": "none",
+      "key": "shobaki2013",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "shobaki",
+      "bib_title": "Exploring an Alternative Cost Function for Combinatorial Register-Pressure-Aware Instruction Scheduling",
+      "bib_year": "2019",
+      "citation_contexts": [
+        "There are $3^b$ canonical cells because each bit is fixed zero, fixed one, or free. Summed cell membership is $4^b$. A straightforward bound with exhaustive subsets and quadratic constraint construction is \\[ O\\!\\left(2^n4^b n^2 + b3^b\\right), \\] plus payload comparison, sorting, and encoding. Representative enumeration can be much smaller on sparse frontiers, but neither analysis makes the complete tree optimizer scalable in unrestricted $b$ or action count. The method is a bounded exact oracle, not a proposed production scheduling heuristic. Exact trace and instruction scheduling systems likewise distinguish optimality from scalability and use carefully defined objectives, pruning, and timeout accounting \\cite{wilken2000,shobaki2009,shobaki2013,shobaki2019,castaneda2019}.",
+        "AND/OR precedence constraints and their ready algorithm are established scheduling theory \\cite{mohring2004}. Optimal instruction scheduling has been formulated with integer programming and enumeration \\cite{wilken2000,shobaki2009}. Preallocation scheduling and alternative cost functions show that register-pressure objectives can materially change generated code \\cite{shobaki2013,shobaki2019}; ant-colony scheduling studies the quality/scalability trade-off against exact methods on real compiler targets \\cite{shobaki2022}. Combinatorial register allocation and scheduling integrates decisions whose separation can lose quality \\cite{castaneda2019}. Our action costs have no latency, resource, register, or spill semantics. We use exact scheduling only as a bounded semantic oracle after fixing a selected set."
+      ],
+      "doi": "10.1145/3301489",
+      "evidence_kind": "none",
+      "key": "shobaki2019",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "shobaki",
+      "bib_title": "Register-Pressure-Aware Instruction Scheduling Using Ant Colony Optimization",
+      "bib_year": "2022",
+      "citation_contexts": [
+        "AND/OR precedence constraints and their ready algorithm are established scheduling theory \\cite{mohring2004}. Optimal instruction scheduling has been formulated with integer programming and enumeration \\cite{wilken2000,shobaki2009}. Preallocation scheduling and alternative cost functions show that register-pressure objectives can materially change generated code \\cite{shobaki2013,shobaki2019}; ant-colony scheduling studies the quality/scalability trade-off against exact methods on real compiler targets \\cite{shobaki2022}. Combinatorial register allocation and scheduling integrates decisions whose separation can lose quality \\cite{castaneda2019}. Our action costs have no latency, resource, register, or spill semantics. We use exact scheduling only as a bounded semantic oracle after fixing a selected set."
+      ],
+      "doi": "10.1145/3505558",
+      "evidence_kind": "none",
+      "key": "shobaki2022",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "wilken",
+      "bib_title": "Optimal Instruction Scheduling Using Integer Programming",
+      "bib_year": "2000",
+      "citation_contexts": [
+        "There are $3^b$ canonical cells because each bit is fixed zero, fixed one, or free. Summed cell membership is $4^b$. A straightforward bound with exhaustive subsets and quadratic constraint construction is \\[ O\\!\\left(2^n4^b n^2 + b3^b\\right), \\] plus payload comparison, sorting, and encoding. Representative enumeration can be much smaller on sparse frontiers, but neither analysis makes the complete tree optimizer scalable in unrestricted $b$ or action count. The method is a bounded exact oracle, not a proposed production scheduling heuristic. Exact trace and instruction scheduling systems likewise distinguish optimality from scalability and use carefully defined objectives, pruning, and timeout accounting \\cite{wilken2000,shobaki2009,shobaki2013,shobaki2019,castaneda2019}.",
+        "AND/OR precedence constraints and their ready algorithm are established scheduling theory \\cite{mohring2004}. Optimal instruction scheduling has been formulated with integer programming and enumeration \\cite{wilken2000,shobaki2009}. Preallocation scheduling and alternative cost functions show that register-pressure objectives can materially change generated code \\cite{shobaki2013,shobaki2019}; ant-colony scheduling studies the quality/scalability trade-off against exact methods on real compiler targets \\cite{shobaki2022}. Combinatorial register allocation and scheduling integrates decisions whose separation can lose quality \\cite{castaneda2019}. Our action costs have no latency, resource, register, or spill semantics. We use exact scheduling only as a bounded semantic oracle after fixing a selected set."
+      ],
+      "doi": "10.1145/349299.349318",
+      "evidence_kind": "none",
+      "key": "wilken2000",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "lozano",
+      "bib_title": "Combinatorial Register Allocation and Instruction Scheduling",
+      "bib_year": "2019",
+      "citation_contexts": [
+        "There are $3^b$ canonical cells because each bit is fixed zero, fixed one, or free. Summed cell membership is $4^b$. A straightforward bound with exhaustive subsets and quadratic constraint construction is \\[ O\\!\\left(2^n4^b n^2 + b3^b\\right), \\] plus payload comparison, sorting, and encoding. Representative enumeration can be much smaller on sparse frontiers, but neither analysis makes the complete tree optimizer scalable in unrestricted $b$ or action count. The method is a bounded exact oracle, not a proposed production scheduling heuristic. Exact trace and instruction scheduling systems likewise distinguish optimality from scalability and use carefully defined objectives, pruning, and timeout accounting \\cite{wilken2000,shobaki2009,shobaki2013,shobaki2019,castaneda2019}.",
+        "AND/OR precedence constraints and their ready algorithm are established scheduling theory \\cite{mohring2004}. Optimal instruction scheduling has been formulated with integer programming and enumeration \\cite{wilken2000,shobaki2009}. Preallocation scheduling and alternative cost functions show that register-pressure objectives can materially change generated code \\cite{shobaki2013,shobaki2019}; ant-colony scheduling studies the quality/scalability trade-off against exact methods on real compiler targets \\cite{shobaki2022}. Combinatorial register allocation and scheduling integrates decisions whose separation can lose quality \\cite{castaneda2019}. Our action costs have no latency, resource, register, or spill semantics. We use exact scheduling only as a bounded semantic oracle after fixing a selected set."
+      ],
+      "doi": "10.1145/3332373",
+      "evidence_kind": "none",
+      "key": "castaneda2019",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "pompougnac",
+      "bib_title": "Weaving Synchronous Reactions into the Fabric of {SSA}-Form Compilers",
+      "bib_year": "2022",
+      "citation_contexts": [
+        "\\paragraph{Finite breadth.} Exhaustive checks cover bounded action and input dimensions; generated models are not production workloads. The campaign is appropriate for falsifying a small semantic implementation, not for demonstrating prevalence, speedup, energy, register pressure, or practical code-size improvement. TACO compiler systems commonly support practical claims with production infrastructure and broad workloads \\cite{pompougnac2022,zhou2016,cherubin2020,na2016}; this work makes no such claim.",
+        "TACO compiler papers connect semantic or analysis ideas to compiler infrastructure and generated-code evidence: synchronous reactions extend SSA, TAFFO couples analyses with precision tuning, and a JavaScript compiler evaluates end-to-end parallelization \\cite{pompougnac2022,cherubin2020,na2016}. Phase-ordering systems such as COBAYN, MiCOMP, and clustering-based selection use workloads and compiler integration \\cite{ashouri2016,ashouri2017,martins2016}; broader autotuning work includes focused iterative optimization, self-tuning compilers, OpenTuner, CompilerGym, and learned tensor schedules \\cite{agakov2006,fursin2011,ansel2014,cummins2022,chen2018}. Those papers calibrate the evidence expected for production claims. Our exact finite oracle is instead evaluated against semantic constructions, and the absent compiler extractor remains a significance limitation. The defensible delta is the first-fault frontier, its representative-selection boundary, and actual-byte replay for one fixed grammar, not a universal priority claim."
+      ],
+      "doi": "10.1145/3506706",
+      "evidence_kind": "none",
+      "key": "pompougnac2022",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "zhou",
+      "bib_title": "A Compiler Approach for Exploiting Partial {SIMD} Parallelism",
+      "bib_year": "2016",
+      "citation_contexts": [
+        "Real predication mechanisms expose similar trade-offs at a different level. Architectural predicates, hyperblocks, partial SIMD masks, and branch-path melding can trade control transfers for predicated work, duplication, or target-specific support \\cite{han2013,zhou2016,moll2018,li2025}. Those systems evaluate execution, code generation, or hardware effects. Figure~\\ref{fig:observer-gap} instead isolates how an observation contract and one abstract grammar determine an exact representational optimum.",
+        "\\paragraph{Finite breadth.} Exhaustive checks cover bounded action and input dimensions; generated models are not production workloads. The campaign is appropriate for falsifying a small semantic implementation, not for demonstrating prevalence, speedup, energy, register pressure, or practical code-size improvement. TACO compiler systems commonly support practical claims with production infrastructure and broad workloads \\cite{pompougnac2022,zhou2016,cherubin2020,na2016}; this work makes no such claim.",
+        "More recent control transformations broaden the operational scope. Partial control-flow linearization preserves selected control while linearizing paths for vectorization \\cite{moll2018}. PAVER exploits partial SIMD parallelism with compiler transformations and masked execution \\cite{zhou2016}. MERIT melds instructions from alternative paths and must make synthesized operations safe \\cite{li2025}. These systems can insert, combine, or retarget operations beyond our inherited-action grammar. Their practical correctness questions therefore cannot be answered solely by a \\PFC certificate, while their transformation power can evade our private-leaf lower bounds."
+      ],
+      "doi": "10.1145/2886101",
+      "evidence_kind": "none",
+      "key": "zhou2016",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "cherubin",
+      "bib_title": "Dynamic Precision Autotuning with {TAFFO}",
+      "bib_year": "2020",
+      "citation_contexts": [
+        "\\paragraph{Finite breadth.} Exhaustive checks cover bounded action and input dimensions; generated models are not production workloads. The campaign is appropriate for falsifying a small semantic implementation, not for demonstrating prevalence, speedup, energy, register pressure, or practical code-size improvement. TACO compiler systems commonly support practical claims with production infrastructure and broad workloads \\cite{pompougnac2022,zhou2016,cherubin2020,na2016}; this work makes no such claim.",
+        "TACO compiler papers connect semantic or analysis ideas to compiler infrastructure and generated-code evidence: synchronous reactions extend SSA, TAFFO couples analyses with precision tuning, and a JavaScript compiler evaluates end-to-end parallelization \\cite{pompougnac2022,cherubin2020,na2016}. Phase-ordering systems such as COBAYN, MiCOMP, and clustering-based selection use workloads and compiler integration \\cite{ashouri2016,ashouri2017,martins2016}; broader autotuning work includes focused iterative optimization, self-tuning compilers, OpenTuner, CompilerGym, and learned tensor schedules \\cite{agakov2006,fursin2011,ansel2014,cummins2022,chen2018}. Those papers calibrate the evidence expected for production claims. Our exact finite oracle is instead evaluated against semantic constructions, and the absent compiler extractor remains a significance limitation. The defensible delta is the first-fault frontier, its representative-selection boundary, and actual-byte replay for one fixed grammar, not a universal priority claim."
+      ],
+      "doi": "10.1145/3388785",
+      "evidence_kind": "none",
+      "key": "cherubin2020",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "na",
+      "bib_title": "A {JavaScript} Parallelizing Compiler for Exploiting Parallelism from Data-Parallel {HTML5} Applications",
+      "bib_year": "2016",
+      "citation_contexts": [
+        "\\paragraph{Finite breadth.} Exhaustive checks cover bounded action and input dimensions; generated models are not production workloads. The campaign is appropriate for falsifying a small semantic implementation, not for demonstrating prevalence, speedup, energy, register pressure, or practical code-size improvement. TACO compiler systems commonly support practical claims with production infrastructure and broad workloads \\cite{pompougnac2022,zhou2016,cherubin2020,na2016}; this work makes no such claim.",
+        "TACO compiler papers connect semantic or analysis ideas to compiler infrastructure and generated-code evidence: synchronous reactions extend SSA, TAFFO couples analyses with precision tuning, and a JavaScript compiler evaluates end-to-end parallelization \\cite{pompougnac2022,cherubin2020,na2016}. Phase-ordering systems such as COBAYN, MiCOMP, and clustering-based selection use workloads and compiler integration \\cite{ashouri2016,ashouri2017,martins2016}; broader autotuning work includes focused iterative optimization, self-tuning compilers, OpenTuner, CompilerGym, and learned tensor schedules \\cite{agakov2006,fursin2011,ansel2014,cummins2022,chen2018}. Those papers calibrate the evidence expected for production claims. Our exact finite oracle is instead evaluated against semantic constructions, and the absent compiler extractor remains a significance limitation. The defensible delta is the first-fault frontier, its representative-selection boundary, and actual-byte replay for one fixed grammar, not a universal priority claim."
+      ],
+      "doi": "10.1145/2846098",
+      "evidence_kind": "none",
+      "key": "na2016",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "hyafil",
+      "bib_title": "Constructing Optimal Binary Decision Trees Is {NP}-Complete",
+      "bib_year": "1976",
+      "citation_contexts": [
+        "The same caution applies to exact sparse search. CORELS supplies certified optimal rule lists for a classification objective \\cite{angelino2018}; decision-tree optimization is classically hard \\cite{hyafil1976}; binary decision diagrams and learned decision trees use different sharing and objective choices \\cite{bryant1986,quinlan1986}. The present private-leaf grammar and exact semantic loss are distinct, but exact search alone is not a novelty claim. The semantic frontier, the representative boundary, and the grammar-relative replay are the joint result.",
+        "Optimal decision trees are NP-hard in general \\cite{hyafil1976}; induction algorithms and reduced decision diagrams optimize different predictive or Boolean objectives and often permit sharing absent from private leaves \\cite{quinlan1986,bryant1986}. CORELS produces certifiably optimal rule lists for an empirical-risk objective \\cite{angelino2018}. These analogies are important negative novelty evidence: enumeration, dynamic programming, and a small certificate are not by themselves new. Theorems~\\ref{thm:frontier}, \\ref{thm:unique}, \\ref{thm:hard}, and \\ref{thm:representatives} supply the semantics-specific reason that the chosen search space is complete."
+      ],
+      "doi": "10.1016/0020-0190(76)90095-8",
+      "evidence_kind": "none",
+      "key": "hyafil1976",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "quinlan",
+      "bib_title": "Induction of Decision Trees",
+      "bib_year": "1986",
+      "citation_contexts": [
+        "The same caution applies to exact sparse search. CORELS supplies certified optimal rule lists for a classification objective \\cite{angelino2018}; decision-tree optimization is classically hard \\cite{hyafil1976}; binary decision diagrams and learned decision trees use different sharing and objective choices \\cite{bryant1986,quinlan1986}. The present private-leaf grammar and exact semantic loss are distinct, but exact search alone is not a novelty claim. The semantic frontier, the representative boundary, and the grammar-relative replay are the joint result.",
+        "Optimal decision trees are NP-hard in general \\cite{hyafil1976}; induction algorithms and reduced decision diagrams optimize different predictive or Boolean objectives and often permit sharing absent from private leaves \\cite{quinlan1986,bryant1986}. CORELS produces certifiably optimal rule lists for an empirical-risk objective \\cite{angelino2018}. These analogies are important negative novelty evidence: enumeration, dynamic programming, and a small certificate are not by themselves new. Theorems~\\ref{thm:frontier}, \\ref{thm:unique}, \\ref{thm:hard}, and \\ref{thm:representatives} supply the semantics-specific reason that the chosen search space is complete."
+      ],
+      "doi": "10.1007/bf00116251",
+      "evidence_kind": "none",
+      "key": "quinlan1986",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "bryant",
+      "bib_title": "Graph-Based Algorithms for Boolean Function Manipulation",
+      "bib_year": "1986",
+      "citation_contexts": [
+        "The same caution applies to exact sparse search. CORELS supplies certified optimal rule lists for a classification objective \\cite{angelino2018}; decision-tree optimization is classically hard \\cite{hyafil1976}; binary decision diagrams and learned decision trees use different sharing and objective choices \\cite{bryant1986,quinlan1986}. The present private-leaf grammar and exact semantic loss are distinct, but exact search alone is not a novelty claim. The semantic frontier, the representative boundary, and the grammar-relative replay are the joint result.",
+        "Optimal decision trees are NP-hard in general \\cite{hyafil1976}; induction algorithms and reduced decision diagrams optimize different predictive or Boolean objectives and often permit sharing absent from private leaves \\cite{quinlan1986,bryant1986}. CORELS produces certifiably optimal rule lists for an empirical-risk objective \\cite{angelino2018}. These analogies are important negative novelty evidence: enumeration, dynamic programming, and a small certificate are not by themselves new. Theorems~\\ref{thm:frontier}, \\ref{thm:unique}, \\ref{thm:hard}, and \\ref{thm:representatives} supply the semantics-specific reason that the chosen search space is complete."
+      ],
+      "doi": "10.1109/tc.1986.1676819",
+      "evidence_kind": "none",
+      "key": "bryant1986",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "debray",
+      "bib_title": "Compiler Techniques for Code Compaction",
+      "bib_year": "2000",
+      "citation_contexts": [
+        "The object cost is actual byte-string length. The semantic table, certificate JSON, primitive operation bodies, and transport framing are separate artifacts. Consequently, a statement such as ``12 bytes'' means 12 bytes in \\PFC relative to the shared action table, not 12 bytes of machine code. Code compaction for real instruction sets has additional relocation, alignment, branch-range, and layout concerns \\cite{debray2000}; none is silently imported here.",
+        "Real code-size optimization adds instruction selection, encoding, branch displacement, layout, and link-time effects \\cite{debray2000}. Profile-guided tracing and dynamic optimization use execution frequencies and runtime behavior to choose profitable regions \\cite{ball1994,bala2000}. The \\PFC objective instead charges an analysis grammar exactly and has no profile. It is appropriate for testing a theorem about observer and representation declarations, but it cannot support a machine-code compaction or performance claim."
+      ],
+      "doi": "10.1145/349214.349233",
+      "evidence_kind": "none",
+      "key": "debray2000",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "ball",
+      "bib_title": "Optimally Profiling and Tracing Programs",
+      "bib_year": "1992",
+      "citation_contexts": [
+        "Real code-size optimization adds instruction selection, encoding, branch displacement, layout, and link-time effects \\cite{debray2000}. Profile-guided tracing and dynamic optimization use execution frequencies and runtime behavior to choose profitable regions \\cite{ball1994,bala2000}. The \\PFC objective instead charges an analysis grammar exactly and has no profile. It is appropriate for testing a theorem about observer and representation declarations, but it cannot support a machine-code compaction or performance claim."
+      ],
+      "doi": "10.1145/143165.143180",
+      "evidence_kind": "none",
+      "key": "ball1994",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    },
+    {
+      "bib_first_author": "bala",
+      "bib_title": "{Dynamo}: A Transparent Dynamic Optimization System",
+      "bib_year": "2000",
+      "citation_contexts": [
+        "Real code-size optimization adds instruction selection, encoding, branch displacement, layout, and link-time effects \\cite{debray2000}. Profile-guided tracing and dynamic optimization use execution frequencies and runtime behavior to choose profitable regions \\cite{ball1994,bala2000}. The \\PFC objective instead charges an analysis grammar exactly and has no profile. It is appropriate for testing a theorem about observer and representation declarations, but it cannot support a machine-code compaction or performance claim."
+      ],
+      "doi": "10.1145/349299.349303",
+      "evidence_kind": "none",
+      "key": "bala2000",
+      "notes": [
+        "no cached registry evidence"
+      ],
+      "status": "unverified",
+      "url": ""
+    }
+  ],
+  "status_counts": {
+    "unverified": 60
+  },
+  "uncited_bib_keys": [],
+  "undefined_citation_keys": [
+    "agakov2006",
+    "ansel2014",
+    "ashouri2016",
+    "ashouri2017",
+    "chen2018",
+    "cummins2022",
+    "fursin2011",
+    "martins2016"
+  ]
+}

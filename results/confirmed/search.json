@@ -1,0 +1,911 @@
+{
+  "completion_sparsification_checks": 4686,
+  "instances": 128,
+  "mismatches": 0,
+  "optimum_comparisons": 384,
+  "phase": "search",
+  "records": [
+    {
+      "auto": 18,
+      "direct": 18,
+      "id": "joint-000",
+      "optional_subset": 18,
+      "representative_tuple": 18
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-001",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-002",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-003",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-004",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 13,
+      "direct": 13,
+      "id": "joint-005",
+      "optional_subset": 13,
+      "representative_tuple": 13
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-006",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-007",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 16,
+      "direct": 16,
+      "id": "joint-008",
+      "optional_subset": 16,
+      "representative_tuple": 16
+    },
+    {
+      "auto": 10,
+      "direct": 10,
+      "id": "joint-009",
+      "optional_subset": 10,
+      "representative_tuple": 10
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-010",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 10,
+      "direct": 10,
+      "id": "joint-011",
+      "optional_subset": 10,
+      "representative_tuple": 10
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-012",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 18,
+      "direct": 18,
+      "id": "joint-013",
+      "optional_subset": 18,
+      "representative_tuple": 18
+    },
+    {
+      "auto": 10,
+      "direct": 10,
+      "id": "joint-014",
+      "optional_subset": 10,
+      "representative_tuple": 10
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-015",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-016",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-017",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-018",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 11,
+      "direct": 11,
+      "id": "joint-019",
+      "optional_subset": 11,
+      "representative_tuple": 11
+    },
+    {
+      "auto": 23,
+      "direct": 23,
+      "id": "joint-020",
+      "optional_subset": 23,
+      "representative_tuple": 23
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-021",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-022",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-023",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-024",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 9,
+      "direct": 9,
+      "id": "joint-025",
+      "optional_subset": 9,
+      "representative_tuple": 9
+    },
+    {
+      "auto": 15,
+      "direct": 15,
+      "id": "joint-026",
+      "optional_subset": 15,
+      "representative_tuple": 15
+    },
+    {
+      "auto": 19,
+      "direct": 19,
+      "id": "joint-027",
+      "optional_subset": 19,
+      "representative_tuple": 19
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-028",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 15,
+      "direct": 15,
+      "id": "joint-029",
+      "optional_subset": 15,
+      "representative_tuple": 15
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-030",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 9,
+      "direct": 9,
+      "id": "joint-031",
+      "optional_subset": 9,
+      "representative_tuple": 9
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-032",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 10,
+      "direct": 10,
+      "id": "joint-033",
+      "optional_subset": 10,
+      "representative_tuple": 10
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-034",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-035",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-036",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-037",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-038",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 19,
+      "direct": 19,
+      "id": "joint-039",
+      "optional_subset": 19,
+      "representative_tuple": 19
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-040",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 10,
+      "direct": 10,
+      "id": "joint-041",
+      "optional_subset": 10,
+      "representative_tuple": 10
+    },
+    {
+      "auto": 14,
+      "direct": 14,
+      "id": "joint-042",
+      "optional_subset": 14,
+      "representative_tuple": 14
+    },
+    {
+      "auto": 17,
+      "direct": 17,
+      "id": "joint-043",
+      "optional_subset": 17,
+      "representative_tuple": 17
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-044",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-045",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 14,
+      "direct": 14,
+      "id": "joint-046",
+      "optional_subset": 14,
+      "representative_tuple": 14
+    },
+    {
+      "auto": 19,
+      "direct": 19,
+      "id": "joint-047",
+      "optional_subset": 19,
+      "representative_tuple": 19
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-048",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-049",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-050",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-051",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 17,
+      "direct": 17,
+      "id": "joint-052",
+      "optional_subset": 17,
+      "representative_tuple": 17
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-053",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 17,
+      "direct": 17,
+      "id": "joint-054",
+      "optional_subset": 17,
+      "representative_tuple": 17
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-055",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 11,
+      "direct": 11,
+      "id": "joint-056",
+      "optional_subset": 11,
+      "representative_tuple": 11
+    },
+    {
+      "auto": 10,
+      "direct": 10,
+      "id": "joint-057",
+      "optional_subset": 10,
+      "representative_tuple": 10
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-058",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 15,
+      "direct": 15,
+      "id": "joint-059",
+      "optional_subset": 15,
+      "representative_tuple": 15
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-060",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 14,
+      "direct": 14,
+      "id": "joint-061",
+      "optional_subset": 14,
+      "representative_tuple": 14
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-062",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-063",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-064",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-065",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 17,
+      "direct": 17,
+      "id": "joint-066",
+      "optional_subset": 17,
+      "representative_tuple": 17
+    },
+    {
+      "auto": 17,
+      "direct": 17,
+      "id": "joint-067",
+      "optional_subset": 17,
+      "representative_tuple": 17
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-068",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 17,
+      "direct": 17,
+      "id": "joint-069",
+      "optional_subset": 17,
+      "representative_tuple": 17
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-070",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-071",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 14,
+      "direct": 14,
+      "id": "joint-072",
+      "optional_subset": 14,
+      "representative_tuple": 14
+    },
+    {
+      "auto": 22,
+      "direct": 22,
+      "id": "joint-073",
+      "optional_subset": 22,
+      "representative_tuple": 22
+    },
+    {
+      "auto": 14,
+      "direct": 14,
+      "id": "joint-074",
+      "optional_subset": 14,
+      "representative_tuple": 14
+    },
+    {
+      "auto": 14,
+      "direct": 14,
+      "id": "joint-075",
+      "optional_subset": 14,
+      "representative_tuple": 14
+    },
+    {
+      "auto": 10,
+      "direct": 10,
+      "id": "joint-076",
+      "optional_subset": 10,
+      "representative_tuple": 10
+    },
+    {
+      "auto": 21,
+      "direct": 21,
+      "id": "joint-077",
+      "optional_subset": 21,
+      "representative_tuple": 21
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-078",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-079",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-080",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 9,
+      "direct": 9,
+      "id": "joint-081",
+      "optional_subset": 9,
+      "representative_tuple": 9
+    },
+    {
+      "auto": 13,
+      "direct": 13,
+      "id": "joint-082",
+      "optional_subset": 13,
+      "representative_tuple": 13
+    },
+    {
+      "auto": 17,
+      "direct": 17,
+      "id": "joint-083",
+      "optional_subset": 17,
+      "representative_tuple": 17
+    },
+    {
+      "auto": 17,
+      "direct": 17,
+      "id": "joint-084",
+      "optional_subset": 17,
+      "representative_tuple": 17
+    },
+    {
+      "auto": 13,
+      "direct": 13,
+      "id": "joint-085",
+      "optional_subset": 13,
+      "representative_tuple": 13
+    },
+    {
+      "auto": 10,
+      "direct": 10,
+      "id": "joint-086",
+      "optional_subset": 10,
+      "representative_tuple": 10
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-087",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-088",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-089",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-090",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-091",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-092",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-093",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-094",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 9,
+      "direct": 9,
+      "id": "joint-095",
+      "optional_subset": 9,
+      "representative_tuple": 9
+    },
+    {
+      "auto": 21,
+      "direct": 21,
+      "id": "joint-096",
+      "optional_subset": 21,
+      "representative_tuple": 21
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-097",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 13,
+      "direct": 13,
+      "id": "joint-098",
+      "optional_subset": 13,
+      "representative_tuple": 13
+    },
+    {
+      "auto": 6,
+      "direct": 6,
+      "id": "joint-099",
+      "optional_subset": 6,
+      "representative_tuple": 6
+    },
+    {
+      "auto": 15,
+      "direct": 15,
+      "id": "joint-100",
+      "optional_subset": 15,
+      "representative_tuple": 15
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-101",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-102",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-103",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-104",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 15,
+      "direct": 15,
+      "id": "joint-105",
+      "optional_subset": 15,
+      "representative_tuple": 15
+    },
+    {
+      "auto": 13,
+      "direct": 13,
+      "id": "joint-106",
+      "optional_subset": 13,
+      "representative_tuple": 13
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-107",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-108",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-109",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 18,
+      "direct": 18,
+      "id": "joint-110",
+      "optional_subset": 18,
+      "representative_tuple": 18
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-111",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-112",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 14,
+      "direct": 14,
+      "id": "joint-113",
+      "optional_subset": 14,
+      "representative_tuple": 14
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-114",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-115",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 9,
+      "direct": 9,
+      "id": "joint-116",
+      "optional_subset": 9,
+      "representative_tuple": 9
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-117",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-118",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-119",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 19,
+      "direct": 19,
+      "id": "joint-120",
+      "optional_subset": 19,
+      "representative_tuple": 19
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-121",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 11,
+      "direct": 11,
+      "id": "joint-122",
+      "optional_subset": 11,
+      "representative_tuple": 11
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-123",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 14,
+      "direct": 14,
+      "id": "joint-124",
+      "optional_subset": 14,
+      "representative_tuple": 14
+    },
+    {
+      "auto": 13,
+      "direct": 13,
+      "id": "joint-125",
+      "optional_subset": 13,
+      "representative_tuple": 13
+    },
+    {
+      "auto": null,
+      "direct": null,
+      "id": "joint-126",
+      "optional_subset": null,
+      "representative_tuple": null
+    },
+    {
+      "auto": 17,
+      "direct": 17,
+      "id": "joint-127",
+      "optional_subset": 17,
+      "representative_tuple": 17
+    }
+  ],
+  "resource": {
+    "cpu_seconds": 0.48260685000000003,
+    "peak_rss_kib": 92840,
+    "wall_seconds": 0.48211380500004,
+    "workers": 1
+  }
+}

@@ -1,0 +1,13 @@
+phase,mismatches,cpu_seconds,peak_rss_kib
+exhaustive,0,10.818314,92592
+two-state,0,0.417398,92712
+trees,0,0.865916,93352
+and-or,0,0.010916,92716
+graphs,0,1.020013,92840
+observer-gap,0,0.022933,92968
+baselines,0,0.937570,94244
+controls,0,0.006071,92712
+search,0,0.482607,92840
+padding,0,0.264081,97196
+many-relevant,0,1.099404,93864
+retained-input-replay,0,1.358588,97324

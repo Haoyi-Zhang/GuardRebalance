@@ -1,0 +1,1183 @@
+{
+  "instances": 130,
+  "mismatches": 0,
+  "phase": "trees",
+  "records": [
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-000",
+      "optimizer_cost": 28,
+      "oracle_cost": 28,
+      "seed": 714031,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-001",
+      "optimizer_cost": 15,
+      "oracle_cost": 15,
+      "seed": 714032,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-002",
+      "optimizer_cost": 25,
+      "oracle_cost": 25,
+      "seed": 714033,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-003",
+      "optimizer_cost": 26,
+      "oracle_cost": 26,
+      "seed": 714034,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-004",
+      "optimizer_cost": 26,
+      "oracle_cost": 26,
+      "seed": 714035,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-005",
+      "optimizer_cost": 19,
+      "oracle_cost": 19,
+      "seed": 714036,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-006",
+      "optimizer_cost": 16,
+      "oracle_cost": 16,
+      "seed": 714037,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-007",
+      "optimizer_cost": 32,
+      "oracle_cost": 32,
+      "seed": 714038,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-008",
+      "optimizer_cost": 20,
+      "oracle_cost": 20,
+      "seed": 714039,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-009",
+      "optimizer_cost": 16,
+      "oracle_cost": 16,
+      "seed": 714040,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-010",
+      "optimizer_cost": 19,
+      "oracle_cost": 19,
+      "seed": 714041,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-011",
+      "optimizer_cost": 21,
+      "oracle_cost": 21,
+      "seed": 714042,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-012",
+      "optimizer_cost": 17,
+      "oracle_cost": 17,
+      "seed": 714043,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-013",
+      "optimizer_cost": 23,
+      "oracle_cost": 23,
+      "seed": 714044,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-014",
+      "optimizer_cost": 19,
+      "oracle_cost": 19,
+      "seed": 714045,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-015",
+      "optimizer_cost": 23,
+      "oracle_cost": 23,
+      "seed": 714046,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-016",
+      "optimizer_cost": 12,
+      "oracle_cost": 12,
+      "seed": 714047,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-017",
+      "optimizer_cost": 17,
+      "oracle_cost": 17,
+      "seed": 714048,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-018",
+      "optimizer_cost": 17,
+      "oracle_cost": 17,
+      "seed": 714049,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-019",
+      "optimizer_cost": 19,
+      "oracle_cost": 19,
+      "seed": 714050,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-020",
+      "optimizer_cost": 26,
+      "oracle_cost": 26,
+      "seed": 714051,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-021",
+      "optimizer_cost": 27,
+      "oracle_cost": 27,
+      "seed": 714052,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-022",
+      "optimizer_cost": 23,
+      "oracle_cost": 23,
+      "seed": 714053,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-023",
+      "optimizer_cost": 21,
+      "oracle_cost": 21,
+      "seed": 714054,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-024",
+      "optimizer_cost": 17,
+      "oracle_cost": 17,
+      "seed": 714055,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-025",
+      "optimizer_cost": 20,
+      "oracle_cost": 20,
+      "seed": 714056,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-026",
+      "optimizer_cost": 26,
+      "oracle_cost": 26,
+      "seed": 714057,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-027",
+      "optimizer_cost": 34,
+      "oracle_cost": 34,
+      "seed": 714058,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-028",
+      "optimizer_cost": 20,
+      "oracle_cost": 20,
+      "seed": 714059,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-029",
+      "optimizer_cost": 26,
+      "oracle_cost": 26,
+      "seed": 714060,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-030",
+      "optimizer_cost": 26,
+      "oracle_cost": 26,
+      "seed": 714061,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-031",
+      "optimizer_cost": 23,
+      "oracle_cost": 23,
+      "seed": 714062,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-032",
+      "optimizer_cost": 19,
+      "oracle_cost": 19,
+      "seed": 714063,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-033",
+      "optimizer_cost": 26,
+      "oracle_cost": 26,
+      "seed": 714064,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-034",
+      "optimizer_cost": 15,
+      "oracle_cost": 15,
+      "seed": 714065,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-035",
+      "optimizer_cost": 23,
+      "oracle_cost": 23,
+      "seed": 714066,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-036",
+      "optimizer_cost": 26,
+      "oracle_cost": 26,
+      "seed": 714067,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-037",
+      "optimizer_cost": 31,
+      "oracle_cost": 31,
+      "seed": 714068,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-038",
+      "optimizer_cost": 30,
+      "oracle_cost": 30,
+      "seed": 714069,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-039",
+      "optimizer_cost": 37,
+      "oracle_cost": 37,
+      "seed": 714070,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-040",
+      "optimizer_cost": 20,
+      "oracle_cost": 20,
+      "seed": 714071,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-041",
+      "optimizer_cost": 30,
+      "oracle_cost": 30,
+      "seed": 714072,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-042",
+      "optimizer_cost": 20,
+      "oracle_cost": 20,
+      "seed": 714073,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-043",
+      "optimizer_cost": 17,
+      "oracle_cost": 17,
+      "seed": 714074,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-044",
+      "optimizer_cost": 20,
+      "oracle_cost": 20,
+      "seed": 714075,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-045",
+      "optimizer_cost": 17,
+      "oracle_cost": 17,
+      "seed": 714076,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-046",
+      "optimizer_cost": 28,
+      "oracle_cost": 28,
+      "seed": 714077,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-047",
+      "optimizer_cost": 28,
+      "oracle_cost": 28,
+      "seed": 714078,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-048",
+      "optimizer_cost": 20,
+      "oracle_cost": 20,
+      "seed": 714079,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-049",
+      "optimizer_cost": 31,
+      "oracle_cost": 31,
+      "seed": 714080,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-050",
+      "optimizer_cost": 33,
+      "oracle_cost": 33,
+      "seed": 714081,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-051",
+      "optimizer_cost": 16,
+      "oracle_cost": 16,
+      "seed": 714082,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-052",
+      "optimizer_cost": 23,
+      "oracle_cost": 23,
+      "seed": 714083,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-053",
+      "optimizer_cost": 19,
+      "oracle_cost": 19,
+      "seed": 714084,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-054",
+      "optimizer_cost": 16,
+      "oracle_cost": 16,
+      "seed": 714085,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-055",
+      "optimizer_cost": 19,
+      "oracle_cost": 19,
+      "seed": 714086,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-056",
+      "optimizer_cost": 16,
+      "oracle_cost": 16,
+      "seed": 714087,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-057",
+      "optimizer_cost": 31,
+      "oracle_cost": 31,
+      "seed": 714088,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-058",
+      "optimizer_cost": 22,
+      "oracle_cost": 22,
+      "seed": 714089,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-059",
+      "optimizer_cost": 12,
+      "oracle_cost": 12,
+      "seed": 714090,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-060",
+      "optimizer_cost": 23,
+      "oracle_cost": 23,
+      "seed": 714091,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-061",
+      "optimizer_cost": 27,
+      "oracle_cost": 27,
+      "seed": 714092,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-062",
+      "optimizer_cost": 19,
+      "oracle_cost": 19,
+      "seed": 714093,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-063",
+      "optimizer_cost": 26,
+      "oracle_cost": 26,
+      "seed": 714094,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-064",
+      "optimizer_cost": 16,
+      "oracle_cost": 16,
+      "seed": 714095,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-065",
+      "optimizer_cost": 31,
+      "oracle_cost": 31,
+      "seed": 714096,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-066",
+      "optimizer_cost": 26,
+      "oracle_cost": 26,
+      "seed": 714097,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-067",
+      "optimizer_cost": 25,
+      "oracle_cost": 25,
+      "seed": 714098,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-068",
+      "optimizer_cost": 26,
+      "oracle_cost": 26,
+      "seed": 714099,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-069",
+      "optimizer_cost": 33,
+      "oracle_cost": 33,
+      "seed": 714100,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-070",
+      "optimizer_cost": 29,
+      "oracle_cost": 29,
+      "seed": 714101,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-071",
+      "optimizer_cost": 20,
+      "oracle_cost": 20,
+      "seed": 714102,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-072",
+      "optimizer_cost": 16,
+      "oracle_cost": 16,
+      "seed": 714103,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-073",
+      "optimizer_cost": 24,
+      "oracle_cost": 24,
+      "seed": 714104,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-074",
+      "optimizer_cost": 21,
+      "oracle_cost": 21,
+      "seed": 714105,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-075",
+      "optimizer_cost": 25,
+      "oracle_cost": 25,
+      "seed": 714106,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-076",
+      "optimizer_cost": 24,
+      "oracle_cost": 24,
+      "seed": 714107,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-077",
+      "optimizer_cost": 19,
+      "oracle_cost": 19,
+      "seed": 714108,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-078",
+      "optimizer_cost": 17,
+      "oracle_cost": 17,
+      "seed": 714109,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-079",
+      "optimizer_cost": 16,
+      "oracle_cost": 16,
+      "seed": 714110,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-080",
+      "optimizer_cost": 20,
+      "oracle_cost": 20,
+      "seed": 714111,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-081",
+      "optimizer_cost": 18,
+      "oracle_cost": 18,
+      "seed": 714112,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-082",
+      "optimizer_cost": 34,
+      "oracle_cost": 34,
+      "seed": 714113,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-083",
+      "optimizer_cost": 26,
+      "oracle_cost": 26,
+      "seed": 714114,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-084",
+      "optimizer_cost": 16,
+      "oracle_cost": 16,
+      "seed": 714115,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-085",
+      "optimizer_cost": 19,
+      "oracle_cost": 19,
+      "seed": 714116,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-086",
+      "optimizer_cost": 16,
+      "oracle_cost": 16,
+      "seed": 714117,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-087",
+      "optimizer_cost": 17,
+      "oracle_cost": 17,
+      "seed": 714118,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-088",
+      "optimizer_cost": 32,
+      "oracle_cost": 32,
+      "seed": 714119,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-089",
+      "optimizer_cost": 30,
+      "oracle_cost": 30,
+      "seed": 714120,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-090",
+      "optimizer_cost": 20,
+      "oracle_cost": 20,
+      "seed": 714121,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-091",
+      "optimizer_cost": 23,
+      "oracle_cost": 23,
+      "seed": 714122,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-092",
+      "optimizer_cost": 16,
+      "oracle_cost": 16,
+      "seed": 714123,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-093",
+      "optimizer_cost": 29,
+      "oracle_cost": 29,
+      "seed": 714124,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-094",
+      "optimizer_cost": 27,
+      "oracle_cost": 27,
+      "seed": 714125,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-095",
+      "optimizer_cost": 16,
+      "oracle_cost": 16,
+      "seed": 714126,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-096",
+      "optimizer_cost": 31,
+      "oracle_cost": 31,
+      "seed": 714127,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-097",
+      "optimizer_cost": 16,
+      "oracle_cost": 16,
+      "seed": 714128,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-098",
+      "optimizer_cost": 24,
+      "oracle_cost": 24,
+      "seed": 714129,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 4,
+      "bits": 2,
+      "id": "exact-099",
+      "optimizer_cost": 19,
+      "oracle_cost": 19,
+      "seed": 714130,
+      "tree_shapes_in_grammar": 9
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-100",
+      "optimizer_cost": 40,
+      "oracle_cost": 40,
+      "seed": 714131,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-101",
+      "optimizer_cost": 31,
+      "oracle_cost": 31,
+      "seed": 714132,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-102",
+      "optimizer_cost": 17,
+      "oracle_cost": 17,
+      "seed": 714133,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-103",
+      "optimizer_cost": 34,
+      "oracle_cost": 34,
+      "seed": 714134,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-104",
+      "optimizer_cost": 32,
+      "oracle_cost": 32,
+      "seed": 714135,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-105",
+      "optimizer_cost": 46,
+      "oracle_cost": 46,
+      "seed": 714136,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-106",
+      "optimizer_cost": 48,
+      "oracle_cost": 48,
+      "seed": 714137,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-107",
+      "optimizer_cost": 32,
+      "oracle_cost": 32,
+      "seed": 714138,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-108",
+      "optimizer_cost": 42,
+      "oracle_cost": 42,
+      "seed": 714139,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-109",
+      "optimizer_cost": 39,
+      "oracle_cost": 39,
+      "seed": 714140,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-110",
+      "optimizer_cost": 29,
+      "oracle_cost": 29,
+      "seed": 714141,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-111",
+      "optimizer_cost": 37,
+      "oracle_cost": 37,
+      "seed": 714142,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-112",
+      "optimizer_cost": 21,
+      "oracle_cost": 21,
+      "seed": 714143,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-113",
+      "optimizer_cost": 20,
+      "oracle_cost": 20,
+      "seed": 714144,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-114",
+      "optimizer_cost": 42,
+      "oracle_cost": 42,
+      "seed": 714145,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-115",
+      "optimizer_cost": 33,
+      "oracle_cost": 33,
+      "seed": 714146,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-116",
+      "optimizer_cost": 16,
+      "oracle_cost": 16,
+      "seed": 714147,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-117",
+      "optimizer_cost": 21,
+      "oracle_cost": 21,
+      "seed": 714148,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-118",
+      "optimizer_cost": 38,
+      "oracle_cost": 38,
+      "seed": 714149,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-119",
+      "optimizer_cost": 35,
+      "oracle_cost": 35,
+      "seed": 714150,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-120",
+      "optimizer_cost": 42,
+      "oracle_cost": 42,
+      "seed": 714151,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-121",
+      "optimizer_cost": 30,
+      "oracle_cost": 30,
+      "seed": 714152,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-122",
+      "optimizer_cost": 39,
+      "oracle_cost": 39,
+      "seed": 714153,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-123",
+      "optimizer_cost": 19,
+      "oracle_cost": 19,
+      "seed": 714154,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-124",
+      "optimizer_cost": 39,
+      "oracle_cost": 39,
+      "seed": 714155,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-125",
+      "optimizer_cost": 40,
+      "oracle_cost": 40,
+      "seed": 714156,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-126",
+      "optimizer_cost": 35,
+      "oracle_cost": 35,
+      "seed": 714157,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-127",
+      "optimizer_cost": 21,
+      "oracle_cost": 21,
+      "seed": 714158,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-128",
+      "optimizer_cost": 36,
+      "oracle_cost": 36,
+      "seed": 714159,
+      "tree_shapes_in_grammar": 244
+    },
+    {
+      "actions": 3,
+      "bits": 3,
+      "id": "exact-129",
+      "optimizer_cost": 32,
+      "oracle_cost": 32,
+      "seed": 714160,
+      "tree_shapes_in_grammar": 244
+    }
+  ],
+  "resource": {
+    "cpu_seconds": 0.8659164089999998,
+    "peak_rss_kib": 93352,
+    "wall_seconds": 0.8632009149999931,
+    "workers": 1
+  }
+}

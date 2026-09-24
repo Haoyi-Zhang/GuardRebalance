@@ -1,0 +1,39 @@
+{
+  "by_actions": [
+    {
+      "actions": 1,
+      "certificate_comparisons": 10,
+      "semantic_comparisons": 10
+    },
+    {
+      "actions": 2,
+      "certificate_comparisons": 125,
+      "semantic_comparisons": 125
+    },
+    {
+      "actions": 3,
+      "certificate_comparisons": 2000,
+      "semantic_comparisons": 2000
+    },
+    {
+      "actions": 4,
+      "certificate_comparisons": 40625,
+      "semantic_comparisons": 40625
+    },
+    {
+      "actions": 5,
+      "certificate_comparisons": 3125,
+      "semantic_comparisons": 1018750
+    }
+  ],
+  "certificate_comparisons": 45885,
+  "mismatches": 0,
+  "phase": "exhaustive",
+  "resource": {
+    "cpu_seconds": 10.818313604,
+    "peak_rss_kib": 92592,
+    "wall_seconds": 10.81754624100006,
+    "workers": 1
+  },
+  "semantic_comparisons": 1061510
+}

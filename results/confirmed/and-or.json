@@ -1,0 +1,12 @@
+{
+  "families": 512,
+  "feasible_families": 121,
+  "mismatches": 0,
+  "phase": "and-or",
+  "resource": {
+    "cpu_seconds": 0.010916186999999855,
+    "peak_rss_kib": 92716,
+    "wall_seconds": 0.007043578999969213,
+    "workers": 1
+  }
+}

@@ -1,0 +1,709 @@
+{
+  "accepted": false,
+  "bare_exception_handlers": [],
+  "broad_exception_handlers": [
+    [
+      "artifact/pccfr/certificate.py",
+      [
+        50
+      ]
+    ]
+  ],
+  "command_failures": [
+    {
+      "cmd": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/mnt/data/pccfr-final-blind/proof-carrying-control-flow-predication-rebalancing/artifact/tests",
+        "-v"
+      ],
+      "returncode": 1
+    }
+  ],
+  "commands": [
+    {
+      "cmd": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "compileall",
+        "-q",
+        "/mnt/data/pccfr-final-blind/proof-carrying-control-flow-predication-rebalancing/artifact"
+      ],
+      "returncode": 0,
+      "seconds": 0.698,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "cmd": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/mnt/data/pccfr-final-blind/proof-carrying-control-flow-predication-rebalancing/artifact/tests",
+        "-v"
+      ],
+      "returncode": 1,
+      "seconds": 0.713,
+      "stderr": "test_core (unittest.loader._FailedTest.test_core) ... ERROR\ntest_two_state (unittest.loader._FailedTest.test_two_state) ... ERROR\n\n======================================================================\nERROR: test_core (unittest.loader._FailedTest.test_core)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_core\nTraceback (most recent call last):\n  File \"/usr/lib/python3.13/unittest/loader.py\", line 396, in _find_test_path\n    module = self._get_module_from_name(name)\n  File \"/usr/lib/python3.13/unittest/loader.py\", line 339, in _get_module_from_name\n    __import__(name)\n    ~~~~~~~~~~^^^^^^\n  File \"/mnt/data/pccfr-final-blind/proof-carrying-control-flow-predication-rebalancing/artifact/tests/test_core.py\", line 7, in <module>\n    from pccfr.bytecode import ObjectFormatError, decode_object, encode_object\nModuleNotFoundError: No module named 'pccfr'\n\n\n======================================================================\nERROR: test_two_state (unittest.loader._FailedTest.test_two_state)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_two_state\nTraceback (most recent call last):\n  File \"/usr/lib/python3.13/unittest/loader.py\", line 396, in _find_test_path\n    module = self._get_module_from_name(name)\n  File \"/usr/lib/python3.13/unittest/loader.py\", line 339, in _get_module_from_name\n    __import__(name)\n    ~~~~~~~~~~^^^^^^\n  File \"/mnt/data/pccfr-final-blind/proof-carrying-control-flow-predication-rebalancing/artifact/tests/test_two_state.py\", line 6, in <module>\n    from pccfr.frontier import frontier_valid, witness_valid\nModuleNotFoundError: No module named 'pccfr'\n\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nFAILED (errors=2)\n",
+      "stdout": ""
+    }
+  ],
+  "features": {
+    "explicit_tree_shape_oracle": false,
+    "heldout_or_robustness": true,
+    "independent_node_verifier": false,
+    "restricted_ir_extractor": false,
+    "search_refusal": true,
+    "strict_json": false
+  },
+  "javascript_files": 0,
+  "network_in_shell_scripts": [],
+  "python_files": 19,
+  "python_files_detail": [
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [],
+      "file": "artifact/run.py",
+      "functions": [
+        "command_optimize",
+        "command_check",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "argparse",
+        "json",
+        "pathlib",
+        "pccfr.bytecode",
+        "pccfr.certificate",
+        "pccfr.model",
+        "pccfr.optimize",
+        "pccfr.util",
+        "sys"
+      ],
+      "loc": 71,
+      "pass_except_lines": [],
+      "sloc": 60,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [],
+      "file": "artifact/experiment.py",
+      "functions": [
+        "_apply_limits",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "argparse",
+        "pathlib",
+        "pccfr.campaign",
+        "pccfr.util",
+        "resource"
+      ],
+      "loc": 40,
+      "pass_except_lines": [],
+      "sloc": 29,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [],
+      "file": "artifact/verify_results.py",
+      "functions": [
+        "normalized",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "argparse",
+        "json",
+        "pathlib",
+        "typing"
+      ],
+      "loc": 58,
+      "pass_except_lines": [],
+      "sloc": 47,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [],
+      "file": "artifact/robustness.py",
+      "functions": [
+        "shape",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "hashlib",
+        "json",
+        "os",
+        "pathlib",
+        "subprocess",
+        "sys"
+      ],
+      "loc": 43,
+      "pass_except_lines": [],
+      "sloc": 39,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [],
+      "file": "artifact/reproduce.py",
+      "functions": [
+        "_apply_limits",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "argparse",
+        "pathlib",
+        "pccfr.campaign",
+        "pccfr.util",
+        "resource",
+        "time"
+      ],
+      "loc": 62,
+      "pass_except_lines": [],
+      "sloc": 45,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [],
+      "file": "artifact/paper_data.py",
+      "functions": [
+        "write_csv",
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "argparse",
+        "csv",
+        "pathlib",
+        "pccfr.util",
+        "statistics"
+      ],
+      "loc": 54,
+      "pass_except_lines": [],
+      "sloc": 45,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [],
+      "file": "artifact/replay_inputs.py",
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "__future__",
+        "argparse",
+        "pathlib",
+        "pccfr.optimize",
+        "pccfr.util",
+        "resource",
+        "time"
+      ],
+      "loc": 77,
+      "pass_except_lines": [],
+      "sloc": 70,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 1,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [
+        "SearchRefusal"
+      ],
+      "file": "artifact/pccfr/optimize.py",
+      "functions": [
+        "_leaf_cost",
+        "_better",
+        "candidate_space",
+        "_selected_solution",
+        "optimize_leaf",
+        "direct_leaf_optimum",
+        "_tree_key",
+        "optimize_tree",
+        "fully_split_cost",
+        "branchless_cost",
+        "origin_refined_model",
+        "tree_shape_count",
+        "flatten_leaves",
+        "__init__",
+        "solve"
+      ],
+      "imports": [
+        "__future__",
+        "copy",
+        "frontier",
+        "functools",
+        "itertools",
+        "math",
+        "model",
+        "schedule",
+        "typing"
+      ],
+      "loc": 279,
+      "pass_except_lines": [],
+      "sloc": 241,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [
+        50
+      ],
+      "classes": [
+        "CertificateError"
+      ],
+      "file": "artifact/pccfr/certificate.py",
+      "functions": [
+        "make_certificate",
+        "_reject",
+        "check_certificate"
+      ],
+      "imports": [
+        "__future__",
+        "bytecode",
+        "frontier",
+        "model",
+        "optimize",
+        "typing"
+      ],
+      "loc": 116,
+      "pass_except_lines": [],
+      "sloc": 103,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [],
+      "file": "artifact/pccfr/frontier.py",
+      "functions": [
+        "_positions",
+        "frontier_valid",
+        "direct_and_frontier_agree",
+        "witness_valid",
+        "canonical_witness",
+        "requirements",
+        "selected_constraints"
+      ],
+      "imports": [
+        "__future__",
+        "model",
+        "typing"
+      ],
+      "loc": 161,
+      "pass_except_lines": [],
+      "sloc": 134,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [],
+      "file": "artifact/pccfr/schedule.py",
+      "functions": [
+        "ready_schedule",
+        "conditions_hold"
+      ],
+      "imports": [
+        "__future__",
+        "frontier",
+        "typing"
+      ],
+      "loc": 46,
+      "pass_except_lines": [],
+      "sloc": 39,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [],
+      "file": "artifact/pccfr/__init__.py",
+      "functions": [],
+      "imports": [],
+      "loc": 1,
+      "pass_except_lines": [],
+      "sloc": 1,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 1,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [],
+      "file": "artifact/pccfr/campaign.py",
+      "functions": [
+        "_certificate_exists",
+        "phase_exhaustive",
+        "phase_two_state",
+        "_save_model",
+        "phase_trees",
+        "_all_waiting_conditions",
+        "phase_andor",
+        "_min_vertex_cover",
+        "phase_graphs",
+        "phase_observer_gap",
+        "phase_baselines",
+        "_leaf_object",
+        "_semantic_cases",
+        "phase_controls",
+        "_solution_cost",
+        "_sparsify",
+        "phase_search",
+        "phase_padding",
+        "phase_many_relevant",
+        "phase_replay",
+        "m"
+      ],
+      "imports": [
+        "__future__",
+        "bytecode",
+        "certificate",
+        "copy",
+        "frontier",
+        "generate",
+        "itertools",
+        "math",
+        "model",
+        "optimize",
+        "pathlib",
+        "random",
+        "schedule",
+        "typing",
+        "util"
+      ],
+      "loc": 541,
+      "pass_except_lines": [],
+      "sloc": 480,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [],
+      "file": "artifact/pccfr/util.py",
+      "functions": [
+        "write_json",
+        "read_json",
+        "measure",
+        "atomic_write"
+      ],
+      "imports": [
+        "__future__",
+        "json",
+        "os",
+        "pathlib",
+        "resource",
+        "time",
+        "typing"
+      ],
+      "loc": 41,
+      "pass_except_lines": [],
+      "sloc": 32,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [
+        "ObjectFormatError",
+        "_Cursor"
+      ],
+      "file": "artifact/pccfr/bytecode.py",
+      "functions": [
+        "_encode_node",
+        "encode_object",
+        "_decode_node",
+        "decode_object",
+        "take",
+        "u8",
+        "u16"
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "model",
+        "typing"
+      ],
+      "loc": 153,
+      "pass_except_lines": [],
+      "sloc": 135,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [],
+      "file": "artifact/pccfr/generate.py",
+      "functions": [
+        "silent",
+        "emit",
+        "fault",
+        "effective_outcome",
+        "one_row_profile",
+        "two_row_profiles",
+        "random_model",
+        "graph_model",
+        "graph_edges",
+        "observer_gap_model",
+        "pad_actions",
+        "many_relevant_model",
+        "feasible_random_model"
+      ],
+      "imports": [
+        "__future__",
+        "copy",
+        "itertools",
+        "math",
+        "random",
+        "typing"
+      ],
+      "loc": 149,
+      "pass_except_lines": [],
+      "sloc": 122,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [
+        "ModelError"
+      ],
+      "file": "artifact/pccfr/model.py",
+      "functions": [
+        "freeze",
+        "validate_model",
+        "rows_by_input",
+        "observe",
+        "source_observation",
+        "valid_on_rows",
+        "source_summary",
+        "cell_inputs",
+        "cell_rows",
+        "split_cell",
+        "free_bits",
+        "partial_permutations",
+        "guard_vector",
+        "guard_true_on_cell",
+        "guard_mask_bytes",
+        "object_action_cost"
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "itertools",
+        "typing"
+      ],
+      "loc": 203,
+      "pass_except_lines": [],
+      "sloc": 166,
+      "syntax_ok": true,
+      "test_functions": [],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [
+        "TwoStateBoundaryTests"
+      ],
+      "file": "artifact/tests/test_two_state.py",
+      "functions": [
+        "test_all_effective_two_action_profiles"
+      ],
+      "imports": [
+        "__future__",
+        "itertools",
+        "pccfr.frontier",
+        "pccfr.generate",
+        "pccfr.model",
+        "unittest"
+      ],
+      "loc": 29,
+      "pass_except_lines": [],
+      "sloc": 23,
+      "syntax_ok": true,
+      "test_functions": [
+        "test_all_effective_two_action_profiles"
+      ],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    },
+    {
+      "assert_count": 0,
+      "bare_except_lines": [],
+      "broad_except_lines": [],
+      "classes": [
+        "CoreTests"
+      ],
+      "file": "artifact/tests/test_core.py",
+      "functions": [
+        "test_frontier_exhaustive_three_actions",
+        "test_witness_equivalence",
+        "test_non_poset_four_orders",
+        "test_ready_schedule",
+        "test_ready_schedule_obstruction",
+        "test_graph_selection_matches_cover",
+        "test_leaf_optimizers_agree",
+        "test_tree_optimizer_oracle",
+        "test_observer_gap",
+        "test_bytecode_round_trip",
+        "test_certificate_round_trip",
+        "test_budget_rejection",
+        "test_object_mutation_rejected",
+        "test_explicit_search_refusal",
+        "test_model_validation_rejects_incomplete_domain"
+      ],
+      "imports": [
+        "__future__",
+        "copy",
+        "itertools",
+        "pccfr.bytecode",
+        "pccfr.certificate",
+        "pccfr.frontier",
+        "pccfr.generate",
+        "pccfr.model",
+        "pccfr.optimize",
+        "pccfr.schedule",
+        "unittest"
+      ],
+      "loc": 124,
+      "pass_except_lines": [],
+      "sloc": 104,
+      "syntax_ok": true,
+      "test_functions": [
+        "test_frontier_exhaustive_three_actions",
+        "test_witness_equivalence",
+        "test_non_poset_four_orders",
+        "test_ready_schedule",
+        "test_ready_schedule_obstruction",
+        "test_graph_selection_matches_cover",
+        "test_leaf_optimizers_agree",
+        "test_tree_optimizer_oracle",
+        "test_observer_gap",
+        "test_bytecode_round_trip",
+        "test_certificate_round_trip",
+        "test_budget_rejection",
+        "test_object_mutation_rejected",
+        "test_explicit_search_refusal",
+        "test_model_validation_rejects_incomplete_domain"
+      ],
+      "todo_lines": [],
+      "unseeded_random_lines": []
+    }
+  ],
+  "python_loc": 2248,
+  "python_sloc": 1915,
+  "root": "/mnt/data/pccfr-final-blind/proof-carrying-control-flow-predication-rebalancing",
+  "shell_files": 3,
+  "shell_files_detail": [
+    {
+      "file": "artifact/reproduce-clean.sh",
+      "has_set_e": true,
+      "loc": 14,
+      "network_lines": []
+    },
+    {
+      "file": "artifact/reproduce-review.sh",
+      "has_set_e": true,
+      "loc": 5,
+      "network_lines": []
+    },
+    {
+      "file": "paper/build.sh",
+      "has_set_e": true,
+      "loc": 31,
+      "network_lines": []
+    }
+  ],
+  "silent_exception_handlers": [],
+  "test_function_count": 16,
+  "todos": []
+}

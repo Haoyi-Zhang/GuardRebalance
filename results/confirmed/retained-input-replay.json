@@ -1,0 +1,19 @@
+{
+  "families": {
+    "baseline": 64,
+    "exact": 130,
+    "joint": 128,
+    "many": 5,
+    "padding": 64
+  },
+  "input_acquisition": "retained exact JSON tables; no pseudorandom generation",
+  "input_tables_loaded": 391,
+  "mismatches": 0,
+  "phase": "retained-input-replay",
+  "resource": {
+    "cpu_seconds": 1.358587935,
+    "peak_rss_kib": 97324,
+    "wall_seconds": 1.3587121790000083,
+    "workers": 1
+  }
+}

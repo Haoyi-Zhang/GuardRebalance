@@ -1,0 +1,11 @@
+{
+  "comparisons": 12500,
+  "mismatches": 0,
+  "phase": "two-state",
+  "resource": {
+    "cpu_seconds": 0.417398068,
+    "peak_rss_kib": 92712,
+    "wall_seconds": 0.4165703080000185,
+    "workers": 1
+  }
+}

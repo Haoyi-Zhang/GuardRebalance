@@ -1,0 +1,7 @@
+name,scholarly_or_official_url,license,access_date,resource_type,acquisition_method,integration_mode,supported_claim,internals_modified
+ACM acmart template,https://www.acm.org/publications/authors/submissions,LPPL / upstream notices,2026-09-15,publisher template,supplied TEMPLATE.zip,unmodified class/bst in paper,layout contract,no
+August et al. 1997,https://doi.org/10.1109/MICRO.1997.645801,publisher copyright; scholarly use,2026-09-15,paper,public author-hosted PDF,literature only,historical predication framework and boundary,no
+Möhring et al. 2004,https://doi.org/10.1137/S009753970037727X,publisher copyright; scholarly use,2026-09-15,paper,scholarly record/full text,literature/proof attribution,known AND/OR ready algorithm,no
+Karp 1972,https://doi.org/10.1007/978-1-4684-2001-2_9,publisher copyright; scholarly use,2026-09-15,paper,scholarly record,literature/proof attribution,Vertex Cover NP-completeness source,no
+Alive2,https://doi.org/10.1145/3453483.3454030,scholarly publication; project separately licensed,2026-09-15,paper/software,publication and public project records,literature only,translation-validation boundary,no
+Python standard library,https://docs.python.org/3/,PSF License,2026-09-15,runtime,preinstalled environment,runtime dependency,implementation,no

@@ -1,0 +1,431 @@
+{
+  "entry_count": 60,
+  "quality_counts": {
+    "scholarly-publication": 59,
+    "other": 1
+  },
+  "rows": [
+    {
+      "key": "angelino2018",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Learning Certifiably Optimal Rule Lists for Categorical Data",
+      "venue": "Journal of Machine Learning Research"
+    },
+    {
+      "key": "august1997",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "A Framework for Balancing Control Flow and Predication",
+      "venue": "Proceedings of the 30th Annual IEEE/ACM International Symposium on Microarchitecture"
+    },
+    {
+      "key": "allen1983",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Conversion of Control Dependence to Data Dependence",
+      "venue": "Proceedings of the 10th ACM SIGACT-SIGPLAN Symposium on Principles of Programming Languages"
+    },
+    {
+      "key": "mahlke1992",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Effective Compiler Support for Predicated Execution Using the Hyperblock",
+      "venue": "Proceedings of the 25th Annual International Symposium on Microarchitecture"
+    },
+    {
+      "key": "mahlke1994",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "A Comparison of Full and Partial Predicated Execution Support for {ILP} Processors",
+      "venue": "Proceedings of the 22nd Annual International Symposium on Computer Architecture"
+    },
+    {
+      "key": "tyson1994",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "The Effects of Predicated Execution on Branch Prediction",
+      "venue": "Proceedings of the 27th Annual International Symposium on Microarchitecture"
+    },
+    {
+      "key": "chuang2003",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Phi-Predication for Light-Weight If-Conversion",
+      "venue": "Proceedings of the International Symposium on Code Generation and Optimization"
+    },
+    {
+      "key": "park1991",
+      "type": "techreport",
+      "quality_class": "other",
+      "title": "On Predicated Execution",
+      "venue": ""
+    },
+    {
+      "key": "johnson1996",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Analysis Techniques for Predicated Code",
+      "venue": "Proceedings of the 29th Annual IEEE/ACM International Symposium on Microarchitecture"
+    },
+    {
+      "key": "gillies1996",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Global Predicate Analysis and Its Application to Register Allocation",
+      "venue": "Proceedings of the 29th Annual IEEE/ACM International Symposium on Microarchitecture"
+    },
+    {
+      "key": "mahlke1994branch",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Characterizing the Impact of Predicated Execution on Branch Prediction",
+      "venue": "Proceedings of the 27th Annual International Symposium on Microarchitecture"
+    },
+    {
+      "key": "eichenberger1996",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Speculative Execution Using Guarded Predicates",
+      "venue": "Proceedings of the 29th Annual IEEE/ACM International Symposium on Microarchitecture"
+    },
+    {
+      "key": "hsu1986",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Highly Concurrent Scalar Processing",
+      "venue": "Proceedings of the 13th Annual International Symposium on Computer Architecture"
+    },
+    {
+      "key": "dehnert1989",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Overlapped Loop Support in the {Cydra 5}",
+      "venue": "Proceedings of the Third International Conference on Architectural Support for Programming Languages and Operating Systems"
+    },
+    {
+      "key": "rau1989",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "The {Cydra 5} Departmental Supercomputer: Design Philosophies, Decisions, and Trade-Offs",
+      "venue": "Computer"
+    },
+    {
+      "key": "fisher1981",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Trace Scheduling: A Technique for Global Microcode Compaction",
+      "venue": "IEEE Transactions on Computers"
+    },
+    {
+      "key": "han2013",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Power-Efficient Predication Techniques for Acceleration of Control Flow Execution on {CGRA}",
+      "venue": "ACM Transactions on Architecture and Code Optimization"
+    },
+    {
+      "key": "moll2018",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Partial Control-Flow Linearization",
+      "venue": "Proceedings of the 39th ACM SIGPLAN Conference on Programming Language Design and Implementation"
+    },
+    {
+      "key": "li2025",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Eliminate Branches by Melding {IR} Instructions",
+      "venue": "arXiv preprint arXiv:2512.22390"
+    },
+    {
+      "key": "ferrante1987",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "The Program Dependence Graph and Its Use in Optimization",
+      "venue": "ACM Transactions on Programming Languages and Systems"
+    },
+    {
+      "key": "cytron1991",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Efficiently Computing Static Single Assignment Form and the Control Dependence Graph",
+      "venue": "ACM Transactions on Programming Languages and Systems"
+    },
+    {
+      "key": "kildall1973",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "A Unified Approach to Global Program Optimization",
+      "venue": "Proceedings of the 1st Annual ACM SIGACT-SIGPLAN Symposium on Principles of Programming Languages"
+    },
+    {
+      "key": "lattner2004",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "{LLVM}: A Compilation Framework for Lifelong Program Analysis and Transformation",
+      "venue": "Proceedings of the International Symposium on Code Generation and Optimization"
+    },
+    {
+      "key": "lattner2021",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "{MLIR}: Scaling Compiler Infrastructure for Domain Specific Computation",
+      "venue": "Proceedings of the IEEE/ACM International Symposium on Code Generation and Optimization"
+    },
+    {
+      "key": "muchnick1997",
+      "type": "book",
+      "quality_class": "scholarly-publication",
+      "title": "Advanced Compiler Design and Implementation",
+      "venue": "Morgan Kaufmann"
+    },
+    {
+      "key": "aho2006",
+      "type": "book",
+      "quality_class": "scholarly-publication",
+      "title": "Compilers: Principles, Techniques, and Tools",
+      "venue": "Addison-Wesley"
+    },
+    {
+      "key": "appel1998",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "{SSA} Is Functional Programming",
+      "venue": "ACM SIGPLAN Notices"
+    },
+    {
+      "key": "pnueli1998",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Translation Validation",
+      "venue": "Tools and Algorithms for the Construction and Analysis of Systems"
+    },
+    {
+      "key": "necula2000",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Translation Validation for an Optimizing Compiler",
+      "venue": "Proceedings of the ACM SIGPLAN 2000 Conference on Programming Language Design and Implementation"
+    },
+    {
+      "key": "tristan2010",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "A Simple, Verified Validator for Software Pipelining",
+      "venue": "Proceedings of the 37th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages"
+    },
+    {
+      "key": "leroy2009",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Formal Verification of a Realistic Compiler",
+      "venue": "Communications of the ACM"
+    },
+    {
+      "key": "leroy2006",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Formal Certification of a Compiler Back-End or: Programming a Compiler with a Proof Assistant",
+      "venue": "Proceedings of the 33rd ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages"
+    },
+    {
+      "key": "lopes2021",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "{Alive2}: Bounded Translation Validation for {LLVM}",
+      "venue": "Proceedings of the 42nd ACM SIGPLAN International Conference on Programming Language Design and Implementation"
+    },
+    {
+      "key": "lopes2015",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Provably Correct Peephole Optimizations with {Alive}",
+      "venue": "Proceedings of the 36th ACM SIGPLAN Conference on Programming Language Design and Implementation"
+    },
+    {
+      "key": "zhao2012",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Formalizing the {LLVM} Intermediate Representation for Verified Program Transformations",
+      "venue": "Proceedings of the 39th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages"
+    },
+    {
+      "key": "le2014",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Compiler Validation via Equivalence Modulo Inputs",
+      "venue": "Proceedings of the 35th ACM SIGPLAN Conference on Programming Language Design and Implementation"
+    },
+    {
+      "key": "yang2011",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Finding and Understanding Bugs in {C} Compilers",
+      "venue": "Proceedings of the 32nd ACM SIGPLAN Conference on Programming Language Design and Implementation"
+    },
+    {
+      "key": "zuck2003",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Translation and Run-Time Validation of Loop Transformations",
+      "venue": "Formal Methods in Computer-Aided Design"
+    },
+    {
+      "key": "zhang2025",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "{CF-GKAT}: Efficient Validation of Control-Flow Transformations",
+      "venue": "Proceedings of the ACM on Programming Languages"
+    },
+    {
+      "key": "zhang2026",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Outrunning Big {KATs}: Efficient Decision Procedures for Variants of {GKAT}",
+      "venue": "arXiv preprint arXiv:2601.09986"
+    },
+    {
+      "key": "kozen1997",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Kleene Algebra with Tests",
+      "venue": "ACM Transactions on Programming Languages and Systems"
+    },
+    {
+      "key": "smolka2020",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Guarded Kleene Algebra with Tests: Verification of Uninterpreted Programs in Nearly Linear Time",
+      "venue": "Proceedings of the ACM on Programming Languages"
+    },
+    {
+      "key": "mohring2004",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Scheduling with {AND/OR} Precedence Constraints",
+      "venue": "SIAM Journal on Computing"
+    },
+    {
+      "key": "karp1972",
+      "type": "incollection",
+      "quality_class": "scholarly-publication",
+      "title": "Reducibility among Combinatorial Problems",
+      "venue": "Complexity of Computer Computations"
+    },
+    {
+      "key": "shobaki2009",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Optimal Trace Scheduling Using Enumeration",
+      "venue": "ACM Transactions on Architecture and Code Optimization"
+    },
+    {
+      "key": "shobaki2013",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Preallocation Instruction Scheduling with Register Pressure Minimization Using a Combinatorial Optimization Approach",
+      "venue": "ACM Transactions on Architecture and Code Optimization"
+    },
+    {
+      "key": "shobaki2019",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Exploring an Alternative Cost Function for Combinatorial Register-Pressure-Aware Instruction Scheduling",
+      "venue": "ACM Transactions on Architecture and Code Optimization"
+    },
+    {
+      "key": "shobaki2022",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Register-Pressure-Aware Instruction Scheduling Using Ant Colony Optimization",
+      "venue": "ACM Transactions on Architecture and Code Optimization"
+    },
+    {
+      "key": "wilken2000",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Optimal Instruction Scheduling Using Integer Programming",
+      "venue": "Proceedings of the ACM SIGPLAN 2000 Conference on Programming Language Design and Implementation"
+    },
+    {
+      "key": "castaneda2019",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Combinatorial Register Allocation and Instruction Scheduling",
+      "venue": "ACM Transactions on Programming Languages and Systems"
+    },
+    {
+      "key": "pompougnac2022",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Weaving Synchronous Reactions into the Fabric of {SSA}-Form Compilers",
+      "venue": "ACM Transactions on Architecture and Code Optimization"
+    },
+    {
+      "key": "zhou2016",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "A Compiler Approach for Exploiting Partial {SIMD} Parallelism",
+      "venue": "ACM Transactions on Architecture and Code Optimization"
+    },
+    {
+      "key": "cherubin2020",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Dynamic Precision Autotuning with {TAFFO}",
+      "venue": "ACM Transactions on Architecture and Code Optimization"
+    },
+    {
+      "key": "na2016",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "A {JavaScript} Parallelizing Compiler for Exploiting Parallelism from Data-Parallel {HTML5} Applications",
+      "venue": "ACM Transactions on Architecture and Code Optimization"
+    },
+    {
+      "key": "hyafil1976",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Constructing Optimal Binary Decision Trees Is {NP}-Complete",
+      "venue": "Information Processing Letters"
+    },
+    {
+      "key": "quinlan1986",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Induction of Decision Trees",
+      "venue": "Machine Learning"
+    },
+    {
+      "key": "bryant1986",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Graph-Based Algorithms for Boolean Function Manipulation",
+      "venue": "IEEE Transactions on Computers"
+    },
+    {
+      "key": "debray2000",
+      "type": "article",
+      "quality_class": "scholarly-publication",
+      "title": "Compiler Techniques for Code Compaction",
+      "venue": "ACM Transactions on Programming Languages and Systems"
+    },
+    {
+      "key": "ball1994",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "Optimally Profiling and Tracing Programs",
+      "venue": "Proceedings of the 19th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages"
+    },
+    {
+      "key": "bala2000",
+      "type": "inproceedings",
+      "quality_class": "scholarly-publication",
+      "title": "{Dynamo}: A Transparent Dynamic Optimization System",
+      "venue": "Proceedings of the ACM SIGPLAN 2000 Conference on Programming Language Design and Implementation"
+    }
+  ],
+  "strong_claims_supported_only_by_weak_records": [],
+  "accepted": true
+}

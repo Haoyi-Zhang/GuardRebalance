@@ -1,0 +1,24 @@
+{
+  "cumulative_cpu_seconds": 17.303812678,
+  "driver_and_child_cpu_seconds": null,
+  "driver_wall_seconds": null,
+  "maximum_process_peak_rss_kib": 97324,
+  "mismatches": 0,
+  "note": "Core phases were executed sequentially; aggregate driver timings are intentionally omitted from this retained synthesis because the interactive runner split the command at its wall-time boundary.",
+  "phase_order": [
+    "exhaustive",
+    "two-state",
+    "trees",
+    "and-or",
+    "graphs",
+    "observer-gap",
+    "baselines",
+    "controls",
+    "search",
+    "padding",
+    "many-relevant",
+    "retained-input-replay"
+  ],
+  "phases": 12,
+  "workers": 1
+}

@@ -1,0 +1,731 @@
+{
+  "actions": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "input_bits": 2,
+  "rows": [
+    {
+      "input": 0,
+      "outcomes": [
+        {
+          "guard": true,
+          "kind": "emit",
+          "value": [
+            0,
+            0
+          ]
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": false,
+          "kind": "fault",
+          "value": 0
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": 2
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        }
+      ],
+      "source": [
+        3,
+        4,
+        0,
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ]
+    },
+    {
+      "input": 1,
+      "outcomes": [
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": 2
+        },
+        {
+          "guard": false,
+          "kind": "fault",
+          "value": 0
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": 0
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        }
+      ],
+      "source": [
+        3,
+        4,
+        0,
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ]
+    },
+    {
+      "input": 2,
+      "outcomes": [
+        {
+          "guard": true,
+          "kind": "emit",
+          "value": [
+            2,
+            0
+          ]
+        },
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": 0
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "emit",
+          "value": [
+            2,
+            1
+          ]
+        },
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": 1
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        }
+      ],
+      "source": [
+        3,
+        4,
+        0,
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ]
+    },
+    {
+      "input": 3,
+      "outcomes": [
+        {
+          "guard": false,
+          "kind": "fault",
+          "value": 0
+        },
+        {
+          "guard": false,
+          "kind": "fault",
+          "value": 0
+        },
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": 1
+        },
+        {
+          "guard": false,
+          "kind": "fault",
+          "value": 0
+        },
+        {
+          "guard": false,
+          "kind": "fault",
+          "value": 0
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        }
+      ],
+      "source": [
+        3,
+        4,
+        0,
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ]
+    }
+  ]
+}

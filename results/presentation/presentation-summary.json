@@ -1,0 +1,82 @@
+{
+  "baseline_summary": [
+    {
+      "maximum": 115,
+      "median": 28.0,
+      "method": "exact_private_tree",
+      "minimum": 12
+    },
+    {
+      "maximum": 168,
+      "median": 56.5,
+      "method": "fully_split",
+      "minimum": 20
+    },
+    {
+      "maximum": 122,
+      "median": 30.5,
+      "method": "origin_refined",
+      "minimum": 12
+    },
+    {
+      "maximum": 28,
+      "median": 17,
+      "method": "branchless_feasible_only",
+      "minimum": 12
+    }
+  ],
+  "campaign": {
+    "cumulative_cpu_seconds": 17.303812678,
+    "driver_and_child_cpu_seconds": null,
+    "driver_wall_seconds": null,
+    "maximum_process_peak_rss_kib": 97324,
+    "mismatches": 0,
+    "note": "Core phases were executed sequentially; aggregate driver timings are intentionally omitted from this retained synthesis because the interactive runner split the command at its wall-time boundary.",
+    "phase_order": [
+      "exhaustive",
+      "two-state",
+      "trees",
+      "and-or",
+      "graphs",
+      "observer-gap",
+      "baselines",
+      "controls",
+      "search",
+      "padding",
+      "many-relevant",
+      "retained-input-replay"
+    ],
+    "phases": 12,
+    "workers": 1
+  },
+  "observer_gap": [
+    {
+      "coarse_bytes": 12,
+      "expected_refined_bytes": 12,
+      "input_bits": 0,
+      "inputs": 1,
+      "refined_bytes": 12
+    },
+    {
+      "coarse_bytes": 12,
+      "expected_refined_bytes": 20,
+      "input_bits": 1,
+      "inputs": 2,
+      "refined_bytes": 20
+    },
+    {
+      "coarse_bytes": 12,
+      "expected_refined_bytes": 36,
+      "input_bits": 2,
+      "inputs": 4,
+      "refined_bytes": 36
+    },
+    {
+      "coarse_bytes": 12,
+      "expected_refined_bytes": 68,
+      "input_bits": 3,
+      "inputs": 8,
+      "refined_bytes": 68
+    }
+  ]
+}

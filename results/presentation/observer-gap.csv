@@ -1,0 +1,5 @@
+input_bits,inputs,coarse_bytes,refined_bytes,expected_refined_bytes
+0,1,12,12,12
+1,2,12,20,20
+2,4,12,36,36
+3,8,12,68,68

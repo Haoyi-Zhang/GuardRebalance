@@ -1,0 +1,69 @@
+{
+  "sentence_count": 602,
+  "long_sentences": [
+    {
+      "words": 136,
+      "text": "tikzpicture [ box/.style= draw,rounded corners=1pt,minimum height=9mm,minimum width=25mm,align=center,font= , arr/.style= - Stealth[length=2mm] ,thick , node distance=11mm and 8mm ] (model) finite model\\ rows ; (summary) prefixes, faults,\\ sets, barriers ; (search) exact leaf search\\ tree DP ; (object) canonical object\\ certificate ; (checker) independent decode\\ frontier replay ; (verdict) accept / reject\\ budget ; (model) -- (summary); (summary) -- (search); (search) -- (object); (object) -- ("
+    },
+    {
+      "words": 126,
+      "text": "; tikzpicture tikzpicture axis [ width=.83 , height=53mm, xlabel= entry bits b , ylabel= bytes , xtick= 0,1,2,3 , ytick= 0,12,20,36,68 , ymin=0,ymax=74, grid=major, legend style= font= ,at= (0.03,0.97) ,anchor=north west , mark size=2.2pt ] +[mark=*] coordinates (0,12) (1,12) (2,12) (3,12) ; coarse signature +[mark=square*] coordinates (0,12) (1,20) (2,36) (3,68) ; origin-refined axis tikzpicture acmart amsmath mathtools booktabs array enumitem tikz pgfplots xspace arrows.meta,positioning,fit,ca"
+    },
+    {
+      "words": 80,
+      "text": "The work makes four contributions within that declared boundary: enumerate [leftmargin=*,itemsep=2pt] an exact fault-frontier characterization and a single-witness certificate for finite snapshot actions; a representation theorem for full-permutation legality, a smallest non-poset example, and a unique-versus-shared representative complexity boundary; completion, frontier sparsification, exact representative enumeration, and a grammar-relative tree optimizer with actual-byte replay; and a determ"
+    },
+    {
+      "words": 110,
+      "text": "tabular p .29 p .63 Included interface & Explicit exclusion or trust boundary \\\\ Finite entry-input table & No symbolic path completeness claim or unseen inputs \\\\ Entry-snapshot outcomes & No mutable reads/writes, aliases, or stateful guards \\\\ Identity-tagged emissions & No substitution of observationally equal effects \\\\ Terminal faults & No handlers, resumption, cleanup, or post-fault effects \\\\ Inherited actions and guards & No synthesis, guard strengthening, or duplicated identity in one l"
+    },
+    {
+      "words": 82,
+      "text": "theorem [Fault-frontier characterization] The target leaf is valid on C if and only if, for every x C : enumerate [label=(F ),leftmargin=*,itemsep=2pt] every identity in x belongs to S ; adjacent identities of x occur in that order in ; if the source faults, then S x ; if the source faults and x is nonempty, its last identity precedes every member of S x ; and if the source faults, every v B x(S) has some g S x with g< v ."
+    },
+    {
+      "words": 58,
+      "text": "Two representatives make minimum selection hard theorem [Selection hardness] For the unbounded mathematical family, deciding whether a valid branchless leaf with at most k selected actions exists is NP-complete, even when all guards are true, there are no emissions, all action costs are one, there is one observed fault signature, and every input has exactly two acceptable representatives."
+    },
+    {
+      "words": 86,
+      "text": "tabular @ p .18 r p .39 r@ Phase & Instances/checks & Main comparison & Mismatch \\\\ One-state exhaustive & & direct semantics vs frontier & 0 \\\\ Certificate replay & & decoded object/witness vs semantics & 0 \\\\ Two-state boundary & 12,500 & paired rows and partial orders & 0 \\\\ Private trees & & optimizer vs direct tree oracle & 0 \\\\ AND/OR families & 512 & waiting system vs semantic construction & 0 \\\\ Graph reductions & 1,094 & selected actions vs vertex cover & 0 \\\\ Search modes & 384 & three"
+    }
+  ],
+  "repeated_words": [],
+  "loaded_claim_words": [],
+  "acronym_definitions": [
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5"
+  ],
+  "possibly_undefined_acronyms": [
+    "ABI",
+    "ACM-",
+    "CF-GKAT",
+    "CGRA",
+    "COBAYN",
+    "CORELS",
+    "CPU-",
+    "DAG",
+    "GKAT",
+    "GPU",
+    "IR-",
+    "ISA",
+    "KAT",
+    "LLVM",
+    "MERIT",
+    "MLIR",
+    "NP-",
+    "PAVER",
+    "RSS",
+    "SIMD",
+    "SSA",
+    "TACO",
+    "TAFFO",
+    "VLIW"
+  ],
+  "accepted": true
+}
