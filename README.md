@@ -1,74 +1,87 @@
 # Proof-Carrying Control-Flow Rebalancing
 
-This repository is the anonymous executable supplement for **Fault-Frontier Certificates for Budgeted Guarded Rebalancing**. It implements the finite snapshot-action semantics, exact bounded optimizer, canonical region bytecode, proof-certificate generator, independent safety checker, deterministic campaign, retained input replay, and manuscript-data derivation.
+This directory is the standalone executable supplement for **Fault-Frontier Certificates for Budgeted Guarded Rebalancing**. It implements the paper's finite snapshot-action semantics, exact admitted search for the private-leaf PFC1 grammar, canonical object encoding, certificate generation/checking, independent small-boundary tree-shape enumeration, deterministic bounded experiments, and stable-ID retained-input replay.
 
-## What is and is not proved
+## Scope and trusted boundary
 
-The handwritten argument in `proofs/core.md` proves the stated mathematical results for a finite snapshot-action model: guards and primitive outcomes are fixed by the entry input; a false guard annuls an action before its raw outcome is evaluated; emissions carry action identities; faults terminate the region; and the target may only retain inherited actions in a read-once entry-bit decision tree with private leaves. The Python implementation is **not** proof-assistant verified. Its tests and campaigns are finite conformance evidence, not a general proof.
+The model is intentionally finite and table based. For every entry input, each inherited action has an immutable Boolean guard and immutable silent, emission, or terminal-fault outcome. A false guard annuls the action before its outcome is evaluated. Emissions carry action identity. A fault terminates the region. A target uses inherited actions only, in a read-once entry-bit tree with private leaves.
 
-The checker certifies observational equivalence of a supplied canonical object to a supplied finite semantic table and enforces an external byte budget. It does not authenticate compiler-to-model extraction, establish that the table is complete for a real exception ABI, verify Python itself, or certify object optimality. The optimizer is complete only for the declared grammar and configured admitted search space. Candidate spaces above the configured limit are rejected before search; rejection is not an infeasibility result.
+The handwritten arguments in `proofs/core.md` establish the mathematical claims under those assumptions. The Python programs are finite conformance and falsification evidence, not proof-assistant output. The checker validates a PFC1 object against a supplied complete finite table and an external byte budget. It does not authenticate extraction from LLVM, MLIR, source code, or an exception ABI; verify Python; establish real instruction size; or provide processor-performance evidence.
+
+Exactness is claimed only when the declared complete search is admitted. A candidate-space refusal is reported as `refused`, not as infeasibility. Tree search separately reports `optimal`, `infeasible`, or `incomplete`; diagnostic incomplete trees never carry an optimality claim.
 
 ## Requirements
 
-* Python 3.11 or later; standard library only.
-* One process is sufficient. The retained campaign was run serially with one worker.
-* No GPU, network service, private data, or model API is used.
+- Python 3.11 or later, standard library only.
+- A POSIX shell for the one-command reproduction.
+- One worker; no GPU, network service, private data, model API, or external compute.
 
 ## Fast checks
 
-From this directory:
+Run from this directory:
 
-```bash
+```sh
 python -m unittest discover -s tests -v
 python replay_inputs.py \
-  --results results/confirmed \
-  --out results/input-replay.json
+  --reference results/confirmed \
+  --out results/reproduced-fast-input-replay.json
 python verify_results.py \
   --reference results/confirmed \
   --candidate results/confirmed
 ```
 
-The last command is a structural self-comparison smoke check. For an actual clean reproduction, use a new output directory as shown below.
+The replay output must be a new path. The self-comparison is only a parser/comparison smoke check; the clean reproduction below is the scientific reproduction.
 
-## Complete clean reproduction
+## Clean reproduction
 
-The one-command route is:
-
-```bash
+```sh
 ./reproduce-clean.sh
 ```
 
-The equivalent explicit commands are:
+The script deliberately performs **no deletion**. Its four outputs must be new direct children of `results/`, must begin with `reproduced-`, and must not be symlinks, ancestors, retained results, or paths in another project. The defaults are:
 
-```bash
-rm -rf results/reproduced
-mkdir -p results/reproduced
-python reproduce.py --out results/reproduced
-python verify_results.py \
-  --reference results/confirmed \
-  --candidate results/reproduced
-python replay_inputs.py \
-  --results results/reproduced \
-  --out results/reproduced-input-replay.json
-python paper_data.py \
-  --results results/reproduced \
-  --out results/reproduced-presentation
+```text
+results/reproduced-clean/
+results/reproduced-clean-presentation/
+results/reproduced-clean-input-replay.json
+results/reproduced-clean-verification.json
 ```
 
-`reproduce.py` runs twelve deterministic phases sequentially. The one-command driver runs all phases sequentially in one single-threaded process under a 3.5 GiB virtual-address and 30-minute CPU ceiling. Each phase is also independently runnable through `experiment.py`, which applies the same ceilings. This avoids `preexec_fn` and fixed-CPU pinning while preserving resumable chunks. The complete campaign is far below these ceilings on the retained run. If an interactive host imposes a shorter wall-time than the documented command, every phase is independently resumable:
+If those names already exist, select four fresh names explicitly:
 
-```bash
-for phase in exhaustive two-state trees and-or graphs observer-gap \
-             baselines controls search padding many-relevant retained-input-replay; do
-  python experiment.py "$phase" --out results/reproduced
-done
+```sh
+./reproduce-clean.sh \
+  results/reproduced-second \
+  results/reproduced-second-presentation \
+  results/reproduced-second-input-replay.json \
+  results/reproduced-second-verification.json
 ```
 
-After split execution, run `python reproduce.py --out results/reproduced` only when the host permits a single uninterrupted command; otherwise compare the twelve phase files and retained inputs with `verify_results.py`. The supplied `results/confirmed/summary.json` records the retained phase-body resource totals and explicitly marks unavailable aggregate-driver timings rather than inventing them.
+The command runs the unit/regression suite, regenerates all twelve scientific phases in one bounded serial process, regenerates the targeted repair-validation report, compares deterministic JSON and every retained `.pfc` byte sequence with `results/confirmed/`, reloads all retained inputs by stable ID, and derives manuscript-facing tables/macros. Missing inputs, an empty corpus, unexpected IDs, a source/input binding mismatch, or an object-byte mismatch causes failure.
+
+## Evidence layers
+
+The retained campaign keeps distinct evidence classes instead of combining them under one label:
+
+- **1,061,510 direct semantic/frontier comparisons** in the bounded one-row family;
+- **45,885 row-level witness-existence checks**;
+- **45,885 actual PFC1 encode/decode/check-certificate replays**;
+- **24,813 frontier rows and 24,813 direct-trace rows** checked inside those objects;
+- **12,500 two-row boundary comparisons**;
+- **130 optimizer comparisons against independent enumeration of every tree shape and direct leaf order** at the configured small boundary;
+- **512 realized three-action waiting systems**, 2,978 semantic rows, and 3,072 per-permutation semantic comparisons;
+- **1,094 nonempty simple graphs** on two through five vertices for the two-representative reduction check;
+- **384 cross-mode leaf-optimum comparisons** and **4,686 completion/sparsification checks**;
+- **30 directed controls**, accepted or rejected only when the expected outcome, checker stage, and rejection reason all match; and
+- **391 retained exact input tables**, with every retained cost/status/search mode replayed and all 130 retained PFC1 objects byte-compared.
+
+These are bounded checks around handwritten proofs. They do not establish workload breadth, a production compiler result, or hardware benefit.
+
+`results/confirmed/provenance.json` binds the scientific source aggregate and exact retained input aggregate. `results/confirmed/repair-validation.json` preserves the requested search-mode, typed-signature, refusal-state, parser, golden-byte, source-type, and duplicate-action microexamples. Both files are generated by `reproduce.py`; they are not manually edited result summaries.
 
 ## Optimize and check one model
 
-```bash
+```sh
 python run.py optimize results/confirmed/example/model.json --out /tmp/pccfr-example
 python run.py check \
   results/confirmed/example/model.json \
@@ -77,51 +90,26 @@ python run.py check \
   --budget "$(wc -c < /tmp/pccfr-example/region.pfc)"
 ```
 
-Exit status 0 means the object/certificate passed; status 2 means either the checker rejected or the optimizer explicitly refused an over-limit search. See `docs/model-and-format.md` for the exact JSON and bytecode contracts.
-
-## Retained evidence
-
-The confirmed campaign contains 391 exact JSON semantic tables and twelve result phases. Its material counts are:
-
-* 1,061,510 direct semantic comparisons and 45,885 certificate comparisons in the one-state exhaustive family;
-* 12,500 complete two-state/two-action boundary comparisons;
-* 130 private-tree optima compared with an independently enumerated direct-leaf oracle;
-* 512 three-node AND/OR systems and all 1,094 nonempty simple graphs on two through five vertices;
-* 384 exact optimum comparisons across three leaf-search modes and 4,686 completion/sparsification checks;
-* 30 directed semantic/format/budget controls (three expected accepts and 27 expected rejects);
-* 391 retained-input tables reloaded without pseudorandom regeneration; and
-* zero recorded disagreement in the declared campaign.
-
-These counts are bounded checks, not claims of production-workload breadth. Raw JSON, object/certificate bytes, manuscript-facing CSV files, and exact fixed seeds are retained under `results/`.
+Exit status 0 means acceptance. Exit status 2 is a structured rejection or explicit search refusal. See `docs/model-and-format.md` for the strict JSON, PFC1, bit-order, certificate, and budget contracts.
 
 ## Repository map
 
-* `pccfr/`: semantics, frontier constraints, known AND/OR scheduling, exact search, bytecode, certificates, generators, and campaign phases.
-* `tests/`: boundary and regression tests.
-* `proofs/core.md`: handwritten theorems and proofs.
-* `results/confirmed/`: exact retained inputs and raw confirmation results.
-* `results/presentation/`: tables/macros derived from raw results.
-* `docs/model-and-format.md`: model, object, budget, and certificate formats.
-* `docs/evidence.md`: result reconciliation and limitations.
-* `docs/literature.md`: research calibration and novelty boundary.
-* `claim_evidence_ledger.csv`: manuscript claims mapped to proofs and raw evidence.
-* `external_resources.csv`: external scholarly/software resources and integration status.
+- `pccfr/`: semantics, frontier conditions, scheduling, exact search, independent small oracle, bytecode, certificates, provenance, and campaign phases.
+- `tests/`: theorem-boundary, parser, refusal-state, stable-mode, and regression tests.
+- `fixtures/golden-pfc1/`: independently hand-computable model, tree, and golden PFC1 bytes.
+- `proofs/core.md`: handwritten theorem statements and proofs.
+- `results/confirmed/`: freshly generated retained inputs, objects, certificates, raw phase results, provenance, and repair validation.
+- `results/presentation/`: tables and TeX macros derived from confirmed JSON.
+- `docs/model-and-format.md`: normative finite-model and PFC1 contract.
+- `docs/evidence.md`: exact evidence reconciliation and remaining limitations.
+- `docs/literature.md`: literature calibration and contribution boundary.
+- `claim_evidence_ledger.csv`: material manuscript claims mapped to proofs and raw evidence.
+- `external_resources.csv`: scholarly/software resources and their role.
 
 ## Research provenance and external use
 
-Generative AI was used substantively in the research lifecycle, including formulation, literature retrieval and synthesis, handwritten proof construction, code and test generation, experiment execution, analysis, manuscript preparation, and internal validation. No external model API or learned-model experiment was used. Any external use must be reviewed by accountable human authors and must satisfy the then-current venue rules for authorship, AI-use disclosure, originality, and artifact claims. This repository does not assert independent blind review, submission, acceptance, or compiler production readiness.
+Generative AI was used substantively in formulation, literature work, proof drafting, code and test construction, experiment execution, analysis, manuscript preparation, and internal validation. No external model API or learned-model experiment was used. Accountable human authors must review the proofs, code, citations, originality, authorship, and applicable AI-use disclosures before external use. This artifact does not claim independent review, submission, acceptance, or production readiness.
 
 ## License
 
-The original repository code and documentation are released under the MIT License in `LICENSE`. The copied ACM class, bibliography style, and template license belong to the paper package and retain their upstream notices; they are not relicensed by this repository.
-
-## Reviewer-oriented audit
-
-Run the offline audit after the normal reproduction:
-
-```sh
-./artifact/audits/run-reviewer-audit.sh
-```
-
-The audit checks bibliography closure and cached identity evidence, test and implementation structure, theorem/proof traceability, experiment-result provenance, paper-number provenance, and PDF integrity.  These checks are internal evidence, not external peer review or an acceptance guarantee.
-
+Original artifact code and documentation are under the MIT License in `LICENSE`. The ACM class and bibliography style are in the separate paper package under their upstream notices.

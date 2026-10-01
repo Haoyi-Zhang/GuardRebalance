@@ -147,3 +147,46 @@ def many_relevant_model(n: int) -> Dict[str, Any]:
 def feasible_random_model(seed: int, input_bits: int = 2, actions: int = 5) -> Dict[str, Any]:
     """Random model with a common source, so at least one full leaf is valid."""
     return random_model(seed, input_bits, actions, common_source=True)
+
+
+def waiting_family_model(
+    conditions: Sequence[Tuple[frozenset[int], int]], nodes: int = 3
+) -> Dict[str, Any]:
+    """Realize AND/OR waiting conditions as snapshot-action semantic rows.
+
+    For each condition ``(S, v)``, actions in ``S`` fault with one row-specific
+    signature, while ``v`` emits a row-specific visible event. A full target
+    permutation agrees with the source on that row exactly when some member of
+    ``S`` precedes ``v``. Rows are duplicated only to fill the power-of-two
+    entry domain required by the finite model.
+    """
+    actions = list(range(nodes))
+    if not conditions:
+        return {
+            "input_bits": 0,
+            "actions": actions,
+            "rows": [{
+                "input": 0,
+                "source": actions[:],
+                "outcomes": [silent(True) for _ in actions],
+            }],
+        }
+    for predecessors, target in conditions:
+        if not predecessors or target in predecessors:
+            raise ValueError("waiting conditions require nonempty predecessors disjoint from target")
+        if any(type(action) is not int or action not in actions for action in predecessors | {target}):
+            raise ValueError("waiting condition action outside node domain")
+    bits = math.ceil(math.log2(len(conditions))) if len(conditions) > 1 else 0
+    q = 1 << bits
+    rows = []
+    for x in range(q):
+        predecessors, target = conditions[x % len(conditions)]
+        signature = {"waiting": x % len(conditions)}
+        outcomes = [silent(True) for _ in actions]
+        for action in predecessors:
+            outcomes[action] = fault(signature, True)
+        outcomes[target] = emit({"barrier": x % len(conditions)}, True)
+        first = min(predecessors)
+        source = [first] + [action for action in actions if action != first]
+        rows.append({"input": x, "source": source, "outcomes": outcomes})
+    return {"input_bits": bits, "actions": actions, "rows": rows}

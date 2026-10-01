@@ -1,4 +1,5 @@
 {
+  "binding_id": "5dd7d5ad3b7317e6738e745e5bdf93b2e8b8ddf329718b481939c42f8c909518",
   "completion_sparsification_checks": 4686,
   "instances": 128,
   "mismatches": 0,
@@ -6,6 +7,11 @@
   "phase": "search",
   "records": [
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 18,
       "direct": 18,
       "id": "joint-000",
@@ -13,6 +19,11 @@
       "representative_tuple": 18
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-001",
@@ -20,6 +31,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-002",
@@ -27,6 +43,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-003",
@@ -34,6 +55,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-004",
@@ -41,6 +67,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 13,
       "direct": 13,
       "id": "joint-005",
@@ -48,6 +79,11 @@
       "representative_tuple": 13
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-006",
@@ -55,6 +91,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-007",
@@ -62,6 +103,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 16,
       "direct": 16,
       "id": "joint-008",
@@ -69,6 +115,11 @@
       "representative_tuple": 16
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 10,
       "direct": 10,
       "id": "joint-009",
@@ -76,6 +127,11 @@
       "representative_tuple": 10
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-010",
@@ -83,6 +139,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 10,
       "direct": 10,
       "id": "joint-011",
@@ -90,6 +151,11 @@
       "representative_tuple": 10
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-012",
@@ -97,6 +163,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 18,
       "direct": 18,
       "id": "joint-013",
@@ -104,6 +175,11 @@
       "representative_tuple": 18
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 10,
       "direct": 10,
       "id": "joint-014",
@@ -111,6 +187,11 @@
       "representative_tuple": 10
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-015",
@@ -118,6 +199,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-016",
@@ -125,6 +211,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-017",
@@ -132,6 +223,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-018",
@@ -139,6 +235,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 11,
       "direct": 11,
       "id": "joint-019",
@@ -146,6 +247,11 @@
       "representative_tuple": 11
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 23,
       "direct": 23,
       "id": "joint-020",
@@ -153,6 +259,11 @@
       "representative_tuple": 23
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-021",
@@ -160,6 +271,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-022",
@@ -167,6 +283,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-023",
@@ -174,6 +295,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-024",
@@ -181,6 +307,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 9,
       "direct": 9,
       "id": "joint-025",
@@ -188,6 +319,11 @@
       "representative_tuple": 9
     },
     {
+      "actual_search_modes": {
+        "auto": "representative_tuple",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 15,
       "direct": 15,
       "id": "joint-026",
@@ -195,6 +331,11 @@
       "representative_tuple": 15
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 19,
       "direct": 19,
       "id": "joint-027",
@@ -202,6 +343,11 @@
       "representative_tuple": 19
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-028",
@@ -209,6 +355,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 15,
       "direct": 15,
       "id": "joint-029",
@@ -216,6 +367,11 @@
       "representative_tuple": 15
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-030",
@@ -223,6 +379,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "representative_tuple",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 9,
       "direct": 9,
       "id": "joint-031",
@@ -230,6 +391,11 @@
       "representative_tuple": 9
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-032",
@@ -237,6 +403,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 10,
       "direct": 10,
       "id": "joint-033",
@@ -244,6 +415,11 @@
       "representative_tuple": 10
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-034",
@@ -251,6 +427,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-035",
@@ -258,6 +439,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-036",
@@ -265,6 +451,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-037",
@@ -272,6 +463,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-038",
@@ -279,6 +475,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 19,
       "direct": 19,
       "id": "joint-039",
@@ -286,6 +487,11 @@
       "representative_tuple": 19
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-040",
@@ -293,6 +499,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 10,
       "direct": 10,
       "id": "joint-041",
@@ -300,6 +511,11 @@
       "representative_tuple": 10
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 14,
       "direct": 14,
       "id": "joint-042",
@@ -307,6 +523,11 @@
       "representative_tuple": 14
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 17,
       "direct": 17,
       "id": "joint-043",
@@ -314,6 +535,11 @@
       "representative_tuple": 17
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-044",
@@ -321,6 +547,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-045",
@@ -328,6 +559,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "representative_tuple",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 14,
       "direct": 14,
       "id": "joint-046",
@@ -335,6 +571,11 @@
       "representative_tuple": 14
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 19,
       "direct": 19,
       "id": "joint-047",
@@ -342,6 +583,11 @@
       "representative_tuple": 19
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-048",
@@ -349,6 +595,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-049",
@@ -356,6 +607,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-050",
@@ -363,6 +619,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-051",
@@ -370,6 +631,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 17,
       "direct": 17,
       "id": "joint-052",
@@ -377,6 +643,11 @@
       "representative_tuple": 17
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-053",
@@ -384,6 +655,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 17,
       "direct": 17,
       "id": "joint-054",
@@ -391,6 +667,11 @@
       "representative_tuple": 17
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-055",
@@ -398,6 +679,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 11,
       "direct": 11,
       "id": "joint-056",
@@ -405,6 +691,11 @@
       "representative_tuple": 11
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 10,
       "direct": 10,
       "id": "joint-057",
@@ -412,6 +703,11 @@
       "representative_tuple": 10
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-058",
@@ -419,6 +715,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 15,
       "direct": 15,
       "id": "joint-059",
@@ -426,6 +727,11 @@
       "representative_tuple": 15
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-060",
@@ -433,6 +739,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 14,
       "direct": 14,
       "id": "joint-061",
@@ -440,6 +751,11 @@
       "representative_tuple": 14
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-062",
@@ -447,6 +763,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-063",
@@ -454,6 +775,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-064",
@@ -461,6 +787,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-065",
@@ -468,6 +799,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 17,
       "direct": 17,
       "id": "joint-066",
@@ -475,6 +811,11 @@
       "representative_tuple": 17
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 17,
       "direct": 17,
       "id": "joint-067",
@@ -482,6 +823,11 @@
       "representative_tuple": 17
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-068",
@@ -489,6 +835,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "representative_tuple",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 17,
       "direct": 17,
       "id": "joint-069",
@@ -496,6 +847,11 @@
       "representative_tuple": 17
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-070",
@@ -503,6 +859,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-071",
@@ -510,6 +871,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 14,
       "direct": 14,
       "id": "joint-072",
@@ -517,6 +883,11 @@
       "representative_tuple": 14
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 22,
       "direct": 22,
       "id": "joint-073",
@@ -524,6 +895,11 @@
       "representative_tuple": 22
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 14,
       "direct": 14,
       "id": "joint-074",
@@ -531,6 +907,11 @@
       "representative_tuple": 14
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 14,
       "direct": 14,
       "id": "joint-075",
@@ -538,6 +919,11 @@
       "representative_tuple": 14
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 10,
       "direct": 10,
       "id": "joint-076",
@@ -545,6 +931,11 @@
       "representative_tuple": 10
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 21,
       "direct": 21,
       "id": "joint-077",
@@ -552,6 +943,11 @@
       "representative_tuple": 21
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-078",
@@ -559,6 +955,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-079",
@@ -566,6 +967,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-080",
@@ -573,6 +979,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "representative_tuple",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 9,
       "direct": 9,
       "id": "joint-081",
@@ -580,6 +991,11 @@
       "representative_tuple": 9
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 13,
       "direct": 13,
       "id": "joint-082",
@@ -587,6 +1003,11 @@
       "representative_tuple": 13
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 17,
       "direct": 17,
       "id": "joint-083",
@@ -594,6 +1015,11 @@
       "representative_tuple": 17
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 17,
       "direct": 17,
       "id": "joint-084",
@@ -601,6 +1027,11 @@
       "representative_tuple": 17
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 13,
       "direct": 13,
       "id": "joint-085",
@@ -608,6 +1039,11 @@
       "representative_tuple": 13
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 10,
       "direct": 10,
       "id": "joint-086",
@@ -615,6 +1051,11 @@
       "representative_tuple": 10
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-087",
@@ -622,6 +1063,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-088",
@@ -629,6 +1075,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-089",
@@ -636,6 +1087,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-090",
@@ -643,6 +1099,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-091",
@@ -650,6 +1111,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-092",
@@ -657,6 +1123,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-093",
@@ -664,6 +1135,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-094",
@@ -671,6 +1147,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 9,
       "direct": 9,
       "id": "joint-095",
@@ -678,6 +1159,11 @@
       "representative_tuple": 9
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 21,
       "direct": 21,
       "id": "joint-096",
@@ -685,6 +1171,11 @@
       "representative_tuple": 21
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-097",
@@ -692,6 +1183,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 13,
       "direct": 13,
       "id": "joint-098",
@@ -699,6 +1195,11 @@
       "representative_tuple": 13
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 6,
       "direct": 6,
       "id": "joint-099",
@@ -706,6 +1207,11 @@
       "representative_tuple": 6
     },
     {
+      "actual_search_modes": {
+        "auto": "representative_tuple",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 15,
       "direct": 15,
       "id": "joint-100",
@@ -713,6 +1219,11 @@
       "representative_tuple": 15
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-101",
@@ -720,6 +1231,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-102",
@@ -727,6 +1243,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-103",
@@ -734,6 +1255,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-104",
@@ -741,6 +1267,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 15,
       "direct": 15,
       "id": "joint-105",
@@ -748,6 +1279,11 @@
       "representative_tuple": 15
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 13,
       "direct": 13,
       "id": "joint-106",
@@ -755,6 +1291,11 @@
       "representative_tuple": 13
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-107",
@@ -762,6 +1303,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-108",
@@ -769,6 +1315,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-109",
@@ -776,6 +1327,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 18,
       "direct": 18,
       "id": "joint-110",
@@ -783,6 +1339,11 @@
       "representative_tuple": 18
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-111",
@@ -790,6 +1351,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-112",
@@ -797,6 +1363,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 14,
       "direct": 14,
       "id": "joint-113",
@@ -804,6 +1375,11 @@
       "representative_tuple": 14
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-114",
@@ -811,6 +1387,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-115",
@@ -818,6 +1399,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "representative_tuple",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 9,
       "direct": 9,
       "id": "joint-116",
@@ -825,6 +1411,11 @@
       "representative_tuple": 9
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-117",
@@ -832,6 +1423,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-118",
@@ -839,6 +1435,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-119",
@@ -846,6 +1447,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 19,
       "direct": 19,
       "id": "joint-120",
@@ -853,6 +1459,11 @@
       "representative_tuple": 19
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-121",
@@ -860,6 +1471,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "representative_tuple",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 11,
       "direct": 11,
       "id": "joint-122",
@@ -867,6 +1483,11 @@
       "representative_tuple": 11
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-123",
@@ -874,6 +1495,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 14,
       "direct": 14,
       "id": "joint-124",
@@ -881,6 +1507,11 @@
       "representative_tuple": 14
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 13,
       "direct": 13,
       "id": "joint-125",
@@ -888,6 +1519,11 @@
       "representative_tuple": 13
     },
     {
+      "actual_search_modes": {
+        "auto": null,
+        "optional_subset": null,
+        "representative_tuple": null
+      },
       "auto": null,
       "direct": null,
       "id": "joint-126",
@@ -895,6 +1531,11 @@
       "representative_tuple": null
     },
     {
+      "actual_search_modes": {
+        "auto": "optional_subset",
+        "optional_subset": "optional_subset",
+        "representative_tuple": "representative_tuple"
+      },
       "auto": 17,
       "direct": 17,
       "id": "joint-127",
@@ -903,9 +1544,9 @@
     }
   ],
   "resource": {
-    "cpu_seconds": 0.48260685000000003,
-    "peak_rss_kib": 92840,
-    "wall_seconds": 0.48211380500004,
+    "cpu_seconds": 1.1091033470000013,
+    "peak_rss_kib": 95408,
+    "wall_seconds": 1.108977300999868,
     "workers": 1
   }
 }

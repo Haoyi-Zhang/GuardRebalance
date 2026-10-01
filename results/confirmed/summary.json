@@ -1,10 +1,10 @@
 {
-  "cumulative_cpu_seconds": 17.303812678,
-  "driver_and_child_cpu_seconds": null,
-  "driver_wall_seconds": null,
-  "maximum_process_peak_rss_kib": 97324,
+  "binding_id": "5dd7d5ad3b7317e6738e745e5bdf93b2e8b8ddf329718b481939c42f8c909518",
+  "cumulative_cpu_seconds": 18.926559118,
+  "driver_and_child_cpu_seconds": 18.957317861,
+  "driver_wall_seconds": 18.957683538000083,
+  "maximum_process_peak_rss_kib": 99760,
   "mismatches": 0,
-  "note": "Core phases were executed sequentially; aggregate driver timings are intentionally omitted from this retained synthesis because the interactive runner split the command at its wall-time boundary.",
   "phase_order": [
     "exhaustive",
     "two-state",
@@ -20,5 +20,6 @@
     "retained-input-replay"
   ],
   "phases": 12,
+  "provenance_file": "provenance.json",
   "workers": 1
 }

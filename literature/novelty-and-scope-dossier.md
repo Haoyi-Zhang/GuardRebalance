@@ -1,53 +1,37 @@
 # Novelty and scope dossier
 
-This dossier records the comparison used to keep the paper's novelty claim narrow.  It is not a proof that no related result exists, and it must not be cited as an external peer review.
+## Claimable conjunction
 
-## Claim being defended
+The paper does not claim to invent predication, AND/OR precedence, exact enumeration, dynamic programming, proof-carrying validation, or translation validation. Within the stated finite model, it claims the conjunction of:
 
-The paper does **not** claim to invent predication, if-conversion, trace scheduling, speculative code motion, precise exceptions, partial-order scheduling, proof-carrying code, translation validation, or guarded control-flow algebra.  The claim is the combination, within the finite model stated in the paper, of:
+1. a necessary-and-sufficient fault-frontier characterization for selected entry-snapshot actions when identity-tagged emissions and the first complete terminal-fault value are observable;
+2. an observer-dependent selection boundary between a least mandatory set and two-representative NP-completeness;
+3. an exact optimizer for an explicitly delimited read-once/private-leaf PFC1 grammar, with explicit refusal and incomplete states; and
+4. a replayable object/certificate plus bounded direct, oracle, semantic-construction, negative-control, and stable-input evidence.
 
-1. a necessary-and-sufficient *fault-frontier* certificate for observational equivalence when enabled actions may synchronously fault and action identity is observable;
-2. a separation between permutation-only legality and observer-dependent action selection, including the stated easy case and the two-representative hardness boundary;
-3. an exact optimizer for the explicitly delimited private-leaf/read-once byte grammar, with a serialized object whose legality and budget can be checked independently; and
-4. finite exhaustive, cross-implementation, negative-control, and extraction-bridge evidence tied to those claims.
-
-Every item above is conditional on the paper's entry-state guards, pure action results, immediate synchronous faults, finite input domain, and fixed observer.  The paper makes no production compiler, machine-code, hardware-performance, or general program-equivalence claim.
+All four claims are conditional on pure entry-snapshot outcomes, inherited guards/actions, a finite complete input table, immediate synchronous termination, and a fixed observer. No production compiler, machine-code, or performance claim follows.
 
 ## Closest families and non-overlap
 
-| Literature family | Established contribution used by this paper | What is *not* claimed as new | Residual distinction tested in the paper |
+| Literature family | Established result used or acknowledged | Not claimed as new | Residual distinction |
 |---|---|---|---|
-| If-conversion, predication, hyperblocks, trace scheduling | Convert/control speculative execution and expose instruction-level parallelism | Predicated execution or code motion itself | Fault identity and the source first-fault frontier are explicit observables, and legality is certified per finite input region |
-| Precise exceptions and speculative scheduling | Architectural/compiler conditions for preserving precise state | Precise exceptions or speculative scheduling | The paper studies a finite observer-relative equivalence and a checkable rebalancing object, not a microarchitectural recovery mechanism |
-| Partial-order and AND/OR scheduling | Compact legality constraints and scheduling algorithms | AND/OR precedence or scheduling algorithms | The paper characterizes the legality language induced by its fault-frontier semantics and supplies a non-poset witness |
-| Proof-carrying code and translation validation | Small checkers validate untrusted transformations | Proof-carrying validation or translation validation | The certificate fields and byte budget are specialized to the declared finite guarded-rebalancing model and PFC1 grammar |
-| Guarded/algebraic control-flow equivalence | Equational reasoning about guarded control flow | Guarded Kleene algebra or general CFG equivalence | The result is a finite, fault-sensitive, action-identity observer characterization with explicit selection complexity |
-| Exact decision-tree and branching-program optimization | Dynamic programming and exhaustive small-instance oracles | Decision-tree dynamic programming | Exactness is claimed only for the declared private-leaf/read-once grammar and is checked against explicit small tree-shape enumeration |
+| If-conversion, predication, hyperblocks, trace scheduling | control/predicate conversion, speculative scheduling, code duplication | predicated execution or code motion | explicit first-terminal-fault observer and per-table replay object |
+| Precise exceptions and speculative scheduling | architectural/compiler conditions for precise state | precise exception mechanisms | finite observer-relative equivalence, not recovery architecture |
+| Partial-order and AND/OR scheduling | compact disjunctive precedence and scheduling algorithms | AND/OR scheduling | language induced by fault frontiers and its non-poset witness |
+| Proof-carrying code and translation validation | small checkers for untrusted transformations | generic proof-carrying or validation concepts | specialized finite table, witness, actual PFC1 bytes, and budget |
+| Guarded algebra/control-flow equivalence | general equational guarded-control reasoning | guarded Kleene algebra or general CFG equivalence | action-identity and terminal-fault-sensitive selected-action characterization |
+| Decision-tree/branching optimization | exact/heuristic tree search and dynamic programming | decision-tree DP | exactness only for the fixed read-once private-leaf grammar |
 
-## Search and falsification protocol
+## Falsifiers
 
-The reference registry and citation-context audit in `artifact/audits/reference/` records the exact bibliography identities and where each item is used.  Searches should cover at least the following conjunctions in ACM DL, DBLP, Crossref, IEEE Xplore, SpringerLink, and arXiv, with citation chasing from the closest results:
+The contribution must be narrowed or withdrawn if:
 
-- exception-preserving instruction scheduling + predication;
-- precise exceptions + if-conversion / hyperblock;
-- fault-preserving control-flow restructuring;
-- proof-carrying / translation validation + instruction scheduling;
-- AND/OR precedence + guarded scheduling;
-- decision-tree optimization + exception semantics;
-- guarded control flow + faults / exceptions;
-- observer-relative compiler transformation equivalence.
+- a primary source provides the same frontier characterization, selection boundary, and certified grammar result in equal or greater generality;
+- direct strict-JSON observations and frontier conditions disagree;
+- completed production search disagrees with the independent small tree-shape/direct-leaf oracle;
+- any refused or incomplete search is labeled globally optimal;
+- the semantic waiting constructions disagree with the waiting-language classifier;
+- stable-ID, numerical/status/mode, or PFC-byte replay fails; or
+- a cited source is unidentifiable or does not support its manuscript context.
 
-A result that provides the same necessary-and-sufficient frontier conditions, the same selection boundary, or a strictly more general certified optimizer would invalidate or require narrowing the corresponding claim.  Accordingly, the paper uses “within the stated model” and “to our knowledge” where priority is asserted.
-
-## Reviewer-facing falsifiers
-
-The contribution should be judged unsupported if any of the following occurs:
-
-- a retained citation is not identifiable from authoritative metadata;
-- the paper cites a source for a proposition that the source does not establish;
-- the explicit small-tree oracle disagrees with the optimizer;
-- the independent direct interpreter accepts an object rejected by the primary semantics, or conversely;
-- search truncation can return a result labeled globally optimal;
-- the restricted extraction bridge maps two operationally different guarded regions to the same finite table without recording the lost distinction;
-- the claimed complexity reduction fails under the exact representation used in the theorem;
-- any result depends on a hidden random seed or on generated inputs not included in the archive.
+Metadata identity, bounded tests, and internal review do not by themselves establish novelty or acceptance.

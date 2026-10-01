@@ -13,6 +13,7 @@ from pccfr.generate import (
     random_model, silent,
 )
 from pccfr.model import observe, partial_permutations, source_observation, validate_model
+from pccfr.oracle import direct_tree_shape_optimum
 from pccfr.optimize import (
     SearchRefusal, direct_leaf_optimum, optimize_leaf, optimize_tree,
     origin_refined_model,
@@ -70,7 +71,7 @@ class CoreTests(unittest.TestCase):
 
     def test_tree_optimizer_oracle(self):
         model = random_model(19, 2, 4)
-        self.assertEqual(optimize_tree(model)["object_cost"], optimize_tree(model, direct_leaf=True)["object_cost"])
+        self.assertEqual(optimize_tree(model)["object_cost"], direct_tree_shape_optimum(model)["object_cost"])
 
     def test_observer_gap(self):
         for b in range(4):

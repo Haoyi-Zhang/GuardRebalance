@@ -1,4 +1,5 @@
 {
+  "binding_id": "5dd7d5ad3b7317e6738e745e5bdf93b2e8b8ddf329718b481939c42f8c909518",
   "examples": [
     {
       "cover": [
@@ -211,9 +212,9 @@
   "mismatches": 0,
   "phase": "graphs",
   "resource": {
-    "cpu_seconds": 1.020013312,
-    "peak_rss_kib": 92840,
-    "wall_seconds": 1.019075626000017,
+    "cpu_seconds": 0.5308027029999991,
+    "peak_rss_kib": 93872,
+    "wall_seconds": 0.5305371519998516,
     "workers": 1
   }
 }

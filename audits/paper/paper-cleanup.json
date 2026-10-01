@@ -1,9 +1,0 @@
-{
-  "changes": [
-    {
-      "file": "paper/main.tex",
-      "kind": "removed-citation-calibration-paragraph",
-      "excerpt": "TACO compiler papers connect semantic or analysis ideas to compiler infrastructure and generated-code evidence: synchronous reactions extend SSA, TAFFO couples analyses with precision tuning, and a JavaScript compiler evaluates end-to-end parallelization \\cite{pompougnac2022,cherubin2020,na2016}. Phase-ordering systems such as COBAYN, MiCOMP, and clustering-based selection use workloads and compiler integration \\cite{ashouri2016,ashouri2017,martins2016}; broader autotuning work includes focused "
-    }
-  ]
-}

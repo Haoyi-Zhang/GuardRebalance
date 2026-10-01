@@ -1,39 +1,53 @@
 {
+  "binding_id": "5dd7d5ad3b7317e6738e745e5bdf93b2e8b8ddf329718b481939c42f8c909518",
   "by_actions": [
     {
       "actions": 1,
-      "certificate_comparisons": 10,
-      "semantic_comparisons": 10
+      "certificate_coverage": "all ordered subsets",
+      "certificate_object_replays": 10,
+      "semantic_comparisons": 10,
+      "witness_existence_checks": 10
     },
     {
       "actions": 2,
-      "certificate_comparisons": 125,
-      "semantic_comparisons": 125
+      "certificate_coverage": "all ordered subsets",
+      "certificate_object_replays": 125,
+      "semantic_comparisons": 125,
+      "witness_existence_checks": 125
     },
     {
       "actions": 3,
-      "certificate_comparisons": 2000,
-      "semantic_comparisons": 2000
+      "certificate_coverage": "all ordered subsets",
+      "certificate_object_replays": 2000,
+      "semantic_comparisons": 2000,
+      "witness_existence_checks": 2000
     },
     {
       "actions": 4,
-      "certificate_comparisons": 40625,
-      "semantic_comparisons": 40625
+      "certificate_coverage": "all ordered subsets",
+      "certificate_object_replays": 40625,
+      "semantic_comparisons": 40625,
+      "witness_existence_checks": 40625
     },
     {
       "actions": 5,
-      "certificate_comparisons": 3125,
-      "semantic_comparisons": 1018750
+      "certificate_coverage": "source order per profile",
+      "certificate_object_replays": 3125,
+      "semantic_comparisons": 1018750,
+      "witness_existence_checks": 3125
     }
   ],
-  "certificate_comparisons": 45885,
+  "certificate_direct_row_checks": 24813,
+  "certificate_frontier_row_checks": 24813,
+  "certificate_object_replays": 45885,
   "mismatches": 0,
   "phase": "exhaustive",
   "resource": {
-    "cpu_seconds": 10.818313604,
-    "peak_rss_kib": 92592,
-    "wall_seconds": 10.81754624100006,
+    "cpu_seconds": 14.192850268,
+    "peak_rss_kib": 92848,
+    "wall_seconds": 14.193035475999977,
     "workers": 1
   },
-  "semantic_comparisons": 1061510
+  "semantic_comparisons": 1061510,
+  "witness_existence_checks": 45885
 }

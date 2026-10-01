@@ -1,39 +1,65 @@
 # Evidence reconciliation
 
-## Confirmed campaign
+## Evidence classes
 
-`results/confirmed/` is the retained scientific record. The aggregate summary reports twelve serial phases, 17.303812678 cumulative phase-body CPU seconds, a maximum process high-water mark of 97,324 KiB, one worker, and zero mismatches. Aggregate driver wall/CPU timings are deliberately null because the interactive execution host split the original driver at its own wall boundary; individual phase measurements and all deterministic scientific outputs are retained. This omission is not replaced by an estimate.
+The artifact separates general proof, bounded direct comparison, row-level witness checking, serialized object replay, exact optimization comparison, malformed-input controls, and retained-input reproduction. Counts from different classes must not be added together or relabeled as one another.
 
-| Phase | Claim attacked | Exact retained result |
+| Phase | Question attacked | Retained result |
 |---|---|---|
-| `exhaustive` | frontier theorem and certificate replay on all bounded one-state profiles/orders | 1,061,510 semantic and 45,885 certificate comparisons; 0 mismatches |
-| `two-state` | interaction across two rows rather than duplicated one-state checks | 12,500 comparisons; 0 mismatches |
-| `trees` | private-tree dynamic program vs independently enumerated direct-leaf oracle | 130 instances; every object cost equal |
-| `and-or` | representation of all three-node waiting systems | 512 families; 0 mismatches |
-| `graphs` | two-representative selection vs minimum vertex cover | all 1,094 nonempty simple graphs on 2--5 vertices; 0 mismatches |
-| `observer-gap` | exact coarse/refined byte formula | `12` vs `8*2^b+4` for b=0,1,2,3 |
-| `baselines` | meaning of the declared byte objective | 64 paired models, retained raw records |
-| `controls` | semantic, object, certificate, and budget rejection | 3 expected accepts, 27 expected rejects; all classified correctly |
-| `search` | optional-subset, representative-tuple, and automatic exact search | 384 optimum comparisons and 4,686 completion/sparsification checks; 0 mismatches |
-| `padding` | irrelevance of latent silent/disabled actions | 64 instances, including 128/512/2048-action strata; 0 mismatches |
-| `many-relevant` | explicit complete-search admission/refusal | 11 admitted methods and 4 pre-search refusals; 0 mismatches |
-| `retained-input-replay` | independence from pseudorandom regeneration | 391 exact JSON tables loaded; 0 mismatches |
+| `exhaustive` | direct semantics versus the fault-frontier theorem, plus witness and serialized-certificate coverage | 1,061,510 direct comparisons; 45,885 witness checks; 45,885 encode/decode/check replays; 24,813 frontier rows and 24,813 direct rows; 0 mismatches |
+| `two-state` | cross-row interaction rather than duplicated one-row checks | 12,500 comparisons; 0 mismatches |
+| `trees` | production DP versus independent enumeration of every read-once tree shape and direct leaf order | 130 instances; equal optimum/status in every instance; 130 retained PFC1 objects |
+| `and-or` | semantic realization of every three-node waiting-condition family | 512 models, 2,978 rows, 3,072 permutation comparisons, 121 feasible families; 0 mismatches |
+| `graphs` | two-representative selection versus minimum vertex cover at the small boundary | all 1,094 nonempty simple graphs on 2--5 vertices; 0 mismatches |
+| `observer-gap` | fixed-grammar formula under coarse versus origin-refined faults | four representable widths, matching 12 versus `8*2^b+4` |
+| `baselines` | exact private tree, fully split, branchless status/cost, and refined-observer cost | 64 retained models |
+| `controls` | semantic, object-format, certificate, and external-budget rejection | 3 expected accepts and 27 expected rejects; exact outcome, stage, and reason matched in all 30 |
+| `search` | optional-subset, representative-tuple, and automatic leaf search | 384 optimum comparisons and 4,686 completion/sparsification checks; requested and actual modes retained; 0 mismatches |
+| `padding` | independence from latent silent/disabled actions after semantic sparsification | 64 models including 128/512/2,048-action strata; 0 mismatches |
+| `many-relevant` | complete-space admission and refusal | 11 admitted method/instance pairs and 4 explicit refusals; 0 mismatches |
+| `retained-input-replay` | stable-ID loading rather than pseudorandom regeneration | exactly 391 inputs present and parsed; no missing or unexpected ID |
 
-The separate top-level `results/input-replay.json` was produced by reading those 391 retained inputs directly. It records 130 tree instances, 64 baseline models, 128 joint leaf models, 64 padding models, five many-relevant models, 384 method/optimum matches, 11 admitted many-relevant runs, four explicit candidate-space refusals, and zero mismatches.
+The `n=4` one-row certificate protocol covers every ordered subset for every enumerated profile. For `n=5`, the direct semantic/frontier phase still examines all ordered subsets, while serialized certificate replay covers the source order of every profile. The 45,885 witness checks and 45,885 serialized object replays are separate activities, even though their totals happen to coincide after the repaired protocol.
 
-## Claim-to-result reconciliation
+## Independent paths and shared trust
 
-* Theorems 1--7 and Lemmas 8--9/Theorem 10 are handwritten general arguments in `proofs/core.md`. No executable count is offered as their proof.
-* The executable campaign is a falsification/conformance layer. Direct semantics, frontier constraints, object decoding, certificate replay, exact search, and negative controls are implemented through separate functions and compared where practical.
-* The tree oracle shares the semantic model but independently enumerates direct leaf sequences rather than using frontier constraints. It is independent enough to attack the optimizer logic, not independent software verification.
-* The graph phase checks the reduction on every small graph but does not establish NP-completeness; the reduction proof does.
-* The observer-gap phase confirms four representable instances; the formula follows from the proof and fixed byte grammar.
-* Resource measurements establish that the declared bounded campaign fits the stated CPU/RAM envelope. They do not compare compiler speed, certificate efficiency, or hardware performance.
+The tree oracle in `pccfr/oracle.py` does not import the frontier module, production optimizer, or its dynamic-programming recurrence. It enumerates every tree shape and every ordered leaf subset directly at the configured small boundary. The direct semantic path serializes strict finite JSON canonically and does not use the frontier's type-tagged `freeze` representation. This specifically protects the `{}` versus `[]`, object-versus-array, and Boolean-versus-number distinctions that motivated the signature repair.
 
-## Negative controls
+These paths still share the Python runtime, the finite model contract, and utility code. They are an implementation cross-check, not independently verified software or a mechanized proof.
 
-The seven semantic rejects cover deleting a live emission, deleting the only required fault, reversing visible emissions, faulting before the required prefix, changing a fault signature, exposing a suppressed suffix event, and exchanging fault origins when the observer exposes origin. The three benign accepts cover equal complete signatures, a disabled fault, and deletion of a silent action. The remaining twenty controls attack cell coverage, input coverage, witness identity, length declarations, external budgets, headers, truncation, trailing bytes, opcodes, duplicate identities, guard masks, canonical mask omission, and repeated branch tests.
+## Search status discipline
 
-## Limitations that remain true
+A complete admitted leaf search yields `optimal` or `infeasible`. A space above the declared candidate limit yields `refused`. Tree search raises `SearchRefusal` in strict mode if any alternative needed for a global optimum was not completed. Diagnostic mode may retain the best feasible tree seen, but labels it `incomplete` with `optimality_proven=false`. `branchless_cost` uses the same three-way status discipline rather than representing refusal and infeasibility as `None`.
 
-There is no production compiler pass, source/IR extractor, real exception ABI model, processor benchmark, instruction-cache measurement, liveness reconstruction, mutable memory, handler/resumption semantics, irreducible control flow, loops, concurrency, or undefined-behavior semantics. The private-leaf object grammar excludes shared suffixes and synthesized predicates. The bibliography comparison supports a precise combination-of-features claim, not a universal priority claim. External submission requires accountable human review of the proofs, code, related-work conclusions, authorship, and AI-use disclosure.
+The retained two-input microexample has acceptable fault sets `{0,1}` and `{1,2}`. Its direct one-leaf optimum is action `[1]`, 12 object bytes. At candidate limit 2, strict tree search refuses; diagnostic search finds a 20-byte branch tree but does not call it optimal; branchless search reports `refused`.
+
+## Parser, schema, and golden object
+
+The PFC1 decoder rejects a magic-only object, every strict truncation of the golden object, negative cursor reads, nonzero reserved fields, duplicate/repeated tests, malformed masks, unknown opcodes, and trailing bytes through structured `invalid-object` results. Strict model loading rejects duplicate JSON keys, nonfinite numbers, unsupported Python values, nonstring object keys, Boolean identities, and nonintegral source actions. `source=[0.0]` is rejected by model validation, the certificate checker, and the CLI check entry point.
+
+`fixtures/golden-pfc1/region.pfc` has the independently hand-computable bytes:
+
+```text
+50 46 43 31 01 00 4c 01 00 00 00 01 01
+```
+
+PFC1 uses little-endian `u16` fields. Guard masks are LSB first: input `x` is bit `x mod 8` of byte `floor(x/8)`. Emit/fault model payloads use the JSON field `value`; “signature” is the semantic name for the complete observer-visible fault value, not a second wire field.
+
+## Directed controls
+
+A control counts as successful only if its accept/reject outcome **and** stage/reason match the frozen expectation. The 30 controls include deletion/reordering/signature semantic errors; wrong witness identity; object truncation, trailing bytes, unknown opcode, repeated branch bit, noncanonical implicit and explicit guard masks, duplicate action identities, and malformed length; and exact/under budget checks. Rejection for the wrong reason is recorded as a mismatch.
+
+## Retained-input and byte reproduction
+
+The replay requires the exact stable-ID set: 130 `exact`, 64 `baseline`, 128 `joint`, 64 `padding`, and 5 `many` inputs. Missing inputs, an empty directory, duplicates, or unexpected IDs fail loading. It separately reports:
+
+1. loading and stable-ID coverage;
+2. numerical/status/actual-search-mode reproduction;
+3. byte equality for all 130 retained `.pfc` objects; and
+4. the scientific source plus exact-input binding.
+
+`verify_results.py` compares every deterministic JSON file after excluding only host-dependent resource/timing fields and byte-compares every `.pfc` file. It fails when the reference has no retained inputs or no PFC objects.
+
+## Interpretation and remaining limits
+
+The general theorems are handwritten. The executable campaign is bounded falsification and implementation-conformance evidence. There is no production compiler pass, compiler-to-table extractor, real exception ABI, real instruction encoding, workload benchmark, hardware measurement, mutable memory, effectful guard, handler/resumption semantics, loops, concurrency, undefined behavior, or asynchronous fault model. The private-leaf grammar excludes shared suffixes, strengthened predicates, and synthesized actions. No finite count is presented as proof of those excluded cases or as evidence of production performance.

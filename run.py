@@ -4,28 +4,50 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
-from pccfr.bytecode import encode_object
+from pccfr.bytecode import ObjectFormatError, encode_object
 from pccfr.certificate import check_certificate, make_certificate
-from pccfr.model import validate_model
+from pccfr.model import ModelError, validate_model
 from pccfr.optimize import SearchRefusal, optimize_tree
-from pccfr.util import atomic_write, read_json, write_json
+from pccfr.util import StrictJSONError, atomic_write, read_json, write_json
+
+
+def _print_rejection(reason: str, detail: str) -> int:
+    print(json.dumps({"accepted": False, "reason": reason, "detail": detail}, indent=2, sort_keys=True))
+    return 2
 
 
 def command_optimize(args: argparse.Namespace) -> int:
-    model = read_json(args.model)
-    validate_model(model)
+    if args.out.exists() or args.out.is_symlink():
+        return _print_rejection("unsafe-output", f"refusing existing output path: {args.out}")
+    try:
+        model = read_json(args.model)
+        validate_model(model)
+    except (StrictJSONError, ModelError, OSError) as exc:
+        args.out.mkdir(parents=True, exist_ok=True)
+        write_json(args.out / "optimization.json", {"status": "invalid-model", "detail": str(exc)})
+        return _print_rejection("invalid-model", str(exc))
     try:
         result = optimize_tree(model, leaf_mode=args.leaf_mode, candidate_limit=args.candidate_limit)
     except SearchRefusal as exc:
+        args.out.mkdir(parents=True, exist_ok=True)
         write_json(args.out / "optimization.json", {
-            "status": "refused", "mode": exc.mode, "candidates": exc.candidates,
+            "status": "refused",
+            "mode": exc.mode,
+            "candidates": exc.candidates,
             "candidate_limit": exc.limit,
+            "refusals": exc.refusals,
         })
-        return 2
-    obj = encode_object(model, result["tree"])
+        return _print_rejection("search-refused", str(exc))
+    if result["status"] != "optimal" or result["tree"] is None:
+        args.out.mkdir(parents=True, exist_ok=True)
+        write_json(args.out / "optimization.json", result)
+        return _print_rejection(result["status"], "no certified optimal tree")
+    try:
+        obj = encode_object(model, result["tree"])
+    except ObjectFormatError as exc:
+        return _print_rejection("invalid-object", str(exc))
     if len(obj) != result["object_cost"]:
         raise AssertionError("optimizer byte cost and encoder length disagree")
     cert = make_certificate(model, obj)
@@ -40,9 +62,12 @@ def command_optimize(args: argparse.Namespace) -> int:
 
 
 def command_check(args: argparse.Namespace) -> int:
-    model = read_json(args.model)
-    obj = args.object.read_bytes()
-    cert = read_json(args.certificate)
+    try:
+        model = read_json(args.model)
+        obj = args.object.read_bytes()
+        cert = read_json(args.certificate)
+    except (StrictJSONError, OSError) as exc:
+        return _print_rejection("invalid-input", str(exc))
     result = check_certificate(model, obj, cert, args.budget)
     print(json.dumps(result, indent=2, sort_keys=True))
     return 0 if result["accepted"] else 2

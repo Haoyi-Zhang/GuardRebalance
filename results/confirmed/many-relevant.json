@@ -1,5 +1,6 @@
 {
   "admitted_methods": 11,
+  "binding_id": "5dd7d5ad3b7317e6738e745e5bdf93b2e8b8ddf329718b481939c42f8c909518",
   "explicit_refusals": 4,
   "instances": 5,
   "mismatches": 0,
@@ -7,9 +8,28 @@
   "records": [
     {
       "actions": 8,
+      "expected_leaf_cost": 9,
       "id": "many-000",
-      "leaf_cost": 9,
-      "optional_cost": 9,
+      "methods": {
+        "auto": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 16,
+          "cost": 9,
+          "status": "optimal"
+        },
+        "optional_subset": {
+          "actual_search_mode": "optional_subset",
+          "candidate_space": 256,
+          "cost": 9,
+          "status": "optimal"
+        },
+        "representative_tuple": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 16,
+          "cost": 9,
+          "status": "optimal"
+        }
+      },
       "spaces": {
         "distinct_good_sets": 2,
         "mandatory_actions": 0,
@@ -20,9 +40,28 @@
     },
     {
       "actions": 16,
+      "expected_leaf_cost": 9,
       "id": "many-001",
-      "leaf_cost": 9,
-      "optional_cost": null,
+      "methods": {
+        "auto": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 64,
+          "cost": 9,
+          "status": "optimal"
+        },
+        "optional_subset": {
+          "actual_search_mode": "optional_subset",
+          "candidate_space": 65536,
+          "cost": null,
+          "status": "refused"
+        },
+        "representative_tuple": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 64,
+          "cost": 9,
+          "status": "optimal"
+        }
+      },
       "spaces": {
         "distinct_good_sets": 2,
         "mandatory_actions": 0,
@@ -33,9 +72,28 @@
     },
     {
       "actions": 32,
+      "expected_leaf_cost": 9,
       "id": "many-002",
-      "leaf_cost": 9,
-      "optional_cost": null,
+      "methods": {
+        "auto": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 256,
+          "cost": 9,
+          "status": "optimal"
+        },
+        "optional_subset": {
+          "actual_search_mode": "optional_subset",
+          "candidate_space": 4294967296,
+          "cost": null,
+          "status": "refused"
+        },
+        "representative_tuple": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 256,
+          "cost": 9,
+          "status": "optimal"
+        }
+      },
       "spaces": {
         "distinct_good_sets": 2,
         "mandatory_actions": 0,
@@ -46,9 +104,28 @@
     },
     {
       "actions": 64,
+      "expected_leaf_cost": 9,
       "id": "many-003",
-      "leaf_cost": 9,
-      "optional_cost": null,
+      "methods": {
+        "auto": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 1024,
+          "cost": 9,
+          "status": "optimal"
+        },
+        "optional_subset": {
+          "actual_search_mode": "optional_subset",
+          "candidate_space": 18446744073709551616,
+          "cost": null,
+          "status": "refused"
+        },
+        "representative_tuple": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 1024,
+          "cost": 9,
+          "status": "optimal"
+        }
+      },
       "spaces": {
         "distinct_good_sets": 2,
         "mandatory_actions": 0,
@@ -59,9 +136,28 @@
     },
     {
       "actions": 128,
+      "expected_leaf_cost": 9,
       "id": "many-004",
-      "leaf_cost": 9,
-      "optional_cost": null,
+      "methods": {
+        "auto": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 4096,
+          "cost": 9,
+          "status": "optimal"
+        },
+        "optional_subset": {
+          "actual_search_mode": "optional_subset",
+          "candidate_space": 340282366920938463463374607431768211456,
+          "cost": null,
+          "status": "refused"
+        },
+        "representative_tuple": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 4096,
+          "cost": 9,
+          "status": "optimal"
+        }
+      },
       "spaces": {
         "distinct_good_sets": 2,
         "mandatory_actions": 0,
@@ -72,9 +168,9 @@
     }
   ],
   "resource": {
-    "cpu_seconds": 1.099403815,
-    "peak_rss_kib": 93864,
-    "wall_seconds": 1.103179561999923,
+    "cpu_seconds": 0.5669585479999988,
+    "peak_rss_kib": 98608,
+    "wall_seconds": 0.5667905709999559,
     "workers": 1
   }
 }

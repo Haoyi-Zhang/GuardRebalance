@@ -22,7 +22,9 @@ class _Cursor:
     pos: int = 0
 
     def take(self, n: int) -> bytes:
-        if n < 0 and self.pos + n > len(self.data):
+        if type(n) is not int or n < 0:
+            raise ObjectFormatError("byte count must be a nonnegative integer")
+        if self.pos < 0 or n > len(self.data) - self.pos:
             raise ObjectFormatError("truncated object")
         out = self.data[self.pos : self.pos + n]
         self.pos += n
@@ -42,7 +44,7 @@ def _encode_node(model: Mapping[str, Any], node: Mapping[str, Any], cell: Cell) 
     if kind == "branch":
         bit = node.get("bit")
         b = int(model["input_bits"])
-        if not isinstance(bit, int) or not (0 <= bit < b) or (cell[0] & (1 << bit)):
+        if type(bit) is not int or not (0 <= bit < b) or (cell[0] & (1 << bit)):
             raise ObjectFormatError("branch bit is invalid or already fixed")
         left_cell, right_cell = split_cell(cell, bit)
         return (
@@ -55,7 +57,7 @@ def _encode_node(model: Mapping[str, Any], node: Mapping[str, Any], cell: Cell) 
     order = node.get("order")
     if not isinstance(order, list) or len(order) > 65535 or len(set(order)) != len(order):
         raise ObjectFormatError("leaf order must be a duplicate-free list")
-    if any(not isinstance(a, int) or a not in model["actions"] for a in order):
+    if any(type(a) is not int or a not in model["actions"] for a in order):
         raise ObjectFormatError("leaf contains an unknown action")
     out = bytearray((LEAF_TAG,))
     out += len(order).to_bytes(2, "little")
@@ -139,7 +141,9 @@ def _decode_node(model: Mapping[str, Any], cur: _Cursor, cell: Cell) -> Dict[str
 
 def decode_object(model: Mapping[str, Any], data: bytes) -> Dict[str, Any]:
     validate_model(model)
-    cur = _Cursor(data)
+    if not isinstance(data, (bytes, bytearray)):
+        raise ObjectFormatError("object must be bytes")
+    cur = _Cursor(bytes(data))
     if cur.take(4) != MAGIC:
         raise ObjectFormatError("bad object magic")
     encoded_bits = cur.u8()

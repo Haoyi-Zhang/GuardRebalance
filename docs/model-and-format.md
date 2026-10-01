@@ -2,53 +2,112 @@
 
 ## Finite semantic table
 
-A model is a JSON object with `input_bits`, `actions`, and one complete row for each input integer from `0` through `2^input_bits-1`. Action identifiers are consecutive nonnegative integers and every row supplies a source permutation, guard value, and raw outcome for every action.
+A model is a strict JSON object with `input_bits`, `actions`, and one complete
+row for each input integer from `0` through `2^input_bits-1`. Action identifiers
+are consecutive nonnegative JSON integers; Booleans and floating-point values
+are not accepted as identifiers. Every row supplies a full source permutation,
+an inherited Boolean guard, and a raw outcome for every action.
 
-A raw outcome is one of:
+A raw outcome is exactly one of:
 
-* `{"kind":"silent"}`;
-* `{"kind":"emit","value":...}`; or
-* `{"kind":"fault","signature":...}`.
+* `{"guard":g,"kind":"silent"}`;
+* `{"guard":g,"kind":"emit","value":...}`; or
+* `{"guard":g,"kind":"fault","value":...}`.
 
-An emitted event is observed as the pair `(action_id, value)`, so equal payloads from different actions do not substitute for one another. The signature contains the complete terminal information declared visible by the model. A false guard annuls the raw outcome before evaluation. An enabled fault terminates the region. Guards and raw outcomes are immutable functions of the entry input; there are no mutable reads, handlers, loops, concurrency, or timing observations.
+`value` ranges over strict finite JSON: null, Boolean, integer, finite number,
+string, array, or object with string keys. The semantic equality relation is
+type preserving, so `{}` differs from `[]`, an object differs from an array of
+key/value pairs, and `false` differs from `0`. For an emission, `value` is the
+payload and the observed event is `(action_id,value)`. For a fault, `value` is
+the complete terminal signature declared visible by the client. The word
+*signature* is semantic terminology, not a second JSON field.
 
-The source row gives a full permutation. A target leaf gives a nonrepeating ordered subset of inherited action identities. Omission and reordering are the only leaf transformations. A tree may branch only on an entry bit not already tested on its root-to-leaf path. Leaves are private; the format has no shared suffix, synthesized predicate, unconditional throw, or new primitive.
+A false guard annuls the raw outcome before evaluation. An enabled fault
+terminates the region. Guards and raw outcomes are immutable functions of the
+entry input. There are no mutable reads, handlers, loops, concurrency, timing
+observations, or production-ISA effects.
 
-## Canonical bytecode
+The source is a full permutation. A target leaf is a nonrepeating ordered
+subset of inherited action identities. Omission and reordering are the only
+leaf transformations. A tree may branch only on an entry bit not already
+examined on its root-to-leaf path. Leaves are private; the format has no shared
+suffix, synthesized predicate, unconditional throw, or new primitive.
 
-All multibyte integers are unsigned and big-endian.
+## Canonical PFC1 bytecode
+
+All 16-bit integers are unsigned **little-endian**. Input integer `x` maps to
+bit `x mod 8` of byte `floor(x/8)` in every guard mask; within a byte, input 0
+is the least-significant bit.
 
 | Item | Encoding | Bytes |
 |---|---|---:|
 | Header | ASCII `PFC1`, `input_bits`, zero reserved byte | 6 |
-| Branch | ASCII `B`, tested bit | 2 |
-| Leaf | ASCII `L`, action-copy count (`u16`) | 3 |
-| Action copy | action id (`u16`), flags | 3 |
-| Guard mask | `ceil(2^b/8)` bytes, when required | variable |
+| Branch | ASCII `B`, tested-bit index (`u8`) | 2 |
+| Leaf | ASCII `L`, action-copy count (`u16le`) | 3 |
+| Action copy | action id (`u16le`), flag (`u8`) | 3 |
+| Guard mask | `ceil(2^b/8)` global LSB-first bytes when flag is 1 | variable |
 
-A leaf action omits its mask exactly when its inherited guard is true for every input in that leaf cell. Otherwise the global input mask is encoded, with bits outside the cell still representing the immutable global guard. The decoder rejects wrong headers, reserved flags, truncation, trailing bytes, repeated branch bits, duplicate action identities in a leaf, unknown actions, noncanonical all-true masks, and masks that disagree with the supplied model.
+A leaf action uses flag 0 and omits its mask exactly when its inherited guard is
+true for every input in that leaf cell. Otherwise it uses flag 1 followed by
+the complete global input mask, including bits outside the cell. The decoder
+rejects wrong magic, width mismatch, nonzero reserved bytes, unknown tags,
+invalid or repeated branch bits, unknown or duplicate action identities,
+invalid flags, noncanonical masks, wrong masks, every truncation, and trailing
+bytes.
 
-The object cost is the actual byte-string length. It is a compact region object relative to the common semantic/action table. It does not include the model JSON, certificate JSON, primitive instruction bodies, transport framing, or a real ISA encoding. Consequently the reported byte optimum is grammar-relative and is not a hardware cache or runtime claim.
+The hand-calculable fixture in `fixtures/golden-pfc1/` fixes every byte. Its
+single action is enabled only on input 0, so the final mask byte is `01`:
+
+```text
+50 46 43 31 01 00 4c 01 00 00 00 01 01
+```
+
+The object cost is the actual byte-string length. It is relative to the common
+semantic/action table. It excludes model JSON, certificate JSON, primitive
+instruction bodies, transport framing, and real ISA encoding. A reported PFC1
+optimum is therefore grammar-relative, not a cache, execution-time, or machine-
+code claim.
 
 ## Certificate
 
-The certificate records the exact object size and every decoded leaf cell. Each cell lists the reached input rows and the decoded action order. For a faulting source input it supplies one acceptable terminal-fault representative; for a normally returning input it supplies null.
+The certificate records the exact object size and each decoded leaf cell. Each
+cell lists reached input rows and the decoded action order. For a faulting
+source input it supplies one acceptable terminal-fault action identity; for a
+normally returning input it supplies null.
 
-The checker independently decodes the object and recomputes source prefixes, enabled emissions, enabled faults, acceptable fault sets, and barriers from the model. It checks:
+The checker independently decodes the actual object and recomputes source
+prefixes, enabled emissions, enabled faults, acceptable fault sets, and
+barriers from the model. It checks:
 
 1. exact model typing and complete input coverage;
-2. exact object decoding and canonicality;
-3. actual byte length against both the declared certificate length and the external budget;
+2. exact PFC1 decoding and canonicality;
+3. actual byte length against certificate length and external budget;
 4. exact leaf/cell correspondence and one appearance of every input;
-5. preservation and order of the source emission prefix;
+5. source emission-prefix preservation and order;
 6. completion of that prefix before every selected enabled fault;
 7. acceptable-fault coverage; and
-8. one supplied acceptable fault before every selected extra emission or wrong-signature fault.
+8. one supplied acceptable fault before each selected extra emission or wrong-
+   signature fault.
 
-Passing therefore proves observational equivalence for every explicitly tabulated input, relative to the abstract checker rules and trusted implementation. It does not prove that a real compiler region was extracted correctly, that the model's observation is adequate for an ABI, or that the object is minimum size.
+Passing proves observational equivalence for every explicitly tabulated input,
+relative to the declared model and trusted checker implementation. It does not
+prove correct extraction from a compiler IR, adequacy of the chosen observer,
+or minimum size.
 
 ## Search modes and refusal
 
-`optional_subset` enumerates every optional subset after mandatory identities. `representative_tuple` chooses one representative from each distinct non-singleton acceptable-fault set. `auto` chooses the smaller complete candidate space. The exact sparsification theorem justifies both spaces for positive additive leaf costs. The configured candidate limit is checked before incomplete enumeration. Exceeding it raises `SearchRefusal` and produces status `refused`; this is neither a timeout nor a semantic infeasibility certificate.
+`optional_subset` enumerates every optional subset after the exact mandatory
+set. Here the mandatory set is **exactly** the union of all source-prefix
+identities and all singleton acceptable-fault sets. `representative_tuple`
+chooses one representative from each distinct non-singleton acceptable-fault
+set. `auto` chooses the smaller complete candidate space. Explicit modes are
+never overwritten. The configured limit is tested before enumeration; an
+over-limit space is `refused`, not `infeasible`.
 
-The whole-tree dynamic program enumerates read-once private-leaf entry-bit trees. For each canonical cell it compares the exact admitted leaf cost with every unused-bit split. The optimizer is complete only for this grammar, finite input table, positive costs, and admitted leaf search.
+Whole-tree optimization distinguishes:
+
+* `optimal`: every competing leaf and branch alternative was completely
+  searched and the returned tree is minimum in the private-leaf grammar;
+* `infeasible`: complete search proved that no grammar object exists; and
+* `incomplete`: diagnostic-only best feasible tree after at least one required
+  alternative was refused. Such a tree is never reported as proven optimal.

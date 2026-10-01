@@ -1,12 +1,16 @@
 {
+  "binding_id": "5dd7d5ad3b7317e6738e745e5bdf93b2e8b8ddf329718b481939c42f8c909518",
   "families": 512,
   "feasible_families": 121,
   "mismatches": 0,
   "phase": "and-or",
   "resource": {
-    "cpu_seconds": 0.010916186999999855,
-    "peak_rss_kib": 92716,
-    "wall_seconds": 0.007043578999969213,
+    "cpu_seconds": 0.050522201999999794,
+    "peak_rss_kib": 93744,
+    "wall_seconds": 0.050049992000140264,
     "workers": 1
-  }
+  },
+  "semantic_permutation_comparisons": 3072,
+  "semantic_rows_constructed": 2978,
+  "semantic_snapshot_models": 512
 }

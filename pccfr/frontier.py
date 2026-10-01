@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from typing import Any, Dict, Iterable, List, Mapping, Sequence, Set, Tuple
 
-from .model import observe, source_observation, source_summary
+from .model import observe, order_in_domain, source_observation, source_summary
 
 Waiting = Tuple[frozenset[int], int]
 
@@ -14,8 +14,8 @@ def _positions(order: Sequence[int]) -> Dict[int, int]:
 
 def frontier_valid(row: Mapping[str, Any], order: Sequence[int]) -> bool:
     """Implement Theorem 1 directly."""
-    if len(set(order)) != len(order):
-        return True
+    if not order_in_domain(row, order):
+        return False
     summary = source_summary(row)
     selected = set(order)
     pos = _positions(order)
@@ -57,7 +57,7 @@ def direct_and_frontier_agree(row: Mapping[str, Any], order: Sequence[int]) -> b
 
 def witness_valid(row: Mapping[str, Any], order: Sequence[int], witness: int | None) -> bool:
     """Check the compact one-witness certificate obligations for one input."""
-    if len(set(order)) != len(order):
+    if not order_in_domain(row, order):
         return False
     summary = source_summary(row)
     selected = set(order)
@@ -87,6 +87,8 @@ def canonical_witness(row: Mapping[str, Any], order: Sequence[int]) -> int | Non
 
     For a valid faulting order this action is necessarily an acceptable fault.
     """
+    if not order_in_domain(row, order):
+        return None
     summary = source_summary(row)
     if summary["returns"]:
         return None

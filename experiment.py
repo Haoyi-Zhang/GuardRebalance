@@ -29,7 +29,9 @@ def main() -> int:
     parser.add_argument("--actions", type=int, default=None)
     args = parser.parse_args()
     _apply_limits()
-    args.out.mkdir(parents=True, exist_ok=True)
+    if args.out.exists() or args.out.is_symlink():
+        raise SystemExit(f"refusing to overwrite existing phase output directory: {args.out}")
+    args.out.mkdir(parents=True, exist_ok=False)
     result = measure(lambda: PHASES[args.phase](args.out))
     write_json(args.out / f"{args.phase}.json", result)
     print(args.out / f"{args.phase}.json")

@@ -1,11 +1,12 @@
 {
+  "binding_id": "5dd7d5ad3b7317e6738e745e5bdf93b2e8b8ddf329718b481939c42f8c909518",
   "comparisons": 12500,
   "mismatches": 0,
   "phase": "two-state",
   "resource": {
-    "cpu_seconds": 0.417398068,
-    "peak_rss_kib": 92712,
-    "wall_seconds": 0.4165703080000185,
+    "cpu_seconds": 0.28836908599999944,
+    "peak_rss_kib": 92848,
+    "wall_seconds": 0.2880734970001413,
     "workers": 1
   }
 }

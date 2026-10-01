@@ -1,4 +1,5 @@
 {
+  "binding_id": "5dd7d5ad3b7317e6738e745e5bdf93b2e8b8ddf329718b481939c42f8c909518",
   "instances": 64,
   "mismatches": 0,
   "phase": "padding",
@@ -325,9 +326,9 @@
     }
   ],
   "resource": {
-    "cpu_seconds": 0.26408138199999986,
-    "peak_rss_kib": 97196,
-    "wall_seconds": 0.26440628800003196,
+    "cpu_seconds": 0.07060874100000092,
+    "peak_rss_kib": 98608,
+    "wall_seconds": 0.0700788859999193,
     "workers": 1
   }
 }

@@ -5,5 +5,6 @@
   "frontier_checks": 2,
   "leaves": 1,
   "object_size": 13,
-  "reason": "ok"
+  "reason": "ok",
+  "stage": "accept"
 }
