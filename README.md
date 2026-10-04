@@ -108,7 +108,6 @@ Exit status 0 means acceptance. Exit status 2 is a structured rejection or expli
 
 ## Research provenance and external use
 
-Generative AI was used substantively in formulation, literature work, proof drafting, code and test construction, experiment execution, analysis, manuscript preparation, and internal validation. No external model API or learned-model experiment was used. Accountable human authors must review the proofs, code, citations, originality, authorship, and applicable AI-use disclosures before external use. This artifact does not claim independent review, submission, acceptance, or production readiness.
 
 ## License
 
