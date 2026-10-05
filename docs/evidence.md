@@ -14,7 +14,7 @@ The artifact separates general proof, bounded direct comparison, row-level witne
 | `observer-gap` | fixed-grammar formula under coarse versus origin-refined faults | four representable widths, matching 12 versus `8*2^b+4` |
 | `baselines` | exact private tree, fully split, branchless status/cost, and refined-observer cost | 64 retained models |
 | `controls` | semantic, object-format, certificate, and external-budget rejection | 3 expected accepts and 27 expected rejects; exact outcome, stage, and reason matched in all 30 |
-| `search` | optional-subset, representative-tuple, and automatic leaf search | 384 optimum comparisons and 4,686 completion/sparsification checks; requested and actual modes retained; 0 mismatches |
+| `search` | optional-subset, representative-tuple, and automatic leaf search | 384 cost/infeasibility comparisons and 4,686 completion/sparsification checks; actual modes retained for 57 feasible models and null for 71 infeasible models; 0 mismatches |
 | `padding` | independence from latent silent/disabled actions after semantic sparsification | 64 models including 128/512/2,048-action strata; 0 mismatches |
 | `many-relevant` | complete-space admission and refusal | 11 admitted method/instance pairs and 4 explicit refusals; 0 mismatches |
 | `retained-input-replay` | stable-ID loading rather than pseudorandom regeneration | exactly 391 inputs present and parsed; no missing or unexpected ID |
@@ -49,12 +49,14 @@ PFC1 uses little-endian `u16` fields. Guard masks are LSB first: input `x` is bi
 
 A control counts as successful only if its accept/reject outcome **and** stage/reason match the frozen expectation. The 30 controls include deletion/reordering/signature semantic errors; wrong witness identity; object truncation, trailing bytes, unknown opcode, repeated branch bit, noncanonical implicit and explicit guard masks, duplicate action identities, and malformed length; and exact/under budget checks. Rejection for the wrong reason is recorded as a mismatch.
 
-## Retained-input and byte reproduction
+## Input loading and separate retained-result comparison
 
-The replay requires the exact stable-ID set: 130 `exact`, 64 `baseline`, 128 `joint`, 64 `padding`, and 5 `many` inputs. Missing inputs, an empty directory, duplicates, or unexpected IDs fail loading. It separately reports:
+The campaign's `retained-input-replay` phase checks and parses the stable-ID set: 130 `exact`, 64 `baseline`, 128 `joint`, 64 `padding`, and 5 `many` inputs. It calls an optimizer path for each input without comparing that return value to a retained result. Its mismatch count checks the inventory, not numerical or byte reproduction.
+
+The standalone `replay_inputs.py` comparator requires this same stable-ID set and rejects duplicates in the retained record indices. It separately reports:
 
 1. loading and stable-ID coverage;
-2. numerical/status/actual-search-mode reproduction;
+2. numerical/status comparison and the recorded mode fields: joint-search actual modes are informative only for feasible cases; infeasible null fields do not verify mode selection;
 3. byte equality for all 130 retained `.pfc` objects; and
 4. the scientific source plus exact-input binding.
 
@@ -62,4 +64,4 @@ The replay requires the exact stable-ID set: 130 `exact`, 64 `baseline`, 128 `jo
 
 ## Interpretation and remaining limits
 
-The general theorems are handwritten. The executable campaign is bounded falsification and implementation-conformance evidence. There is no production compiler pass, compiler-to-table extractor, real exception ABI, real instruction encoding, workload benchmark, hardware measurement, mutable memory, effectful guard, handler/resumption semantics, loops, concurrency, undefined behavior, or asynchronous fault model. The private-leaf grammar excludes shared suffixes, strengthened predicates, and synthesized actions. No finite count is presented as proof of those excluded cases or as evidence of production performance.
+The general theorems have supplied mathematical proofs, not mechanized derivations. The executable campaign is bounded falsification and implementation-conformance evidence. There is no production compiler pass, compiler-to-table extractor, real exception ABI, real instruction encoding, workload benchmark, hardware measurement, mutable memory, effectful guard, handler/resumption semantics, loops, concurrency, undefined behavior, or asynchronous fault model. The private-leaf grammar excludes shared suffixes, strengthened predicates, and synthesized actions. No finite count is presented as proof of those excluded cases or as evidence of production performance.
