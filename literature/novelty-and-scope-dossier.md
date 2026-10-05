@@ -34,4 +34,5 @@ The contribution must be narrowed or withdrawn if:
 - stable-ID, numerical/status/mode, or PFC-byte replay fails; or
 - a cited source is unidentifiable or does not support its manuscript context.
 
-Metadata identity, bounded tests, and internal review do not by themselves establish novelty or acceptance.
+Bibliographic identity and bounded tests do not establish novelty; the claim also
+depends on the substantive comparison with prior results described above.
