@@ -1,0 +1,21 @@
+{
+  "accepted": true,
+  "errors": [],
+  "loading": {
+    "candidate_files": 540,
+    "missing_json": [],
+    "missing_pfc": [],
+    "reference_files": 540,
+    "retained_inputs": 391,
+    "status": "ok",
+    "unexpected_files": []
+  },
+  "numeric_json_reproduction": {
+    "compared_files": 409,
+    "status": "ok"
+  },
+  "pfc_byte_reproduction": {
+    "compared_files": 131,
+    "status": "ok"
+  }
+}

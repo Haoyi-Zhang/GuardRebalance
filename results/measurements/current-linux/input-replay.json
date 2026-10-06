@@ -1,0 +1,56 @@
+{
+  "accepted": true,
+  "binding": {
+    "binding_id": "4f0aba19cf8d60290505a526cec9139221f6bcf949ee8101cabbe24ab134123b",
+    "input_summary": {
+      "aggregate": "9fb81f970771eaf7a182081b8d0e51551f4d62fd36d94b58726b33e680aadedf",
+      "algorithm": "sha256",
+      "bytes": 5447917,
+      "families": {
+        "baseline": 64,
+        "exact": 130,
+        "joint": 128,
+        "many": 5,
+        "padding": 64
+      },
+      "files": 391
+    },
+    "source_summary": {
+      "aggregate": "04d1d86cfd1aa3840618ab59bf6dbbbe7fd68baac83d1de330a30e24009e4d1e",
+      "algorithm": "sha256",
+      "bytes": 172009,
+      "files": 30
+    },
+    "status": "ok"
+  },
+  "byte_reproduction": {
+    "pfc_objects_compared": 130,
+    "status": "ok"
+  },
+  "errors": [],
+  "loading": {
+    "families_loaded": {
+      "baseline": 64,
+      "exact": 130,
+      "joint": 128,
+      "many": 5,
+      "padding": 64
+    },
+    "input_tables_loaded": 391,
+    "missing_ids": [],
+    "stable_ids_expected": 391,
+    "stable_ids_present": 391,
+    "status": "ok",
+    "unexpected_ids": []
+  },
+  "numeric_reproduction": {
+    "comparisons": 1909,
+    "status": "ok"
+  },
+  "resource": {
+    "cpu_seconds": 4.465548305,
+    "peak_rss_kib": 25460,
+    "wall_seconds": 4.466676704999998,
+    "workers": 1
+  }
+}

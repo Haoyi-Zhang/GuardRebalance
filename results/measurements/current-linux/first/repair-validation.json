@@ -1,0 +1,275 @@
+{
+  "accepted": true,
+  "binding_id": "4f0aba19cf8d60290505a526cec9139221f6bcf949ee8101cabbe24ab134123b",
+  "checks": {
+    "campaign_evidence_layers": {
+      "accepted": true,
+      "binding_id": "4f0aba19cf8d60290505a526cec9139221f6bcf949ee8101cabbe24ab134123b",
+      "certificate_direct_row_checks": 24813,
+      "certificate_frontier_row_checks": 24813,
+      "directed_controls": 30,
+      "independent_tree_instances": 130,
+      "independent_tree_shapes_enumerated": 8220,
+      "object_certificate_replays": 45885,
+      "retained_input_tables": 391,
+      "semantic_comparisons": 1061510,
+      "semantic_waiting_models": 512,
+      "semantic_waiting_permutation_comparisons": 3072,
+      "witness_existence_checks": 45885
+    },
+    "frontier_action_domain": {
+      "accepted": true,
+      "records": [
+        {
+          "frontier_valid": false,
+          "name": "duplicate-emission",
+          "order": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "frontier_valid": false,
+          "name": "duplicate-fault",
+          "order": [
+            0,
+            0
+          ]
+        },
+        {
+          "frontier_valid": false,
+          "name": "negative-action",
+          "order": [
+            -1
+          ]
+        },
+        {
+          "frontier_valid": false,
+          "name": "large-action",
+          "order": [
+            2
+          ]
+        },
+        {
+          "frontier_valid": false,
+          "name": "boolean-action",
+          "order": [
+            false
+          ]
+        }
+      ]
+    },
+    "many_relevant_search_modes": {
+      "admitted": 11,
+      "candidate_limit": 4096,
+      "records": [
+        {
+          "actions": 8,
+          "methods": {
+            "auto": {
+              "actual_search_mode": "representative_tuple",
+              "candidates": null,
+              "cost": 9,
+              "requested_mode": "auto",
+              "status": "optimal"
+            },
+            "optional_subset": {
+              "actual_search_mode": "optional_subset",
+              "candidates": null,
+              "cost": 9,
+              "requested_mode": "optional_subset",
+              "status": "optimal"
+            },
+            "representative_tuple": {
+              "actual_search_mode": "representative_tuple",
+              "candidates": null,
+              "cost": 9,
+              "requested_mode": "representative_tuple",
+              "status": "optimal"
+            }
+          }
+        },
+        {
+          "actions": 16,
+          "methods": {
+            "auto": {
+              "actual_search_mode": "representative_tuple",
+              "candidates": null,
+              "cost": 9,
+              "requested_mode": "auto",
+              "status": "optimal"
+            },
+            "optional_subset": {
+              "actual_search_mode": "optional_subset",
+              "candidates": 65536,
+              "cost": null,
+              "requested_mode": "optional_subset",
+              "status": "refused"
+            },
+            "representative_tuple": {
+              "actual_search_mode": "representative_tuple",
+              "candidates": null,
+              "cost": 9,
+              "requested_mode": "representative_tuple",
+              "status": "optimal"
+            }
+          }
+        },
+        {
+          "actions": 32,
+          "methods": {
+            "auto": {
+              "actual_search_mode": "representative_tuple",
+              "candidates": null,
+              "cost": 9,
+              "requested_mode": "auto",
+              "status": "optimal"
+            },
+            "optional_subset": {
+              "actual_search_mode": "optional_subset",
+              "candidates": 4294967296,
+              "cost": null,
+              "requested_mode": "optional_subset",
+              "status": "refused"
+            },
+            "representative_tuple": {
+              "actual_search_mode": "representative_tuple",
+              "candidates": null,
+              "cost": 9,
+              "requested_mode": "representative_tuple",
+              "status": "optimal"
+            }
+          }
+        },
+        {
+          "actions": 64,
+          "methods": {
+            "auto": {
+              "actual_search_mode": "representative_tuple",
+              "candidates": null,
+              "cost": 9,
+              "requested_mode": "auto",
+              "status": "optimal"
+            },
+            "optional_subset": {
+              "actual_search_mode": "optional_subset",
+              "candidates": 18446744073709551616,
+              "cost": null,
+              "requested_mode": "optional_subset",
+              "status": "refused"
+            },
+            "representative_tuple": {
+              "actual_search_mode": "representative_tuple",
+              "candidates": null,
+              "cost": 9,
+              "requested_mode": "representative_tuple",
+              "status": "optimal"
+            }
+          }
+        },
+        {
+          "actions": 128,
+          "methods": {
+            "auto": {
+              "actual_search_mode": "representative_tuple",
+              "candidates": null,
+              "cost": 9,
+              "requested_mode": "auto",
+              "status": "optimal"
+            },
+            "optional_subset": {
+              "actual_search_mode": "optional_subset",
+              "candidates": 340282366920938463463374607431768211456,
+              "cost": null,
+              "requested_mode": "optional_subset",
+              "status": "refused"
+            },
+            "representative_tuple": {
+              "actual_search_mode": "representative_tuple",
+              "candidates": null,
+              "cost": 9,
+              "requested_mode": "representative_tuple",
+              "status": "optimal"
+            }
+          }
+        }
+      ],
+      "refused": 4
+    },
+    "pfc1_parser_and_golden_bytes": {
+      "accepted": true,
+      "all_truncation_positions_tested": 13,
+      "cursor_position_unchanged": true,
+      "golden_hex": "5046433101004c010000000101",
+      "guard_mask_bit_order": "LSB-first; input x is bit x mod 8 of byte floor(x/8)",
+      "little_endian_u16": true,
+      "magic_only_reason": "invalid-object",
+      "negative_take_rejected": true,
+      "object_bytes": 13,
+      "structured_invalid_object_rejections": 13
+    },
+    "source_integer_validation": {
+      "accepted": true,
+      "checker_reason": "invalid-model",
+      "input": [
+        0.0
+      ],
+      "validator_rejected": true
+    },
+    "tree_refusal_microexample": {
+      "accepted": true,
+      "branchless_status": "refused",
+      "candidate_limit": 2,
+      "diagnostic_candidate_object_bytes": 20,
+      "diagnostic_optimality_proven": false,
+      "diagnostic_status": "incomplete",
+      "direct_single_leaf_object_bytes": 12,
+      "direct_single_leaf_order": [
+        1
+      ],
+      "good_sets": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "strict_refused": true
+    },
+    "typed_signature_microexample": {
+      "accepted": true,
+      "direct_leaf_order": [
+        0
+      ],
+      "frontier_valid": false,
+      "input_bits": 0,
+      "source": [
+        0,
+        1
+      ],
+      "source_observation": [
+        [],
+        [
+          "fault",
+          "{}"
+        ]
+      ],
+      "target": [
+        1
+      ],
+      "target_observation": [
+        [],
+        [
+          "fault",
+          "[]"
+        ]
+      ]
+    }
+  },
+  "errors": [],
+  "scope": "Regression evidence for the repaired finite snapshot-action/PFC1 implementation; not a mechanized proof, production-compiler evaluation, or performance claim."
+}

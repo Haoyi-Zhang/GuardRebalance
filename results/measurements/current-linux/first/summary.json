@@ -1,0 +1,25 @@
+{
+  "binding_id": "4f0aba19cf8d60290505a526cec9139221f6bcf949ee8101cabbe24ab134123b",
+  "cumulative_cpu_seconds": 35.14053032799998,
+  "driver_and_child_cpu_seconds": 35.251724559,
+  "driver_wall_seconds": 35.267955145,
+  "maximum_process_peak_rss_kib": 28172,
+  "mismatches": 0,
+  "phase_order": [
+    "exhaustive",
+    "two-state",
+    "trees",
+    "and-or",
+    "graphs",
+    "observer-gap",
+    "baselines",
+    "controls",
+    "search",
+    "padding",
+    "many-relevant",
+    "retained-input-replay"
+  ],
+  "phases": 12,
+  "provenance_file": "provenance.json",
+  "workers": 1
+}

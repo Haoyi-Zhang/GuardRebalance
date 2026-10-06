@@ -1,0 +1,43 @@
+test_certificate_metadata_requires_json_integers (test_contract_boundary.ContractBoundaryTests.test_certificate_metadata_requires_json_integers) ... ok
+test_nonstring_outcome_kind_is_a_model_error (test_contract_boundary.ContractBoundaryTests.test_nonstring_outcome_kind_is_a_model_error) ... ok
+test_source_binding_uses_case_sensitive_posix_name_order (test_contract_boundary.ContractBoundaryTests.test_source_binding_uses_case_sensitive_posix_name_order) ... ok
+test_budget_rejection (test_core.CoreTests.test_budget_rejection) ... ok
+test_bytecode_round_trip (test_core.CoreTests.test_bytecode_round_trip) ... ok
+test_certificate_round_trip (test_core.CoreTests.test_certificate_round_trip) ... ok
+test_explicit_search_refusal (test_core.CoreTests.test_explicit_search_refusal) ... ok
+test_frontier_exhaustive_three_actions (test_core.CoreTests.test_frontier_exhaustive_three_actions) ... ok
+test_graph_selection_matches_cover (test_core.CoreTests.test_graph_selection_matches_cover) ... ok
+test_leaf_optimizers_agree (test_core.CoreTests.test_leaf_optimizers_agree) ... ok
+test_model_validation_rejects_incomplete_domain (test_core.CoreTests.test_model_validation_rejects_incomplete_domain) ... ok
+test_non_poset_four_orders (test_core.CoreTests.test_non_poset_four_orders) ... ok
+test_object_mutation_rejected (test_core.CoreTests.test_object_mutation_rejected) ... ok
+test_observer_gap (test_core.CoreTests.test_observer_gap) ... ok
+test_ready_schedule (test_core.CoreTests.test_ready_schedule) ... ok
+test_ready_schedule_obstruction (test_core.CoreTests.test_ready_schedule_obstruction) ... ok
+test_tree_optimizer_oracle (test_core.CoreTests.test_tree_optimizer_oracle) ... ok
+test_witness_equivalence (test_core.CoreTests.test_witness_equivalence) ... ok
+test_all_object_truncations_are_structured_rejections (test_regressions.RegressionTests.test_all_object_truncations_are_structured_rejections) ... ok
+test_auto_mode_and_explicit_modes_are_not_overwritten (test_regressions.RegressionTests.test_auto_mode_and_explicit_modes_are_not_overwritten) ... ok
+test_branchless_statuses_are_distinct (test_regressions.RegressionTests.test_branchless_statuses_are_distinct) ... ok
+test_controls_require_the_expected_rejection_reason (test_regressions.RegressionTests.test_controls_require_the_expected_rejection_reason) ... ok
+test_cursor_rejects_negative_and_truncated_reads_without_moving (test_regressions.RegressionTests.test_cursor_rejects_negative_and_truncated_reads_without_moving) ... ok
+test_float_source_is_invalid_model_in_checker_and_cli (test_regressions.RegressionTests.test_float_source_is_invalid_model_in_checker_and_cli) ... ok
+test_frontier_rejects_duplicate_and_out_of_domain_actions (test_regressions.RegressionTests.test_frontier_rejects_duplicate_and_out_of_domain_actions) ... ok
+test_golden_bytes_little_endian_and_lsb_first_mask (test_regressions.RegressionTests.test_golden_bytes_little_endian_and_lsb_first_mask) ... ok
+test_independent_tree_shape_oracle_matches_small_optimizer (test_regressions.RegressionTests.test_independent_tree_shape_oracle_matches_small_optimizer) ... ok
+test_many_relevant_small_family_admission_matrix (test_regressions.RegressionTests.test_many_relevant_small_family_admission_matrix) ... ok
+test_model_schema_rejects_signature_alias_and_extra_fields (test_regressions.RegressionTests.test_model_schema_rejects_signature_alias_and_extra_fields) ... ok
+test_optimize_cli_refuses_existing_output_directory (test_regressions.RegressionTests.test_optimize_cli_refuses_existing_output_directory) ... ok
+test_safe_output_validation_never_deletes_or_follows_links (test_regressions.RegressionTests.test_safe_output_validation_never_deletes_or_follows_links) ... ok
+test_strict_json_rejects_duplicate_keys_and_nonfinite_numbers (test_regressions.RegressionTests.test_strict_json_rejects_duplicate_keys_and_nonfinite_numbers) ... ok
+test_structural_signature_microexample_rejects_target_one (test_regressions.RegressionTests.test_structural_signature_microexample_rejects_target_one) ... ok
+test_tree_refusal_is_not_reported_as_optimal (test_regressions.RegressionTests.test_tree_refusal_is_not_reported_as_optimal) ... ok
+test_typed_json_signatures_do_not_collide (test_regressions.RegressionTests.test_typed_json_signatures_do_not_collide) ... ok
+test_verify_results_separates_loading_json_and_pfc_failures (test_regressions.RegressionTests.test_verify_results_separates_loading_json_and_pfc_failures) ... ok
+test_waiting_family_has_true_semantic_realization (test_regressions.RegressionTests.test_waiting_family_has_true_semantic_realization) ... ok
+test_all_effective_two_action_profiles (test_two_state.TwoStateBoundaryTests.test_all_effective_two_action_profiles) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 2.250s
+
+OK
