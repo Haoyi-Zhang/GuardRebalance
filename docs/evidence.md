@@ -19,7 +19,7 @@ The artifact separates general proof, bounded direct comparison, row-level witne
 | `many-relevant` | complete-space admission and refusal | 11 admitted method/instance pairs and 4 explicit refusals; 0 mismatches |
 | `retained-input-replay` | stable-ID loading rather than pseudorandom regeneration | exactly 391 inputs present and parsed; no missing or unexpected ID |
 
-The `n=4` one-row certificate protocol covers every ordered subset for every enumerated profile. For `n=5`, the direct semantic/frontier phase still examines all ordered subsets, while serialized certificate replay covers the source order of every profile. The 45,885 witness checks and 45,885 serialized object replays are separate activities, even though their totals happen to coincide after the repaired protocol.
+The `n=4` one-row certificate protocol covers every ordered subset for every enumerated profile. For `n=5`, the direct semantic/frontier phase still examines all ordered subsets, while serialized certificate replay covers the source order of every profile. The 45,885 witness checks and 45,885 serialized object replays are separate activities, even though their totals happen to coincide after the repaired protocol. The 24,813 frontier and direct-row counters are returned by accepted replays only; rejected replays may execute checks but do not return those counters.
 
 ## Independent paths and shared trust
 
@@ -61,6 +61,13 @@ The standalone `replay_inputs.py` comparator requires this same stable-ID set an
 4. the scientific source plus exact-input binding.
 
 `verify_results.py` compares every deterministic JSON file after excluding only host-dependent resource/timing fields and byte-compares every `.pfc` file. It fails when the reference has no retained inputs or no PFC objects.
+
+The retained campaign binds its historical source snapshot, not later source
+edits. A source-closed current reproduction generates a fresh campaign and
+replays against that fresh binding; the README describes the two-run protocol.
+Historical costs/statuses and object bytes can still agree while the strict
+source-binding comparison fails. Aggregation orders files by case-sensitive
+relative POSIX names, so the binding does not depend on host path ordering.
 
 ## Interpretation and remaining limits
 

@@ -93,7 +93,7 @@ def main() -> int:
         candidate_path = args.candidate / rel
         if not candidate_path.is_file():
             errors.append(f"missing JSON {rel}")
-            missing_json.append(str(rel))
+            missing_json.append(rel.as_posix())
             loading_failed = True
             numeric_failed = True
             continue
@@ -114,7 +114,7 @@ def main() -> int:
         candidate_path = args.candidate / rel
         if not candidate_path.is_file():
             errors.append(f"missing PFC {rel}")
-            missing_pfc.append(str(rel))
+            missing_pfc.append(rel.as_posix())
             loading_failed = True
             byte_failed = True
             continue
@@ -127,7 +127,7 @@ def main() -> int:
     candidate_relevant = {path for path in candidate_files if path.suffix in {".json", ".pfc"}}
     extra = sorted(candidate_relevant - relevant_set)
     if extra:
-        errors.append("unexpected deterministic result files: " + ", ".join(map(str, extra)))
+        errors.append("unexpected deterministic result files: " + ", ".join(path.as_posix() for path in extra))
         loading_failed = True
 
     report = {
@@ -139,7 +139,7 @@ def main() -> int:
             "retained_inputs": len(retained_inputs),
             "missing_json": missing_json,
             "missing_pfc": missing_pfc,
-            "unexpected_files": [str(path) for path in extra],
+            "unexpected_files": [path.as_posix() for path in extra],
         },
         "numeric_json_reproduction": {
             "compared_files": json_compared,

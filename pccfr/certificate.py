@@ -67,9 +67,9 @@ def check_certificate(
         return _reject("invalid-certificate", "certificate", detail="certificate fields do not match the closed schema")
     if certificate.get("format") != "pfc-certificate-1":
         return _reject("invalid-certificate", "certificate", detail="unknown certificate format")
-    if certificate.get("input_bits") != int(model["input_bits"]):
+    if type(certificate.get("input_bits")) is not int or certificate["input_bits"] != model["input_bits"]:
         return _reject("invalid-certificate", "certificate", detail="input width mismatch")
-    if certificate.get("object_size") != actual_size:
+    if type(certificate.get("object_size")) is not int or certificate["object_size"] != actual_size:
         return _reject("invalid-certificate", "certificate", detail="declared object size mismatch")
     supplied = certificate.get("leaves")
     if not isinstance(supplied, list):

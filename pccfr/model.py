@@ -168,7 +168,7 @@ def validate_model(model: Mapping[str, Any]) -> None:
             if type(out.get("guard")) is not bool:
                 raise ModelError("outcome.guard must be Boolean")
             kind = out.get("kind")
-            if kind not in {"silent", "emit", "fault"}:
+            if type(kind) is not str or kind not in {"silent", "emit", "fault"}:
                 raise ModelError("outcome.kind must be silent, emit, or fault")
             required_outcome = {"guard", "kind"} if kind == "silent" else {"guard", "kind", "value"}
             outcome_keys = set(out)

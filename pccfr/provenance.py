@@ -7,11 +7,17 @@ from typing import Any, Dict, Iterable
 
 
 def _aggregate(root: Path, files: Iterable[Path]) -> Dict[str, Any]:
-    selected = sorted({path.resolve() for path in files if path.is_file()})
+    # Path ordering is host-dependent (case-folded on Windows). Bind the same
+    # byte set in the same case-sensitive relative POSIX-name order everywhere.
+    root = root.resolve()
+    selected = sorted(
+        {path.resolve() for path in files if path.is_file()},
+        key=lambda path: path.relative_to(root).as_posix(),
+    )
     digest = hashlib.sha256()
     total = 0
     for path in selected:
-        rel = path.relative_to(root.resolve()).as_posix()
+        rel = path.relative_to(root).as_posix()
         data = path.read_bytes()
         digest.update(rel.encode("utf-8"))
         digest.update(b"\0")

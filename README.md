@@ -59,6 +59,26 @@ If those names already exist, select four fresh names explicitly:
 
 The command runs the unit/regression suite, regenerates all twelve scientific phases in one bounded serial process, regenerates the targeted repair-validation report, compares deterministic JSON and every retained `.pfc` byte sequence with `results/confirmed/`, reloads all retained inputs by stable ID, and derives manuscript-facing tables/macros. Missing inputs, an empty corpus, unexpected IDs, a source/input binding mismatch, or an object-byte mismatch causes failure.
 
+The checked-in `results/confirmed/` preserves an earlier source snapshot and its
+original source/input binding. The strict historical comparison therefore does
+not establish source-closed reproduction of the current implementation: source
+changes cause a binding failure even when costs, statuses, and object bytes
+agree. Do not rewrite the historical binding by hand or disable this gate.
+For a source-closed current run on a POSIX host, use two fresh outputs:
+
+```sh
+python -B reproduce.py --out /tmp/pccfr-first
+python -B reproduce.py --out /tmp/pccfr-second
+python -B verify_results.py --reference /tmp/pccfr-first --candidate /tmp/pccfr-second
+python -B replay_inputs.py --reference /tmp/pccfr-first --out /tmp/pccfr-input-replay.json
+```
+
+All four paths must be fresh. The prepared `scientific-checks.yml` workflow runs
+this current-source protocol, the unit tests, and data derivation on Ubuntu
+24.04 with a whole-run timeout and raw-output upload on failure. This is separate
+from comparison with the historical snapshot; neither protocol certifies the
+mathematical proofs.
+
 ## Evidence layers
 
 The retained campaign keeps distinct evidence classes instead of combining them under one label:
@@ -66,7 +86,7 @@ The retained campaign keeps distinct evidence classes instead of combining them 
 - **1,061,510 direct semantic/frontier comparisons** in the bounded one-row family;
 - **45,885 row-level witness-existence checks**;
 - **45,885 actual PFC1 encode/decode/check-certificate replays**;
-- **24,813 frontier rows and 24,813 direct-trace rows** checked inside those objects;
+- **24,813 frontier rows and 24,813 direct-trace rows** reported by accepted object replays; rejected replays do not return these counters;
 - **12,500 two-row boundary comparisons**;
 - **130 optimizer comparisons against independent enumeration of every tree shape and direct leaf order** at the configured small boundary;
 - **512 realized three-action waiting systems**, 2,978 semantic rows, and 3,072 per-permutation semantic comparisons;
@@ -98,7 +118,7 @@ Exit status 0 means acceptance. Exit status 2 is a structured rejection or expli
 - `tests/`: theorem-boundary, parser, refusal-state, stable-mode, and regression tests.
 - `fixtures/golden-pfc1/`: independently hand-computable model, tree, and golden PFC1 bytes.
 - `proofs/core.md`: mathematical theorem statements and proofs.
-- `results/confirmed/`: freshly generated retained inputs, objects, certificates, raw phase results, provenance, and repair validation.
+- `results/confirmed/`: historical retained inputs, objects, certificates, raw phase results, provenance, and repair validation, bound to their original source snapshot.
 - `results/presentation/`: tables and TeX macros derived from confirmed JSON.
 - `docs/model-and-format.md`: normative finite-model and PFC1 contract.
 - `docs/evidence.md`: exact evidence reconciliation and remaining limitations.

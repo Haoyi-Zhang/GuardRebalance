@@ -75,6 +75,12 @@ cell lists reached input rows and the decoded action order. For a faulting
 source input it supplies one acceptable terminal-fault action identity; for a
 normally returning input it supplies null.
 
+The `input_bits` and `object_size` fields must be JSON integers, not Boolean or
+floating-point values that compare equal to integers. Cells, orders, and
+nonnull witnesses likewise use integer identities. Each outcome's `kind`
+must be one of the three string tags specified above; other JSON types are
+rejected as model errors before outcome interpretation.
+
 The checker independently decodes the actual object and recomputes source
 prefixes, enabled emissions, enabled faults, acceptable fault sets, and
 barriers from the model. It checks:
