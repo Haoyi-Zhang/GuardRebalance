@@ -22,6 +22,7 @@ Run from this directory:
 
 ```sh
 python -m unittest discover -s tests -v
+python -B -m unittest discover -s tests -p incidence_regression.py -v
 python replay_inputs.py \
   --reference results/confirmed \
   --out results/reproduced-fast-input-replay.json
@@ -31,6 +32,13 @@ python verify_results.py \
 ```
 
 The replay output must be a new path. The self-comparison is only a parser/comparison smoke check; the clean reproduction below is the scientific reproduction.
+
+The scheduler builds reverse predecessor incidences once per selected set.
+Each waiting condition is satisfied once, even when several alternatives emit;
+a min-heap retains the smallest-ready order and the sorted closed residual.
+The six additional pure incidence regressions use a bounded legal-prefix
+enumerator and a direct two-row observation reference. They have an explicit
+CI step; they do not replace the historical 38-test receipt or the full campaign.
 
 ## Clean reproduction
 

@@ -40,6 +40,18 @@ jobs:
             python -B replay_inputs.py --reference "$RAW/first" --out "$RAW/input-replay.json" 2>&1 | tee "$RAW/input-replay.log"
             python -B paper_data.py --results "$RAW/first" --out "$RAW/presentation" 2>&1 | tee "$RAW/presentation.log"
           ' 2>&1 | tee "$RAW/whole-run.log"
+      - name: Check incidence scheduling against finite independent references
+        shell: bash
+        run: |
+          set -euo pipefail
+          export RAW="$RUNNER_TEMP/p061-science"
+          mkdir -p "$RAW"
+          timeout --signal=TERM --kill-after=5s 30s bash -c '
+            set -euo pipefail
+            ulimit -v 3584000
+            ulimit -t 1800
+            python -B -m unittest discover -s tests -p incidence_regression.py -v 2>&1 | tee "$RAW/incidence-regression.log"
+          '
       - name: Upload raw outputs even when a scientific gate fails
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
