@@ -141,3 +141,18 @@ Exit status 0 means acceptance. Exit status 2 is a structured rejection or expli
 ## License
 
 Original artifact code and documentation are under the MIT License in `LICENSE`. The ACM class and bibliography style are in the separate paper package under their upstream notices.
+
+## Optional vector figures
+
+From the standalone artifact root, install the renderer dependencies if needed
+and generate the PDF figures:
+
+```sh
+python -m pip install "matplotlib==3.10.7" "fonttools==4.66.1"
+python -B scripts/plot_figures.py
+```
+
+The renderer uses an installed Linux Libertine O font or the TeX font lookup. The --font-file option selects an available regular Libertine font explicitly; neighboring italic and bold faces are used when present.
+
+This optional rendering step is separate from the scientific reproduction
+commands and works without a sibling paper directory.
