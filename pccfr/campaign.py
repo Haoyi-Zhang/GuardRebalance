@@ -280,7 +280,8 @@ def phase_graphs(_: Path) -> Dict[str, Any]:
             edges = graph_edges(n, mask)
             model = graph_model(n, edges)
             leaf = optimize_leaf(model, (0, 0), "representative_tuple", 4096)
-            assert leaf is not None
+            if leaf is None:
+                raise RuntimeError("graph family unexpectedly has no feasible leaf")
             cover_size, cover = _min_vertex_cover(n, edges)
             selected = len(leaf["order"])
             if selected != cover_size:
