@@ -12,7 +12,7 @@ Exactness is claimed only when the declared complete search is admitted. A candi
 
 ## Requirements
 
-- Python 3.11 or later, standard library only.
+- Python 3.11 or later on Linux/POSIX, standard library only. The CLI, retained-input replay and full unit suite require the POSIX `resource` module; only the portable test subset runs on Windows.
 - A POSIX shell for the one-command reproduction.
 - One worker; no GPU, network service, private data, model API, or external compute.
 
@@ -156,3 +156,4 @@ The renderer uses an installed Linux Libertine O font or the TeX font lookup. Th
 
 This optional rendering step is separate from the scientific reproduction
 commands and works without a sibling paper directory.
+
