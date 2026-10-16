@@ -12,6 +12,12 @@ Exactness is claimed only when the declared complete search is admitted. A candi
 
 ## Requirements
 
+The optional `scripts/draw_schematics.py` renders the paper's two schematics
+directly to embedded-font vectors in `figures/`. Install
+`scripts/requirements-schematics.txt` for rendering; use `--check` for exact
+freshness verification. These plotting dependencies are separate from the
+standard-library scientific workflow.
+
 - Python 3.11 or later on Linux/POSIX, standard library only. The CLI, retained-input replay and full unit suite require the POSIX `resource` module; only the portable test subset runs on Windows.
 - A POSIX shell for the one-command reproduction.
 - One worker; no GPU, network service, private data, model API, or external compute.
