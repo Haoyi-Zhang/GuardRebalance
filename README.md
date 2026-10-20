@@ -162,3 +162,7 @@ The renderer uses an installed Linux Libertine O font or the TeX font lookup. Th
 
 This optional rendering step is separate from the scientific reproduction
 commands and works without a sibling paper directory.
+
+## Source repository
+
+[GuardRebalance](https://github.com/Haoyi-Zhang/GuardRebalance)
