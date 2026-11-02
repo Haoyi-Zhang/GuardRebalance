@@ -1,0 +1,26 @@
+{
+  "binding_id": "084a81dd947f9f7a7cea8535d1c8ef60cd389ee26ceb15d7063de7f2530879f1",
+  "families": {
+    "baseline": 64,
+    "exact": 130,
+    "joint": 128,
+    "many": 5,
+    "padding": 64
+  },
+  "input_acquisition": "retained exact JSON tables; no pseudorandom generation",
+  "input_tables_loaded": 391,
+  "input_tables_parsed": 391,
+  "loading_status": "ok",
+  "mismatches": 0,
+  "missing_ids": [],
+  "phase": "retained-input-replay",
+  "resource": {
+    "cpu_seconds": 3.6626617839999938,
+    "peak_rss_kib": 27924,
+    "wall_seconds": 10.501716721999998,
+    "workers": 1
+  },
+  "stable_ids_expected": 391,
+  "stable_ids_present": 391,
+  "unexpected_ids": []
+}

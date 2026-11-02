@@ -1,10 +1,10 @@
 {
   "accepted": true,
-  "binding_id": "4f0aba19cf8d60290505a526cec9139221f6bcf949ee8101cabbe24ab134123b",
+  "binding_id": "084a81dd947f9f7a7cea8535d1c8ef60cd389ee26ceb15d7063de7f2530879f1",
   "checks": {
     "campaign_evidence_layers": {
       "accepted": true,
-      "binding_id": "4f0aba19cf8d60290505a526cec9139221f6bcf949ee8101cabbe24ab134123b",
+      "binding_id": "084a81dd947f9f7a7cea8535d1c8ef60cd389ee26ceb15d7063de7f2530879f1",
       "certificate_direct_row_checks": 24813,
       "certificate_frontier_row_checks": 24813,
       "directed_controls": 30,

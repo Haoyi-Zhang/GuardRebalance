@@ -1,0 +1,11 @@
+test_64_raw_two_row_leaf_optima (incidence_regression.IncidenceRegression.test_64_raw_two_row_leaf_optima) ... ok
+test_all_512_three_node_wait_families (incidence_regression.IncidenceRegression.test_all_512_three_node_wait_families) ... ok
+test_all_64_four_node_forward_edge_sets (incidence_regression.IncidenceRegression.test_all_64_four_node_forward_edge_sets) ... ok
+test_certificate_bytes_counters_and_negative_controls (incidence_regression.IncidenceRegression.test_certificate_bytes_counters_and_negative_controls) ... ok
+test_closed_residual_duplicates_and_alternatives (incidence_regression.IncidenceRegression.test_closed_residual_duplicates_and_alternatives) ... ok
+test_complete_space_refusal_is_not_infeasibility (incidence_regression.IncidenceRegression.test_complete_space_refusal_is_not_infeasibility) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.279s
+
+OK

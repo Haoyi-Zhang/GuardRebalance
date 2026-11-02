@@ -1,0 +1,16 @@
+{
+  "binding_id": "084a81dd947f9f7a7cea8535d1c8ef60cd389ee26ceb15d7063de7f2530879f1",
+  "families": 512,
+  "feasible_families": 121,
+  "mismatches": 0,
+  "phase": "and-or",
+  "resource": {
+    "cpu_seconds": 0.07019823499999234,
+    "peak_rss_kib": 20884,
+    "wall_seconds": 0.06938422899999352,
+    "workers": 1
+  },
+  "semantic_permutation_comparisons": 3072,
+  "semantic_rows_constructed": 2978,
+  "semantic_snapshot_models": 512
+}

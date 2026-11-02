@@ -1,0 +1,12 @@
+{
+  "binding_id": "084a81dd947f9f7a7cea8535d1c8ef60cd389ee26ceb15d7063de7f2530879f1",
+  "comparisons": 12500,
+  "mismatches": 0,
+  "phase": "two-state",
+  "resource": {
+    "cpu_seconds": 1.1305965780000022,
+    "peak_rss_kib": 20564,
+    "wall_seconds": 1.1371790160000046,
+    "workers": 1
+  }
+}

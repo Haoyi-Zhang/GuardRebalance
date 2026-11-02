@@ -1,0 +1,53 @@
+{
+  "binding_id": "084a81dd947f9f7a7cea8535d1c8ef60cd389ee26ceb15d7063de7f2530879f1",
+  "by_actions": [
+    {
+      "actions": 1,
+      "certificate_coverage": "all ordered subsets",
+      "certificate_object_replays": 10,
+      "semantic_comparisons": 10,
+      "witness_existence_checks": 10
+    },
+    {
+      "actions": 2,
+      "certificate_coverage": "all ordered subsets",
+      "certificate_object_replays": 125,
+      "semantic_comparisons": 125,
+      "witness_existence_checks": 125
+    },
+    {
+      "actions": 3,
+      "certificate_coverage": "all ordered subsets",
+      "certificate_object_replays": 2000,
+      "semantic_comparisons": 2000,
+      "witness_existence_checks": 2000
+    },
+    {
+      "actions": 4,
+      "certificate_coverage": "all ordered subsets",
+      "certificate_object_replays": 40625,
+      "semantic_comparisons": 40625,
+      "witness_existence_checks": 40625
+    },
+    {
+      "actions": 5,
+      "certificate_coverage": "source order per profile",
+      "certificate_object_replays": 3125,
+      "semantic_comparisons": 1018750,
+      "witness_existence_checks": 3125
+    }
+  ],
+  "certificate_direct_row_checks": 24813,
+  "certificate_frontier_row_checks": 24813,
+  "certificate_object_replays": 45885,
+  "mismatches": 0,
+  "phase": "exhaustive",
+  "resource": {
+    "cpu_seconds": 56.733014605,
+    "peak_rss_kib": 20564,
+    "wall_seconds": 56.69500389700001,
+    "workers": 1
+  },
+  "semantic_comparisons": 1061510,
+  "witness_existence_checks": 45885
+}

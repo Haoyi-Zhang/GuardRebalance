@@ -1,0 +1,117 @@
+{
+  "actions": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "input_bits": 1,
+  "rows": [
+    {
+      "input": 0,
+      "outcomes": [
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": "k0"
+        },
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": "k0"
+        },
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": "k0"
+        },
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": "k0"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        }
+      ],
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "input": 1,
+      "outcomes": [
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "silent"
+        },
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": "k1"
+        },
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": "k1"
+        },
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": "k1"
+        },
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": "k1"
+        }
+      ],
+      "source": [
+        4,
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+      ]
+    }
+  ]
+}

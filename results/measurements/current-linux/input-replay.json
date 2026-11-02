@@ -1,7 +1,7 @@
 {
   "accepted": true,
   "binding": {
-    "binding_id": "4f0aba19cf8d60290505a526cec9139221f6bcf949ee8101cabbe24ab134123b",
+    "binding_id": "084a81dd947f9f7a7cea8535d1c8ef60cd389ee26ceb15d7063de7f2530879f1",
     "input_summary": {
       "aggregate": "9fb81f970771eaf7a182081b8d0e51551f4d62fd36d94b58726b33e680aadedf",
       "algorithm": "sha256",
@@ -16,10 +16,10 @@
       "files": 391
     },
     "source_summary": {
-      "aggregate": "04d1d86cfd1aa3840618ab59bf6dbbbe7fd68baac83d1de330a30e24009e4d1e",
+      "aggregate": "dacef3727a83330b1fd89f8b291d8f017630ab21c0119b665ec18b16ec6f3b52",
       "algorithm": "sha256",
-      "bytes": 172009,
-      "files": 30
+      "bytes": 180973,
+      "files": 31
     },
     "status": "ok"
   },
@@ -48,9 +48,9 @@
     "status": "ok"
   },
   "resource": {
-    "cpu_seconds": 4.465548305,
-    "peak_rss_kib": 25460,
-    "wall_seconds": 4.466676704999998,
+    "cpu_seconds": 15.244274125,
+    "peak_rss_kib": 24740,
+    "wall_seconds": 69.19904455199998,
     "workers": 1
   }
 }

@@ -1,0 +1,176 @@
+{
+  "admitted_methods": 11,
+  "binding_id": "084a81dd947f9f7a7cea8535d1c8ef60cd389ee26ceb15d7063de7f2530879f1",
+  "explicit_refusals": 4,
+  "instances": 5,
+  "mismatches": 0,
+  "phase": "many-relevant",
+  "records": [
+    {
+      "actions": 8,
+      "expected_leaf_cost": 9,
+      "id": "many-000",
+      "methods": {
+        "auto": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 16,
+          "cost": 9,
+          "status": "optimal"
+        },
+        "optional_subset": {
+          "actual_search_mode": "optional_subset",
+          "candidate_space": 256,
+          "cost": 9,
+          "status": "optimal"
+        },
+        "representative_tuple": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 16,
+          "cost": 9,
+          "status": "optimal"
+        }
+      },
+      "spaces": {
+        "distinct_good_sets": 2,
+        "mandatory_actions": 0,
+        "optional_subset": 256,
+        "relevant_actions": 8,
+        "representative_tuple": 16
+      }
+    },
+    {
+      "actions": 16,
+      "expected_leaf_cost": 9,
+      "id": "many-001",
+      "methods": {
+        "auto": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 64,
+          "cost": 9,
+          "status": "optimal"
+        },
+        "optional_subset": {
+          "actual_search_mode": "optional_subset",
+          "candidate_space": 65536,
+          "cost": null,
+          "status": "refused"
+        },
+        "representative_tuple": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 64,
+          "cost": 9,
+          "status": "optimal"
+        }
+      },
+      "spaces": {
+        "distinct_good_sets": 2,
+        "mandatory_actions": 0,
+        "optional_subset": 65536,
+        "relevant_actions": 16,
+        "representative_tuple": 64
+      }
+    },
+    {
+      "actions": 32,
+      "expected_leaf_cost": 9,
+      "id": "many-002",
+      "methods": {
+        "auto": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 256,
+          "cost": 9,
+          "status": "optimal"
+        },
+        "optional_subset": {
+          "actual_search_mode": "optional_subset",
+          "candidate_space": 4294967296,
+          "cost": null,
+          "status": "refused"
+        },
+        "representative_tuple": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 256,
+          "cost": 9,
+          "status": "optimal"
+        }
+      },
+      "spaces": {
+        "distinct_good_sets": 2,
+        "mandatory_actions": 0,
+        "optional_subset": 4294967296,
+        "relevant_actions": 32,
+        "representative_tuple": 256
+      }
+    },
+    {
+      "actions": 64,
+      "expected_leaf_cost": 9,
+      "id": "many-003",
+      "methods": {
+        "auto": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 1024,
+          "cost": 9,
+          "status": "optimal"
+        },
+        "optional_subset": {
+          "actual_search_mode": "optional_subset",
+          "candidate_space": 18446744073709551616,
+          "cost": null,
+          "status": "refused"
+        },
+        "representative_tuple": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 1024,
+          "cost": 9,
+          "status": "optimal"
+        }
+      },
+      "spaces": {
+        "distinct_good_sets": 2,
+        "mandatory_actions": 0,
+        "optional_subset": 18446744073709551616,
+        "relevant_actions": 64,
+        "representative_tuple": 1024
+      }
+    },
+    {
+      "actions": 128,
+      "expected_leaf_cost": 9,
+      "id": "many-004",
+      "methods": {
+        "auto": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 4096,
+          "cost": 9,
+          "status": "optimal"
+        },
+        "optional_subset": {
+          "actual_search_mode": "optional_subset",
+          "candidate_space": 340282366920938463463374607431768211456,
+          "cost": null,
+          "status": "refused"
+        },
+        "representative_tuple": {
+          "actual_search_mode": "representative_tuple",
+          "candidate_space": 4096,
+          "cost": 9,
+          "status": "optimal"
+        }
+      },
+      "spaces": {
+        "distinct_good_sets": 2,
+        "mandatory_actions": 0,
+        "optional_subset": 340282366920938463463374607431768211456,
+        "relevant_actions": 128,
+        "representative_tuple": 4096
+      }
+    }
+  ],
+  "resource": {
+    "cpu_seconds": 2.234452714999989,
+    "peak_rss_kib": 27924,
+    "wall_seconds": 2.483007576999995,
+    "workers": 1
+  }
+}

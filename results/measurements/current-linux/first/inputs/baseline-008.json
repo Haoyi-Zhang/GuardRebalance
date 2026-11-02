@@ -1,0 +1,63 @@
+{
+  "actions": [
+    0,
+    1,
+    2
+  ],
+  "input_bits": 1,
+  "rows": [
+    {
+      "input": 0,
+      "outcomes": [
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": 1
+        },
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": 0
+        },
+        {
+          "guard": true,
+          "kind": "emit",
+          "value": [
+            0,
+            0
+          ]
+        }
+      ],
+      "source": [
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "input": 1,
+      "outcomes": [
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": 0
+        },
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": 1
+        },
+        {
+          "guard": true,
+          "kind": "fault",
+          "value": 1
+        }
+      ],
+      "source": [
+        1,
+        2,
+        0
+      ]
+    }
+  ]
+}

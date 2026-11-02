@@ -1,0 +1,466 @@
+{
+  "accepted": 3,
+  "binding_id": "084a81dd947f9f7a7cea8535d1c8ef60cd389ee26ceb15d7063de7f2530879f1",
+  "cases": 30,
+  "expected_acceptances": 3,
+  "expected_rejections": 27,
+  "mismatches": 0,
+  "phase": "controls",
+  "records": [
+    {
+      "actual_stage": "accept",
+      "expected": "accept",
+      "expected_reason": "ok",
+      "expected_stage": "accept",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "valid-exact-budget",
+      "result": {
+        "accepted": true,
+        "budget": 13,
+        "direct_checks": 2,
+        "frontier_checks": 2,
+        "leaves": 1,
+        "object_size": 13,
+        "reason": "ok",
+        "stage": "accept"
+      }
+    },
+    {
+      "actual_stage": "accept",
+      "expected": "accept",
+      "expected_reason": "ok",
+      "expected_stage": "accept",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "valid-larger-budget",
+      "result": {
+        "accepted": true,
+        "budget": 113,
+        "direct_checks": 2,
+        "frontier_checks": 2,
+        "leaves": 1,
+        "object_size": 13,
+        "reason": "ok",
+        "stage": "accept"
+      }
+    },
+    {
+      "actual_stage": "accept",
+      "expected": "accept",
+      "expected_reason": "ok",
+      "expected_stage": "accept",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "valid-json-key-order-independent",
+      "result": {
+        "accepted": true,
+        "budget": 13,
+        "direct_checks": 2,
+        "frontier_checks": 2,
+        "leaves": 1,
+        "object_size": 13,
+        "reason": "ok",
+        "stage": "accept"
+      }
+    },
+    {
+      "actual_stage": "semantic",
+      "expected": "reject",
+      "expected_reason": "semantic-mismatch",
+      "expected_stage": "semantic",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "semantic-00",
+      "result": {
+        "accepted": false,
+        "check": "frontier-witness",
+        "input": 0,
+        "leaf": 0,
+        "reason": "semantic-mismatch",
+        "stage": "semantic"
+      }
+    },
+    {
+      "actual_stage": "semantic",
+      "expected": "reject",
+      "expected_reason": "semantic-mismatch",
+      "expected_stage": "semantic",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "semantic-01",
+      "result": {
+        "accepted": false,
+        "check": "frontier-witness",
+        "input": 0,
+        "leaf": 0,
+        "reason": "semantic-mismatch",
+        "stage": "semantic"
+      }
+    },
+    {
+      "actual_stage": "semantic",
+      "expected": "reject",
+      "expected_reason": "semantic-mismatch",
+      "expected_stage": "semantic",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "semantic-02",
+      "result": {
+        "accepted": false,
+        "check": "frontier-witness",
+        "input": 0,
+        "leaf": 0,
+        "reason": "semantic-mismatch",
+        "stage": "semantic"
+      }
+    },
+    {
+      "actual_stage": "semantic",
+      "expected": "reject",
+      "expected_reason": "semantic-mismatch",
+      "expected_stage": "semantic",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "semantic-03",
+      "result": {
+        "accepted": false,
+        "check": "frontier-witness",
+        "input": 0,
+        "leaf": 0,
+        "reason": "semantic-mismatch",
+        "stage": "semantic"
+      }
+    },
+    {
+      "actual_stage": "semantic",
+      "expected": "reject",
+      "expected_reason": "semantic-mismatch",
+      "expected_stage": "semantic",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "semantic-04",
+      "result": {
+        "accepted": false,
+        "check": "frontier-witness",
+        "input": 0,
+        "leaf": 0,
+        "reason": "semantic-mismatch",
+        "stage": "semantic"
+      }
+    },
+    {
+      "actual_stage": "semantic",
+      "expected": "reject",
+      "expected_reason": "semantic-mismatch",
+      "expected_stage": "semantic",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "semantic-05",
+      "result": {
+        "accepted": false,
+        "check": "frontier-witness",
+        "input": 0,
+        "leaf": 0,
+        "reason": "semantic-mismatch",
+        "stage": "semantic"
+      }
+    },
+    {
+      "actual_stage": "semantic",
+      "expected": "reject",
+      "expected_reason": "semantic-mismatch",
+      "expected_stage": "semantic",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "semantic-06",
+      "result": {
+        "accepted": false,
+        "check": "frontier-witness",
+        "input": 0,
+        "leaf": 0,
+        "reason": "semantic-mismatch",
+        "stage": "semantic"
+      }
+    },
+    {
+      "actual_stage": "object",
+      "expected": "reject",
+      "expected_reason": "invalid-object",
+      "expected_stage": "object",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "bad-magic",
+      "result": {
+        "accepted": false,
+        "detail": "bad object magic",
+        "reason": "invalid-object",
+        "stage": "object"
+      }
+    },
+    {
+      "actual_stage": "object",
+      "expected": "reject",
+      "expected_reason": "invalid-object",
+      "expected_stage": "object",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "wrong-input-width",
+      "result": {
+        "accepted": false,
+        "detail": "object input width disagrees with the semantic table",
+        "reason": "invalid-object",
+        "stage": "object"
+      }
+    },
+    {
+      "actual_stage": "object",
+      "expected": "reject",
+      "expected_reason": "invalid-object",
+      "expected_stage": "object",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "reserved-byte",
+      "result": {
+        "accepted": false,
+        "detail": "reserved header byte must be zero",
+        "reason": "invalid-object",
+        "stage": "object"
+      }
+    },
+    {
+      "actual_stage": "object",
+      "expected": "reject",
+      "expected_reason": "invalid-object",
+      "expected_stage": "object",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "magic-only-truncated",
+      "result": {
+        "accepted": false,
+        "detail": "truncated object",
+        "reason": "invalid-object",
+        "stage": "object"
+      }
+    },
+    {
+      "actual_stage": "object",
+      "expected": "reject",
+      "expected_reason": "invalid-object",
+      "expected_stage": "object",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "trailing-byte",
+      "result": {
+        "accepted": false,
+        "detail": "trailing bytes after the decision tree",
+        "reason": "invalid-object",
+        "stage": "object"
+      }
+    },
+    {
+      "actual_stage": "object",
+      "expected": "reject",
+      "expected_reason": "invalid-object",
+      "expected_stage": "object",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "unknown-action",
+      "result": {
+        "accepted": false,
+        "detail": "leaf contains an unknown action",
+        "reason": "invalid-object",
+        "stage": "object"
+      }
+    },
+    {
+      "actual_stage": "object",
+      "expected": "reject",
+      "expected_reason": "invalid-object",
+      "expected_stage": "object",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "duplicate-action",
+      "result": {
+        "accepted": false,
+        "detail": "leaf repeats an action",
+        "reason": "invalid-object",
+        "stage": "object"
+      }
+    },
+    {
+      "actual_stage": "object",
+      "expected": "reject",
+      "expected_reason": "invalid-object",
+      "expected_stage": "object",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "unknown-action-flag",
+      "result": {
+        "accepted": false,
+        "detail": "action flag must be 0 or 1",
+        "reason": "invalid-object",
+        "stage": "object"
+      }
+    },
+    {
+      "actual_stage": "object",
+      "expected": "reject",
+      "expected_reason": "invalid-object",
+      "expected_stage": "object",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "wrong-guard-mask",
+      "result": {
+        "accepted": false,
+        "detail": "retained guard mask does not match the supplied semantic table",
+        "reason": "invalid-object",
+        "stage": "object"
+      }
+    },
+    {
+      "actual_stage": "object",
+      "expected": "reject",
+      "expected_reason": "invalid-object",
+      "expected_stage": "object",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "noncanonical-implicit-guard",
+      "result": {
+        "accepted": false,
+        "detail": "implicit guard used where the guard is not true on the leaf cell",
+        "reason": "invalid-object",
+        "stage": "object"
+      }
+    },
+    {
+      "actual_stage": "object",
+      "expected": "reject",
+      "expected_reason": "invalid-object",
+      "expected_stage": "object",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "noncanonical-explicit-guard",
+      "result": {
+        "accepted": false,
+        "detail": "noncanonical explicit guard where omission is required",
+        "reason": "invalid-object",
+        "stage": "object"
+      }
+    },
+    {
+      "actual_stage": "object",
+      "expected": "reject",
+      "expected_reason": "invalid-object",
+      "expected_stage": "object",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "repeated-branch-bit",
+      "result": {
+        "accepted": false,
+        "detail": "branch repeats a bit on one path",
+        "reason": "invalid-object",
+        "stage": "object"
+      }
+    },
+    {
+      "actual_stage": "certificate",
+      "expected": "reject",
+      "expected_reason": "invalid-certificate",
+      "expected_stage": "certificate",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "cert-format",
+      "result": {
+        "accepted": false,
+        "detail": "unknown certificate format",
+        "reason": "invalid-certificate",
+        "stage": "certificate"
+      }
+    },
+    {
+      "actual_stage": "certificate",
+      "expected": "reject",
+      "expected_reason": "invalid-certificate",
+      "expected_stage": "certificate",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "cert-object-size",
+      "result": {
+        "accepted": false,
+        "detail": "declared object size mismatch",
+        "reason": "invalid-certificate",
+        "stage": "certificate"
+      }
+    },
+    {
+      "actual_stage": "certificate",
+      "expected": "reject",
+      "expected_reason": "invalid-certificate",
+      "expected_stage": "certificate",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "cert-leaf-count",
+      "result": {
+        "accepted": false,
+        "detail": "leaf count mismatch",
+        "reason": "invalid-certificate",
+        "stage": "certificate"
+      }
+    },
+    {
+      "actual_stage": "certificate",
+      "expected": "reject",
+      "expected_reason": "invalid-certificate",
+      "expected_stage": "certificate",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "cert-order",
+      "result": {
+        "accepted": false,
+        "detail": "leaf 0 does not replay the decoded object",
+        "reason": "invalid-certificate",
+        "stage": "certificate"
+      }
+    },
+    {
+      "actual_stage": "certificate",
+      "expected": "reject",
+      "expected_reason": "invalid-certificate",
+      "expected_stage": "certificate",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "cert-witness-domain",
+      "result": {
+        "accepted": false,
+        "detail": "leaf 0 witness domain mismatch",
+        "reason": "invalid-certificate",
+        "stage": "certificate"
+      }
+    },
+    {
+      "actual_stage": "semantic",
+      "expected": "reject",
+      "expected_reason": "semantic-mismatch",
+      "expected_stage": "semantic",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "wrong-witness-identity",
+      "result": {
+        "accepted": false,
+        "check": "frontier-witness",
+        "input": 0,
+        "leaf": 0,
+        "reason": "semantic-mismatch",
+        "stage": "semantic"
+      }
+    },
+    {
+      "actual_stage": "budget",
+      "expected": "reject",
+      "expected_reason": "over-budget",
+      "expected_stage": "budget",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "budget-one-short",
+      "result": {
+        "accepted": false,
+        "budget": 12,
+        "object_size": 13,
+        "reason": "over-budget",
+        "stage": "budget"
+      }
+    },
+    {
+      "actual_stage": "budget",
+      "expected": "reject",
+      "expected_reason": "invalid-budget",
+      "expected_stage": "budget",
+      "matched_expected_outcome_reason_and_stage": true,
+      "name": "budget-negative",
+      "result": {
+        "accepted": false,
+        "reason": "invalid-budget",
+        "stage": "budget"
+      }
+    }
+  ],
+  "rejected": 27,
+  "resource": {
+    "cpu_seconds": 0.04075282300000538,
+    "peak_rss_kib": 22324,
+    "wall_seconds": 0.39732350300000974,
+    "workers": 1
+  }
+}

@@ -38,6 +38,6 @@ test_waiting_family_has_true_semantic_realization (test_regressions.RegressionTe
 test_all_effective_two_action_profiles (test_two_state.TwoStateBoundaryTests.test_all_effective_two_action_profiles) ... ok
 
 ----------------------------------------------------------------------
-Ran 38 tests in 2.250s
+Ran 38 tests in 5.733s
 
 OK

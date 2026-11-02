@@ -1,9 +1,9 @@
 {
-  "binding_id": "4f0aba19cf8d60290505a526cec9139221f6bcf949ee8101cabbe24ab134123b",
-  "cumulative_cpu_seconds": 35.14053032799998,
-  "driver_and_child_cpu_seconds": 35.251724559,
-  "driver_wall_seconds": 35.267955145,
-  "maximum_process_peak_rss_kib": 28172,
+  "binding_id": "084a81dd947f9f7a7cea8535d1c8ef60cd389ee26ceb15d7063de7f2530879f1",
+  "cumulative_cpu_seconds": 81.47401883399995,
+  "driver_and_child_cpu_seconds": 85.576609345,
+  "driver_wall_seconds": 176.48603818200002,
+  "maximum_process_peak_rss_kib": 27924,
   "mismatches": 0,
   "phase_order": [
     "exhaustive",
